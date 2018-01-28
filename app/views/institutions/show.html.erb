@@ -1,118 +1,65 @@
 <div class="body">
 
-  <table>
-  <tr>
-    <td> 
+<div class="row">
+  <div class="col-sm-4">
       <div style="width: 200px; height: auto; ">
         <%= image_tag(@institution.image) rescue nil %>
       </div>
-      </td>  <td> &nbsp; &nbsp; </td>
-    <td> <strong> <%= @institution.short_name %> </strong> <br/> <%= @institution.name %> </td> 
-  </tr>
-  </table>
+  </div>
+  <div class="col-sm-4">
+    <strong> <%= @institution.short_name %> </strong> <br/> <%= @institution.name %> 
+  </div>
+  <div class="col-sm-4">
+    &nbsp; 
 
-<hr/>
-<br/> 
+  </div>
+</div>
+  
+  <hr>
 
-<p>
-  <table>
-  <tr>
-    <td> <strong>CHSO TYPE: </strong>  <%= @institution.institution_type %> </td>  
-    <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-    <td>  <strong>STATUS:</strong> <%= @institution.institution_status %></td> 
-    <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-    <td> <strong>LICENSE NO :</strong> <%= @institution.license_no %></td>
-
-  </tr>
-  </table>
-</p>
-<br>
-<p>
-<table>
-  <tr>
-    <td> <strong> ABOUT <%= @institution.short_name %> <hr/> </strong> </td>
-  </tr>
-  <tr>
-  <td> <p> <%= raw @institution.about_institution %> </p> </td>
-  </tr>
-</table>
-</p>
-
-<br/>
-
-<table>
-  <tr>
-   <td> <strong> ADDRESS <hr/> </strong> </td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td></td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td></td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td></td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td></td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td></td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-  </tr>
-  <tr>
-    <td> 
+  <div class="row">
+    <div class="col-sm-4">
+      <fieldset class="sub_form">
+      <legend><h4>CSO STATUSE</h4></legend>
+      <p><strong>CHSO TYPE: </strong>  <%= @institution.institution_type %></p>
+      <p><strong>STATUS:</strong> <%= @institution.institution_status %></p>
+      <p><strong>LICENSE NO :</strong> <%= @institution.license_no %></p><br>
+      </fieldset>
+    </div>
+    <div class="col-sm-4">
+      <fieldset class="sub_form">
+      <legend><h4>CSO ADDRESS</h4></legend>
       <p><strong>Region:</strong>   <%= @institution.region %></p>
-    </td> 
-    <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td> 
-    <td>
-      <p><strong>District:</strong>   <%= @institution.district %> </p>
-    </td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-    <td>
-      <p><strong>P.O.BOX:</strong>  <%= @institution.p_o_box %> </p>
-    </td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+      <p><strong>District:</strong>   <%= @institution.district %></p>
+      <p><strong>P.O.BOX:</strong>  <%= @institution.p_o_box %></p>
+      <p><strong>Office phone:</strong>  <%= @institution.office_phone %> </p>
+      <p><strong>Fax number:</strong>  <%= @institution.fax_number %> </p>
+      <p> <strong>Email:</strong>  <%= @institution.office_email %> </p>
+      <p> <strong>Website:</strong>  <%= @institution.url %> </p> <br>
+    </fieldset>
+    </div>
+    <div class="col-sm-4">
+      <fieldset class="sub_form">
+        <legend><h4>CONTACT PERSON</h4></legend>
+        <p><strong>Full Name:</strong> <%= @institution.contact_person %></p>
+        <p><strong>Phone:</strong> <%= @institution.contact_phone %></p>
+        <p><strong>E-Mailmail:</strong> <%= @institution.contact_email %></p> <br>
+      </fieldset>
+      
+    </div>
+  </div>
 
-  </tr>
+  <div class="row">
+    <div class="col-sm-12">
+      <fieldset class="sub_form">
+        <legend> <h4> ABOUT <%= @institution.short_name %> </h4> </legend>
+        <p> <%= raw @institution.about_institution %> </p>
+      </fieldset>
+    </div>
+  </div>
 
-    <tr>
-      <td>
-        <p><strong>Office phone:</strong>  <%= @institution.office_phone %> </p>
-      </td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-      <td>
-        <p><strong>Fax number:</strong>  <%= @institution.fax_number %> </p>
-      </td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-      <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-
-
-    </tr>
-    <tr>
-      <td>
-       <p> <strong>Email:</strong>  <%= @institution.office_email %> </p>
-      </td> <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-
-      <td>
-        <p> <strong>Website:</strong>  <%= @institution.url %> </p>
-      </td>
-      <td>
-        
-      </td>
-    </tr>
-
-</table>
-  
-</p>
-<br/>
-<br/>
-<br/>
-
-<table>
-  
-<tr><td><strong>CONTACT PERSON  <hr/></strong></td></tr>
- <tr>
-  <td>
-    <p>
-      <strong>Full Name:</strong> <%= @institution.contact_person %>
-    </p>
-
-    <p>
-      <strong>Phone:</strong> <%= @institution.contact_phone %>
-    </p>
-
-    <p>
-      <strong>E-Mailmail:</strong> <%= @institution.contact_email %>
-    </p>
-  </td>
-</tr>
-
-</table>
-
-<br/>
 <br/>
 <hr/>
-<%= link_to 'Edit', edit_institution_path(@institution), class: 'btn btn-primary' %> |
+<%= link_to 'Edit', edit_institution_path(@institution), class: 'btn btn-primary' %> &nbsp; &nbsp; 
 <%= link_to 'Back', institutions_path, class: 'btn btn-primary' %>
 </div>
