@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  region: one
+  zone: MyString
+  district: MyString
+  contact_person: MyString
+  phone_number: MyString
+  email: MyString
+
+two:
+  project: two
+  region: two
+  zone: MyString
+  district: MyString
+  contact_person: MyString
+  phone_number: MyString
+  email: MyString

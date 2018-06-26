@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+    <div class="header">
+      <h2>
+        Institutions
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Short name</th>
+      <th>Institution type</th>
+      <th>Institution status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @institutions.each do |institution| %>
+      <tr>
+        <td><%= institution.id %></td>
+        <td><%= institution.name %></td>
+        <td><%= institution.short_name %></td>
+        <td><%= institution.institution_type %></td>
+        <td><%= institution.institution_status %></td>
+        <td><%= link_to 'Show', institution, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_institution_path(institution), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Institution', new_institution_path, class: 'btn btn-primary' %>

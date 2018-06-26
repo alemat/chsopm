@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+    <div class="header">
+      <h2>
+        Evaluations
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Project evaluation type</th>
+      <th>Evaluator full name</th>
+      <th>Remark</th>
+      <th>Evaluation file</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evaluations.each do |evaluation| %>
+      <tr>
+        <td><%= evaluation.project %></td>
+        <td><%= evaluation.project_evaluation_type %></td>
+        <td><%= evaluation.evaluator_full_name %></td>
+        <td><%= evaluation.remark %></td>
+        <td><%= evaluation.evaluation_file %></td>
+        <td><%= link_to 'Show', evaluation, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_evaluation_path(evaluation), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evaluation', new_evaluation_path, class: 'btn btn-primary' %>

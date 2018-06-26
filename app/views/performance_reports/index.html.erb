@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+    <div class="header">
+      <h2>
+       Performance Reports
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Reporting type</th>
+      <th>Remark</th>
+      <th>Performance report file</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @performance_reports.each do |performance_report| %>
+      <tr>
+        <td><%= performance_report.project %></td>
+        <td><%= performance_report.reporting_type %></td>
+        <td><%= performance_report.remark %></td>
+        <td><%= performance_report.performance_report_file %></td>
+        <td><%= link_to 'Show', performance_report, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_performance_report_path(performance_report), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', performance_report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Performance Report', new_performance_report_path, class: 'btn btn-primary' %>

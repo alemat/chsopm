@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Funders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Institution</th>
+      <th>Amount</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funders.each do |funder| %>
+      <tr>
+        <td><%= funder.project %></td>
+        <td><%= funder.institution %></td>
+        <td><%= funder.amount %></td>
+        <td><%= link_to 'Show', funder, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_funder_path(funder), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', funder, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Funder', new_funder_path, class: 'btn btn-primary' %>

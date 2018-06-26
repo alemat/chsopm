@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+    <div class="header">
+      <h2>
+        Implementation Areas
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Region</th>
+      <th>Zone</th>
+      <th>District</th>
+      <th>Contact person</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @implementation_areas.each do |implementation_area| %>
+      <tr>
+        <td><%= implementation_area.project %></td>
+        <td><%= implementation_area.region %></td>
+        <td><%= implementation_area.zone %></td>
+        <td><%= implementation_area.district %></td>
+        <td><%= implementation_area.contact_person %></td>
+        <td><%= implementation_area.phone_number %></td>
+        <td><%= implementation_area.email %></td>
+        <td><%= link_to 'Show', implementation_area, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_implementation_area_path(implementation_area), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', implementation_area, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Implementation Area', new_implementation_area_path, class: 'btn btn-primary' %>

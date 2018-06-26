@@ -1,0 +1,19 @@
+<div class="body">
+<p>
+  <strong>Focus area:</strong>
+  <%= @sub_focus_area.focus_area %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sub_focus_area.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sub_focus_area.description %>
+</p>
+
+<%= link_to 'Edit', edit_sub_focus_area_path(@sub_focus_area), class: 'btn btn-primary' %> |
+<%= link_to 'Back', sub_focus_areas_path, class: 'btn btn-primary' %>
+</div>

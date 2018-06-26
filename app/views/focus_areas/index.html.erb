@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+    <div class="header">
+      <h2>
+        Focus Areas
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @focus_areas.each do |focus_area| %>
+      <tr>
+        <td><%= focus_area.name %></td>
+        <td><%= focus_area.description %></td>
+        <td><%= link_to 'Show', focus_area, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_focus_area_path(focus_area), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', focus_area, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Focus Area', new_focus_area_path, class: 'btn btn-primary' %>

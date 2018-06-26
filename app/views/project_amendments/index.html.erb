@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+    <div class="header">
+      <h2>
+        Projects Amendments
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Amendment reason</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_amendments.each do |project_amendment| %>
+      <tr>
+        <td><%= project_amendment.project %></td>
+        <td><%= project_amendment.from %></td>
+        <td><%= project_amendment.to %></td>
+        <td><%= project_amendment.amendment_reason %></td>
+        <td><%= link_to 'Show', project_amendment, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_project_amendment_path(project_amendment), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', project_amendment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project Amendment', new_project_amendment_path, class: 'btn btn-primary' %>

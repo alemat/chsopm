@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  institution: one
+  amount: 1
+
+two:
+  project: two
+  institution: two
+  amount: 1

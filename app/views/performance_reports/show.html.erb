@@ -1,0 +1,24 @@
+<div class="body">
+<p>
+  <strong>Project:</strong>
+  <%= @performance_report.project %>
+</p>
+
+<p>
+  <strong>Reporting type:</strong>
+  <%= @performance_report.reporting_type %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @performance_report.remark %>
+</p>
+
+<p>
+  <strong>Performance report file:</strong>
+  <%= @performance_report.performance_report_file %>
+</p>
+
+<%= link_to 'Edit', edit_performance_report_path(@performance_report), class: 'btn btn-primary' %> |
+<%= link_to 'Back', performance_reports_path, class: 'btn btn-primary' %>
+</div>

@@ -1,0 +1,2 @@
+class ProjectEvaluationType < ApplicationRecord
+end

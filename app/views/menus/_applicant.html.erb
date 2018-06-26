@@ -1,0 +1,27 @@
+<% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
+<div class="menu">
+    <ul class="list">
+        <li class="header">MAIN MENU</li>
+        <li class="active">
+        <%= link_to root_path do %>
+            <i class="material-icons">home</i>
+            <span>Home</span>
+        <% end %>
+        </li>
+
+        <li>
+        <%= link_to root_path do %>
+            <i class="material-icons">people</i>
+            <span>Exams</span>
+        <% end %>
+        </li>
+        <li>
+            <%= link_to projects_path do %>
+                <i class="material-icons">list</i>
+                <span>Available Program</span>
+            <% end %>
+        </li>
+
+    </ul>
+</div>
+<% end %>

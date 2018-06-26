@@ -1,0 +1,2 @@
+json.extract! project, :id, :project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, :mid_term_evaluation_date, :end_term_evaluation_date, :reporting_type_id, :project_focal_person, :phone_number, :email, :created_at, :updated_at
+json.url project_url(project, format: :json)

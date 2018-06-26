@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_title: MyString
+  institution: one
+  focus_area: one
+  sub_focus_area: one
+  project_details: MyText
+  project_status: one
+  direct_beneficiaries: 1
+  indirect_beneficiaries: 1
+  start_date: 2018-06-02
+  end_date: 2018-06-02
+  total_budget: 1.5
+  program_budget: 1.5
+  admin_budget: 1.5
+  funding_status: one
+  mid_term_evaluation_date: 2018-06-02
+  end_term_evaluation_date: 2018-06-02
+  reporting_type: one
+  project_focal_person: MyString
+  phone_number: MyString
+  email: MyString
+
+two:
+  project_title: MyString
+  institution: two
+  focus_area: two
+  sub_focus_area: two
+  project_details: MyText
+  project_status: two
+  direct_beneficiaries: 1
+  indirect_beneficiaries: 1
+  start_date: 2018-06-02
+  end_date: 2018-06-02
+  total_budget: 1.5
+  program_budget: 1.5
+  admin_budget: 1.5
+  funding_status: two
+  mid_term_evaluation_date: 2018-06-02
+  end_term_evaluation_date: 2018-06-02
+  reporting_type: two
+  project_focal_person: MyString
+  phone_number: MyString
+  email: MyString

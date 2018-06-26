@@ -1,0 +1,40 @@
+<div class="body">
+
+<p>
+  <strong>Project:</strong>
+  <%= @implementation_area.project %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @implementation_area.region %>
+</p>
+
+<p>
+  <strong>Zone:</strong>
+  <%= @implementation_area.zone %>
+</p>
+
+<p>
+  <strong>District:</strong>
+  <%= @implementation_area.district %>
+</p>
+
+<p>
+  <strong>Contact person:</strong>
+  <%= @implementation_area.contact_person %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @implementation_area.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @implementation_area.email %>
+</p>
+
+<%= link_to 'Edit', edit_implementation_area_path(@implementation_area) %> |
+<%= link_to 'Back', implementation_areas_path %>
+</div>

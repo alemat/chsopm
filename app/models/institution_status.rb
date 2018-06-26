@@ -1,0 +1,2 @@
+class InstitutionStatus < ApplicationRecord
+end

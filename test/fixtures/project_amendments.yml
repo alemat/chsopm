@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  from: 2018-06-03
+  to: 2018-06-03
+  amendment_reason: MyText
+
+two:
+  project: two
+  from: 2018-06-03
+  to: 2018-06-03
+  amendment_reason: MyText

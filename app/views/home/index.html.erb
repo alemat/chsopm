@@ -1,0 +1,254 @@
+
+<% content_for :header do %>
+    <div class="row clearfix">
+
+          <%= link_to institutions_path do %>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-teal hover-expand-effect">
+                  <div class="icon">
+                    <i class="material-icons">school</i>
+                  </div>
+                  <div class="content">
+                    <div class="text">Institutions</div>
+                    <div class="number"><%= Institution.count  %></div>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+          <%= link_to projects_path do %>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-pink hover-expand-effect">
+                  <div class="icon">
+                    <i class="material-icons">playlist_add_check</i>
+                  </div>
+                  <div class="content">
+                    <div class="text">Projects</div>
+                    <div class="number"><%= Project.count %></div>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+          <%= link_to projects_path do %>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-cyan hover-expand-effect">
+                  <div class="icon">
+                    <i class="material-icons">format_list_numbered</i>
+                  </div>
+                  <div class="content">
+                    <div class="text">Mid Term Evaluations</div>
+                    <div class="number"><%= Project.count %></div>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+          <%= link_to projects_path do %>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-light-green hover-expand-effect">
+                  <div class="icon">
+                    <i class="material-icons">format_list_numbered</i>
+                  </div>
+                  <div class="content">
+                    <div class="text">End Term Evaluations</div>
+                    <div class="number"><%= Project.count %></div>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+    </div>
+
+    <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    <div class="card">
+                        <div class="header">
+                            <h2>PROJECTS INFOS</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Project</th>
+                                            <th>Status</th>
+                                            <th>Focal Person</th>
+                                            <th>Progress</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Project A</td>
+                                            <td><span class="label bg-green">Doing</span></td>
+                                            <td>Animute Tedla</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Project B</td>
+                                            <td><span class="label bg-blue">To Do</span></td>
+                                            <td>Samerawit Girma</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Project C</td>
+                                            <td><span class="label bg-light-blue">On Hold</span></td>
+                                            <td>Daniel Dagem</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Project D</td>
+                                            <td><span class="label bg-orange">Wait Approvel</span></td>
+                                            <td>Rigbe Solomon</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Project E</td>
+                                            <td>
+                                                <span class="label bg-red">Suspended</span>
+                                            </td>
+                                            <td>Dereje Derebe</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+                <!-- Browser Usage -->
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="header">
+                            <h2>PROJECT BY REGION</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                          
+                            <div id="pie_chart" class="dashboard-donut-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Browser Usage -->
+            </div>
+<div class="card">
+    <div class="header">
+      <h2>
+        Projects With Upcoming Mid-Term Evaluations
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Project evaluation type</th>
+          <th>Evaluator full name</th>
+          <th>Remark</th>
+          <th>Evaluation file</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% unless @evaluation.blank? %>
+          <tr>
+
+            <td><%= evaluation.project rescue nil %></td>
+            <td><%= evaluation.project_evaluation_type rescue nil %></td>
+            <td><%= evaluation.evaluator_full_name rescue nil %></td>
+            <td><%= evaluation.remark rescue nil %></td>
+            <td><%= evaluation.evaluation_file rescue nil %></td>
+            <td><%= link_to 'Show', evaluation, class: 'btn btn-primary' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="header">
+      <h2>
+       Projects With Upcoming End-Term Evaluations
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Project evaluation type</th>
+          <th>Evaluator full name</th>
+          <th>Remark</th>
+          <th>Evaluation file</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% unless @evaluation.blank? %>
+          <tr>
+
+            <td><%= evaluation.project rescue nil %></td>
+            <td><%= evaluation.project_evaluation_type rescue nil %></td>
+            <td><%= evaluation.evaluator_full_name rescue nil %></td>
+            <td><%= evaluation.remark rescue nil %></td>
+            <td><%= evaluation.evaluation_file rescue nil %></td>
+            <td><%= link_to 'Show', evaluation, class: 'btn btn-primary' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% end %>

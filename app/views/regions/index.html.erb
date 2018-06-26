@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+    <div class="header">
+      <h2>
+        Regions
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regions.each do |region| %>
+      <tr>
+        <td><%= region.name %></td>
+        <td><%= link_to 'Show', region, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_region_path(region), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Region', new_region_path, class: 'btn btn-primary' %>

@@ -1,0 +1,20 @@
+<div class="body">
+
+<p>
+  <strong>Project:</strong>
+  <%= @funder.project %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @funder.institution %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @funder.amount %>
+</p>
+
+<%= link_to 'Edit', edit_funder_path(@funder), class: 'btn btn-primary' %> |
+<%= link_to 'Back', funders_path, class: 'btn btn-primary' %>
+</div>

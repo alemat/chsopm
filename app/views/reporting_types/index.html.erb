@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+    <div class="header">
+      <h2>
+        Reporting Types
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reporting_types.each do |reporting_type| %>
+      <tr>
+        <td><%= reporting_type.name %></td>
+        <td><%= link_to 'Show', reporting_type, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_reporting_type_path(reporting_type), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', reporting_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reporting Type', new_reporting_type_path, class: 'btn btn-primary' %>

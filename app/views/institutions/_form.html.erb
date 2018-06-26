@@ -1,0 +1,32 @@
+<div class="body">
+<%= simple_form_for(@institution) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <table>
+      <tr>
+      <td><%= f.input :name %> </td> <td> &nbsp; &nbsp; &nbsp; </td> <td><%= f.input :short_name %></td> <td> &nbsp; &nbsp; &nbsp; </td> <td><%= f.association :institution_type %></td> <td> &nbsp; &nbsp; &nbsp; </td> <td> <%= f.association :institution_status %></td> <td> &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :license_no %> </td> 
+      </tr>
+      <tr></tr>
+      <tr>
+      <td> <%= f.association :region %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :district %> </td > <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :office_phone %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :office_email %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :p_o_box %> </td>
+      </tr>
+
+      <tr></tr>
+      <tr>
+      <td> <%= f.input :fax_number %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :contact_person %> </td > <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :contact_phone %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :contact_email %></td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <%= f.input :about_institution, input_html: {class: 'wysihtml5'} %>
+    <%= f.input :url %>
+    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</div>

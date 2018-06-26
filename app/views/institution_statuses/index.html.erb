@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+    <div class="header">
+      <h2>
+        Institution Statuses
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @institution_statuses.each do |institution_status| %>
+      <tr>
+        <td><%= institution_status.name %></td>
+        <td><%= link_to 'Show', institution_status, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_institution_status_path(institution_status), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', institution_status, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Institution Status', new_institution_status_path, class: 'btn btn-primary' %>

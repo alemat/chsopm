@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@evaluation) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :project %>
+    <%= f.association :project_evaluation_type %>
+    <%= f.input :evaluator_full_name %>
+    <%= f.input :remark, input_html: {class: 'wysihtml5'} %>
+    <%= f.input :evaluation_file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

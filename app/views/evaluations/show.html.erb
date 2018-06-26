@@ -1,0 +1,30 @@
+<div class="body">
+
+<p>
+  <strong>Project:</strong>
+  <%= @evaluation.project %>
+</p>
+
+<p>
+  <strong>Project evaluation type:</strong>
+  <%= @evaluation.project_evaluation_type %>
+</p>
+
+<p>
+  <strong>Evaluator full name:</strong>
+  <%= @evaluation.evaluator_full_name %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= raw @evaluation.remark %>
+</p>
+
+<p>
+  <strong>Evaluation file:</strong>
+  <%= @evaluation.evaluation_file %>
+</p>
+
+<%= link_to 'Edit', edit_evaluation_path(@evaluation), class: 'btn btn-primary' %> |
+<%= link_to 'Back', evaluations_path, class: 'btn btn-primary' %>
+</div>

@@ -1,0 +1,104 @@
+<div class="body">
+<p>
+  <strong>Project title:</strong>
+  <%= @project.project_title %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @project.institution %>
+</p>
+
+<p>
+  <strong>Focus area:</strong>
+  <%= @project.focus_area %>
+</p>
+
+<p>
+  <strong>Sub focus area:</strong>
+  <%= @project.sub_focus_area %>
+</p>
+
+<p>
+  <strong>Project details:</strong>
+  <%= raw @project.project_details %>
+</p>
+
+<p>
+  <strong>Project status:</strong>
+  <%= @project.project_status %>
+</p>
+
+<p>
+  <strong>Direct beneficiaries:</strong>
+  <%= @project.direct_beneficiaries %>
+</p>
+
+<p>
+  <strong>Indirect beneficiaries:</strong>
+  <%= @project.indirect_beneficiaries %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @project.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @project.end_date %>
+</p>
+
+<p>
+  <strong>Total budget:</strong>
+  <%= @project.total_budget %>
+</p>
+
+<p>
+  <strong>Program budget:</strong>
+  <%= @project.program_budget %>
+</p>
+
+<p>
+  <strong>Admin budget:</strong>
+  <%= @project.admin_budget %>
+</p>
+
+<p>
+  <strong>Funding status:</strong>
+  <%= @project.funding_status %>
+</p>
+
+<p>
+  <strong>Mid term evaluation date:</strong>
+  <%= @project.mid_term_evaluation_date %>
+</p>
+
+<p>
+  <strong>End term evaluation date:</strong>
+  <%= @project.end_term_evaluation_date %>
+</p>
+
+<p>
+  <strong>Reporting type:</strong>
+  <%= @project.reporting_type %>
+</p>
+
+<p>
+  <strong>Project focal person:</strong>
+  <%= @project.project_focal_person %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @project.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @project.email %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-primary' %> |
+<%= link_to 'Back', projects_path, class: 'btn btn-primary' %>
+</div>

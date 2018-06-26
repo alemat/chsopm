@@ -1,0 +1,25 @@
+<div class="body">
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_amendment.project %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @project_amendment.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @project_amendment.to %>
+</p>
+
+<p>
+  <strong>Amendment reason:</strong>
+  <%= raw @project_amendment.amendment_reason %>
+</p>
+
+<%= link_to 'Edit', edit_project_amendment_path(@project_amendment), class: 'btn btn-primary' %> |
+<%= link_to 'Back', project_amendments_path , class: 'btn btn-primary%>
+</div>

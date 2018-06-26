@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+    <div class="header">
+      <h2>
+        Institution Types
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @institution_types.each do |institution_type| %>
+      <tr>
+        <td><%= institution_type.name %></td>
+        <td><%= link_to 'Show', institution_type, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_institution_type_path(institution_type), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', institution_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Institution Type', new_institution_type_path, class: 'btn btn-primary' %>

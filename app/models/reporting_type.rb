@@ -1,0 +1,2 @@
+class ReportingType < ApplicationRecord
+end
