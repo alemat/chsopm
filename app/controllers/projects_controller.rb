@@ -69,6 +69,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, :mid_term_evaluation_date, :end_term_evaluation_date, :reporting_type_id, :project_focal_person, :phone_number, :email)
+      params.require(:project).permit(:project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, :mid_term_evaluation_date, :end_term_evaluation_date, :reporting_type_id, :project_focal_person, :phone_number, :email, funders_attributes: [:id, :project_id, :institution_id, :amount, :_destroy], implementation_areas_attributes: [:id, :project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :_destroy] )
     end
 end

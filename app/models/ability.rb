@@ -6,10 +6,10 @@ class Ability
     #
     #   user ||= User.new # guest user (not logged in)
     #   if user.admin?
-    #     can :manage, :all
+    #    can :manage, :all
     #   else
     #     can :read, :all
-    #   end
+    #  end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
@@ -28,5 +28,19 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+ 
+    user ||= User.new # guest user (not logged in)
+    if user.superadmin_role?
+      can :manage, :all
+    end
+    
+    if user.admin?
+        can :manage, :all
+    end
+
+    if user.supervisor_role?
+      can :manage, User
+    end
+    
   end
 end

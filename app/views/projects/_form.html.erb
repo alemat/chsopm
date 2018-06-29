@@ -1,5 +1,5 @@
 <div class="body">
-<%= simple_form_for(@project) do |f| %>
+<%= simple_nested_form_for(@project) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -27,21 +27,116 @@
     </table>
     
     <%= f.input :project_details, input_html: {class: 'wysihtml5'} %>
-    <%= f.association :project_status %>
+        
     
+    <table>
+      
+      <tr><td> <%= f.association :project_status %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.association :reporting_type %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td>  <td> &nbsp;  &nbsp;  &nbsp; </td><td> &nbsp;  &nbsp;  &nbsp; </td><td> &nbsp;  &nbsp;  &nbsp; </td></tr>
+      <tr> <td> <%= f.association :funding_status %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :total_budget %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :program_budget %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :admin_budget %> </td></tr>
+    </table>
+   
+   <br/>
+   <br/>
+
+   <legend>FUNDING SOURCES </legend>
+      <%= f.simple_fields_for :funders do |funder| %>
+        <div class='fields row'>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Institution</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tr><td><%= funder.input :project_id, as: :hidden, input_html: { value: :id } %></td> </tr>
+          <tr>
+              <td>
+                <%= funder.input_field :institution_id, collection: Institution.all, prompt: 'Select Institution', class: 'form-control' %>
+                <%= funder.full_error :institution_id %>
+              </td>
+              <td>
+                <%= funder.input_field :amount, placeholder: 'Amount', class: 'form-control' %>
+                <%= funder.full_error :amount %>
+              </td>
+              <td><%= funder.link_to_remove "Remove" %></td>
+            </tr>
+        </table>
+        </div>
+
+      <%= javascript_include_tag 'AdminBSBMaterialDesign/form_index' %>
+      <% end %>
+      <p><%= f.link_to_add 'Add Funder', :funders %> </p>
+
+<br/>
+<br/>
+
+
+
+   <br/>
+   <br/>
+
+   <legend>PROJECT IMPLEMENTATION AREA </legend>
+      <%= f.simple_fields_for :implementation_areas do |ia| %>
+        <div class='fields row'>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Region</th>
+            <th>Zone</th>
+            <th>Woreda</th>
+            <th>Contact Person</th>
+            <th>Phone No</th>
+            <th>E-Mail</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tr><td><%= ia.input :project_id, as: :hidden, input_html: { value: :id } %></td> </tr>
+          <tr>
+              <td>
+                <%= ia.input_field :region_id, collection: Region.all, prompt: 'Select Region', class: 'form-control' %>
+                <%= ia.full_error :region_id %> 
+              </td>
+              <td>
+                <%= ia.input_field :zone, placeholder: 'Zone', class: 'form-control' %>
+                <%= ia.full_error :zone %>
+              </td>
+              <td>
+                <%= ia.input_field :district, placeholder: 'Woreda', class: 'form-control' %>
+                <%= ia.full_error :district %>
+              </td>
+              <td>
+                <%= ia.input_field :contact_person, placeholder: 'Contact Person', class: 'form-control' %>
+                <%= ia.full_error :contact_person %>
+              </td>
+                            <td>
+                <%= ia.input_field :phone_number, placeholder: 'Phone No.', class: 'form-control' %>
+                <%= ia.full_error :phone_number %>
+              </td>
+                            <td>
+                <%= ia.input_field :email, placeholder: 'E-Mail', class: 'form-control' %>
+                <%= ia.full_error :email %>
+              </td>
+              <td><%= ia.link_to_remove "Remove" %></td>
+            </tr>
+        </table>
+        </div>
+      <%= javascript_include_tag 'AdminBSBMaterialDesign/form_index' %>
+      <% end %>
+      <p><%= f.link_to_add 'Add Area', :implementation_areas %> </p>
+
+<br/>
+<br/>
+
+
+
+<legend>PROJECT FOCAL PERSON</legend>
+    <table>
+      
+      <tr><td> <%= f.input :project_focal_person %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :phone_number %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :email %> </td></tr>
+    </table>     
     
-    
-    
-    <%= f.input :total_budget %>
-    <%= f.input :program_budget %>
-    <%= f.input :admin_budget %>
-    <%= f.association :funding_status %>
-    
-    
-    <%= f.association :reporting_type %>
-    <%= f.input :project_focal_person %>
-    <%= f.input :phone_number %>
-    <%= f.input :email %>
+
   </div>
 
   <div class="form-actions">

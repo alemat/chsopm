@@ -37,13 +37,16 @@
         <div class="logo">
           <a><%= image_tag 'fdre.png', size: '40x40' %></a>
             <a href="javascript:void(0);">FMOH<b> ChSO</b></a>
-            <small>Federal Ministry of Health | Charities Organizations and Societies Management System</small>
+            
         </div>
         <div class="card">
             <div class="body">
               <%= render partial: 'shared/flash_messages' %>
                 <%= yield %>
             </div>
+        </div>
+        <div class="copyright">
+           <center> <font color="white"> &copy; <%= Date.today.year %> <small>FMOH Charities Organizations and Societies Management System</small></font></center>
         </div>
     </div>
 </body>

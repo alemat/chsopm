@@ -25,6 +25,16 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  scope "/admin" do
+    resources :users do
+      member do
+        get 'confirm'
+      end
+    end
+  end
+
+
   resources :users
   root to: 'home#index'
 

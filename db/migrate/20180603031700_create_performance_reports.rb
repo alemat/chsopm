@@ -9,4 +9,14 @@ class CreatePerformanceReports < ActiveRecord::Migration[5.1]
       t.timestamps
     end
   end
+
+  def self.up
+    change_table :performance_reports do |t|
+      t.attachment :performance_report_file
+    end
+  end
+
+  def self.down
+    remove_attachment :performance_reports, :performance_report_file
+  end
 end
