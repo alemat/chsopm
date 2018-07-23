@@ -1,104 +1,259 @@
 <div class="body">
-<p>
-  <strong>Project title:</strong>
-  <%= @project.project_title %>
-</p>
+  <!-- Nav tabs -->
+     <p>
+        <strong>Project Title</strong> <%= @project.project_title %>
+    </p>
+    <hr/>
 
-<p>
-  <strong>Institution:</strong>
-  <%= @project.institution %>
-</p>
+  <ul class="nav nav-tabs tab-nav-right" role="tablist">
+    <li role="presentation" class="active"><a href="#project_details" data-toggle="tab">Project Details</a></li>
+    <li role="presentation"><a href="#fundings" data-toggle="tab">Fundings</a></li>
+    <li role="presentation"><a href="#implementation_areas" data-toggle="tab">Implementation Areas</a></li>
+    <li role="presentation"><a href="#performance_reports" data-toggle="tab">Performance Reports</a></li>
+    <li role="presentation"><a href="#evaluations" data-toggle="tab">Evaluations</a></li>
+  </ul>
 
-<p>
-  <strong>Focus area:</strong>
-  <%= @project.focus_area %>
-</p>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="project_details">
+      <p>
+        <strong>Implementing CHSO:</strong>
+        <%= @project.institution %>
+      </p>
 
-<p>
-  <strong>Sub focus area:</strong>
-  <%= @project.sub_focus_area %>
-</p>
+      <p>
+        <strong>Focus Area:</strong>
+        <%= @project.focus_area %>
+      </p>
 
-<p>
-  <strong>Project details:</strong>
-  <%= raw @project.project_details %>
-</p>
+      <p>
+        <strong>Sub Focus Area:</strong>
+        <%= @project.sub_focus_area %>
+      </p>
 
-<p>
-  <strong>Project status:</strong>
-  <%= @project.project_status %>
-</p>
+      <p>
+        <strong>Project Status:</strong>
+        <%= @project.project_status %>
+      </p>
 
-<p>
-  <strong>Direct beneficiaries:</strong>
-  <%= @project.direct_beneficiaries %>
-</p>
+      <p>
+        <strong>Direct Beneficiaries:</strong>
+        <%= @project.direct_beneficiaries %>
+      </p>
 
-<p>
-  <strong>Indirect beneficiaries:</strong>
-  <%= @project.indirect_beneficiaries %>
-</p>
+      <p>
+        <strong>Indirect Beneficiaries:</strong>
+        <%= @project.indirect_beneficiaries %>
+      </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @project.start_date %>
-</p>
+      <p>
+        <strong>Start Date:</strong>
+        <%= @project.start_date %>
+      </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @project.end_date %>
-</p>
+      <p>
+        <strong>End Date:</strong>
+        <%= @project.end_date %>
+      </p>
 
-<p>
-  <strong>Total budget:</strong>
-  <%= @project.total_budget %>
-</p>
+      <br/>
+      <br/>
 
-<p>
-  <strong>Program budget:</strong>
-  <%= @project.program_budget %>
-</p>
+      <strong>ABOUT THE PROJECT</strong><br/>
 
-<p>
-  <strong>Admin budget:</strong>
-  <%= @project.admin_budget %>
-</p>
+      <p>
+        <%= raw @project.project_details %>
+      </p>
 
-<p>
-  <strong>Funding status:</strong>
-  <%= @project.funding_status %>
-</p>
+      <br/>
+      <br/>
 
-<p>
-  <strong>Mid term evaluation date:</strong>
-  <%= @project.mid_term_evaluation_date %>
-</p>
+      <strong>PROJECT FOCUAL PERSON </strong>
 
-<p>
-  <strong>End term evaluation date:</strong>
-  <%= @project.end_term_evaluation_date %>
-</p>
+      <p>
+        <strong>FUll Name: </strong>
+        <%= @project.project_focal_person %>
+      </p>
 
-<p>
-  <strong>Reporting type:</strong>
-  <%= @project.reporting_type %>
-</p>
+      <p>
+        <strong>Phone Number: </strong>
+        <%= @project.phone_number %>
+      </p>
 
-<p>
-  <strong>Project focal person:</strong>
-  <%= @project.project_focal_person %>
-</p>
+      <p>
+        <strong>Email: </strong>
+        <%= @project.email %>
+      </p>
+    </div>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @project.phone_number %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @project.email %>
-</p>
+    <div role="tabpanel" class="tab-pane fade" id="fundings">
+        <p>
+          <strong>Funding status:</strong>
+          <%= @project.funding_status %>
+        </p>
 
+        <p>
+          <strong>Total budget:</strong>
+          <%= @project.total_budget %>
+        </p>
+
+        <p>
+          <strong>Program budget:</strong>
+          <%= @project.program_budget %>
+        </p>
+
+        <p>
+          <strong>Admin budget:</strong>
+          <%= @project.admin_budget %>
+        </p>
+
+        <div class="header">
+          <h2>
+            Funding Institutions
+          </h2>
+        </div>
+        <div class="body table-responsive">
+          <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+            <thead>
+              <tr>
+                <th>Funding Institution</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @project.funders.each do |funder| %>
+                <tr>
+                  
+                  <td><%= funder.institution %></td>
+                  <td><%= funder.amount %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+
+
+
+    <div role="tabpanel" class="tab-pane fade" id="implementation_areas">
+      <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Region</th>
+            <th>Zone</th>
+            <th>District</th>
+            <th>Contact person</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @project.implementation_areas.each do |implementation_area| %>
+            <tr>
+              <td><%= implementation_area.id %></td>
+              <td><%= implementation_area.region %></td>
+              <td><%= implementation_area.zone %></td>
+              <td><%= implementation_area.district %></td>
+              <td><%= implementation_area.contact_person %></td>
+              <td><%= implementation_area.phone_number %></td>
+              <td><%= implementation_area.email %></td>
+              <td><%= link_to 'Show', implementation_area, class: 'btn btn-primary' %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+
+
+    <div role="tabpanel" class="tab-pane fade" id="performance_reports">
+      <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Reporting type</th>
+            <th>Remark</th>
+            <th>Report File</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @project.performance_reports.each do |performance_report| %>
+            <tr>
+              <td><%= performance_report.id %></td>
+              <td><%= performance_report.reporting_type %></td>
+              <td><%= performance_report.remark %></td>
+              <td><%= link_to 'Download', performance_report.reports rescue nil %></td>
+              <td><%= link_to 'Show', performance_report, class: 'btn btn-primary' %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table> 
+    </div>
+    
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="evaluations">
+
+      <p>
+        <strong>Mid term evaluation date:</strong>
+        <%= @project.mid_term_evaluation_date %>
+      </p>
+
+      <p>
+        <strong>End term evaluation date:</strong>
+        <%= @project.end_term_evaluation_date %>
+      </p>
+
+      <% unless @project.mid_term_evaluation.blank? %>
+
+          <div class="body table-responsive">
+              <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                <thead>
+                  <tr>
+                    <th>Evaluation Type </th>
+                    <th>Evaluation Date</th>
+                    <th>Remark</th>
+                    <th>Attachment</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @project.evaluations.each do |evaluation| %>
+                    <tr>
+                      <td><%= evaluation.project_evaluation_type %></td>
+                      <td><%= evaluation.evaluation_date %></td>
+                      <td><%= raw evaluation.remark %></td>
+                      <td><%= link_to 'Download', evaluation.evaluation_file rescue nil %></td>
+                      <td><%= link_to 'Show', evaluation, class: 'btn btn-primary'  %>
+                      <%= link_to 'Edit', edit_evaluation_path(evaluation), class: 'btn btn-primary'  %>
+                      <%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+
+   <% else %>
+      <%= link_to 'Add Mid Term Evaluation', new_evaluation_path(project: @project.id, type: Evaluation::MID_TERM), class: 'btn btn-primary' %>
+      <%= link_to 'Add End Term Evaluation', new_evaluation_path(project: @project.id, type: Evaluation::END_TERM), class: 'btn btn-primary' if @project.end_term_evaluation.blank? %>
+   <% end %>
+
+    </div>
+  </div>
+
+  
 <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-primary' %> |
 <%= link_to 'Back', projects_path, class: 'btn btn-primary' %>
 </div>

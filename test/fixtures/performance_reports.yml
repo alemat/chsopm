@@ -4,10 +4,8 @@ one:
   project: one
   reporting_type: one
   remark: MyText
-  performance_report_file: 
 
 two:
   project: two
   reporting_type: two
   remark: MyText
-  performance_report_file: 

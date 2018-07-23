@@ -10,31 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180628062409) do
+ActiveRecord::Schema.define(version: 2018_07_02_145305) do
 
-  create_table "evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "evaluations", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "project_id"
-    t.bigint "project_evaluation_type_id"
-    t.string "evaluator_full_name"
+    t.string "project_evaluation_type"
     t.text "remark"
-    t.string "evaluation_file_file_name"
-    t.string "evaluation_file_content_type"
-    t.integer "evaluation_file_file_size"
-    t.datetime "evaluation_file_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_evaluation_type_id"], name: "index_evaluations_on_project_evaluation_type_id"
+    t.date "evaluation_date"
     t.index ["project_id"], name: "index_evaluations_on_project_id"
   end
 
-  create_table "focus_areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "evaluators", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "evaluation_id"
+    t.string "full_name"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluation_id"], name: "index_evaluators_on_evaluation_id"
+  end
+
+  create_table "focus_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "funders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "funders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "project_id"
     t.bigint "institution_id"
     t.integer "amount"
@@ -44,13 +70,13 @@ ActiveRecord::Schema.define(version: 20180628062409) do
     t.index ["project_id"], name: "index_funders_on_project_id"
   end
 
-  create_table "funding_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "funding_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "implementation_areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "implementation_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "project_id"
     t.bigint "region_id"
     t.string "zone"
@@ -64,19 +90,19 @@ ActiveRecord::Schema.define(version: 20180628062409) do
     t.index ["region_id"], name: "index_implementation_areas_on_region_id"
   end
 
-  create_table "institution_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "institution_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "institution_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "institution_types", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "institutions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "institutions", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.string "short_name"
     t.bigint "institution_type_id"
@@ -100,21 +126,18 @@ ActiveRecord::Schema.define(version: 20180628062409) do
     t.index ["region_id"], name: "index_institutions_on_region_id"
   end
 
-  create_table "performance_reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "performance_reports", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "project_id"
     t.bigint "reporting_type_id"
     t.text "remark"
-    t.string "performance_report_file_file_name"
-    t.string "performance_report_file_content_type"
-    t.integer "performance_report_file_file_size"
-    t.datetime "performance_report_file_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "report_date"
     t.index ["project_id"], name: "index_performance_reports_on_project_id"
     t.index ["reporting_type_id"], name: "index_performance_reports_on_reporting_type_id"
   end
 
-  create_table "project_amendments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "project_amendments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "project_id"
     t.date "from"
     t.date "to"
@@ -124,19 +147,13 @@ ActiveRecord::Schema.define(version: 20180628062409) do
     t.index ["project_id"], name: "index_project_amendments_on_project_id"
   end
 
-  create_table "project_evaluation_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "project_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "project_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "project_title"
     t.bigint "institution_id"
     t.bigint "focus_area_id"
@@ -147,12 +164,10 @@ ActiveRecord::Schema.define(version: 20180628062409) do
     t.integer "indirect_beneficiaries"
     t.date "start_date"
     t.date "end_date"
-    t.float "total_budget", limit: 24
-    t.float "program_budget", limit: 24
-    t.float "admin_budget", limit: 24
+    t.float "total_budget"
+    t.float "program_budget"
+    t.float "admin_budget"
     t.bigint "funding_status_id"
-    t.date "mid_term_evaluation_date"
-    t.date "end_term_evaluation_date"
     t.bigint "reporting_type_id"
     t.string "project_focal_person"
     t.string "phone_number"
@@ -167,19 +182,19 @@ ActiveRecord::Schema.define(version: 20180628062409) do
     t.index ["sub_focus_area_id"], name: "index_projects_on_sub_focus_area_id"
   end
 
-  create_table "regions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "reporting_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "reporting_types", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sub_focus_areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "sub_focus_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "focus_area_id"
     t.string "name"
     t.string "description"
@@ -188,7 +203,7 @@ ActiveRecord::Schema.define(version: 20180628062409) do
     t.index ["focus_area_id"], name: "index_sub_focus_areas_on_focus_area_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -213,8 +228,8 @@ ActiveRecord::Schema.define(version: 20180628062409) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "evaluations", "project_evaluation_types"
   add_foreign_key "evaluations", "projects"
+  add_foreign_key "evaluators", "evaluations"
   add_foreign_key "funders", "institutions"
   add_foreign_key "funders", "projects"
   add_foreign_key "implementation_areas", "projects"

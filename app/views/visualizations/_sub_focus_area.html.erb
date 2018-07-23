@@ -1,0 +1,10 @@
+<% unless @sub_focus_areas.blank? %>
+<%= fields_for :report do |f| %>
+	Sub Focus Area:
+	<%= f.collection_select('report_sub_focus_area', @sub_focus_areas, :id, :name, prompt: true)%> <br/>
+	<%= javascript_include_tag 'visualizations' %>
+<% end %>
+<% end %>
+<div id="report_chart">
+    <%= render partial: 'chart' %>
+</div>

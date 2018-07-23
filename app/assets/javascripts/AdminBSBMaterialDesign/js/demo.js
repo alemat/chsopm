@@ -1,8 +1,4 @@
 $(function () {
-    $('#calendar').fullCalendar({
-        events: '/events.json'
-    });
-
     $('.wysihtml5').wysihtml5({'toolbar': {'blockquote': false, 'html': true}})
 
     $('.js-basic-example').DataTable({

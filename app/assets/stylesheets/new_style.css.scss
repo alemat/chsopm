@@ -1,6 +1,3 @@
-.countdown{
-  background-image: -moz-linear-gradient(45deg, #361752, #B31B67);
-}
 .countdown p{
   margin-bottom:40px;
 }
@@ -26,9 +23,9 @@
   min-height: auto;
 }
 .users{
-  background-image: image-url('login-bg.jpg');
+  // background-image: image-url('doc-background.jpg');
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
 }
 .applicant_exam_hub label{
     display: flex;

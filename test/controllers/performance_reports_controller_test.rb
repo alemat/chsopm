@@ -17,7 +17,7 @@ class PerformanceReportsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create performance_report" do
     assert_difference('PerformanceReport.count') do
-      post performance_reports_url, params: { performance_report: { performance_report_file: @performance_report.performance_report_file, project_id: @performance_report.project_id, remark: @performance_report.remark, reporting_type_id: @performance_report.reporting_type_id } }
+      post performance_reports_url, params: { performance_report: { project_id: @performance_report.project_id, remark: @performance_report.remark, reporting_type_id: @performance_report.reporting_type_id } }
     end
 
     assert_redirected_to performance_report_url(PerformanceReport.last)
@@ -34,7 +34,7 @@ class PerformanceReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update performance_report" do
-    patch performance_report_url(@performance_report), params: { performance_report: { performance_report_file: @performance_report.performance_report_file, project_id: @performance_report.project_id, remark: @performance_report.remark, reporting_type_id: @performance_report.reporting_type_id } }
+    patch performance_report_url(@performance_report), params: { performance_report: { project_id: @performance_report.project_id, remark: @performance_report.remark, reporting_type_id: @performance_report.reporting_type_id } }
     assert_redirected_to performance_report_url(@performance_report)
   end
 

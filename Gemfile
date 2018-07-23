@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2.0'
 gem 'fullcalendar-rails'
 gem 'jquery-datatables'
 gem 'sassc-rails'
@@ -26,7 +26,8 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'colorize'
 gem "chartkick"
 gem 'wicked_pdf', '~> 1.1'
-# gem 'rails_admin_material'
+gem 'mini_magick'
+gem 'rails_admin_material'
 # gem 'rails_admin_rollincode'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'

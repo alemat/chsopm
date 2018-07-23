@@ -1,7 +1,11 @@
 //= require AdminBSBMaterialDesign/jquery/jquery
 //= require rails-ujs
 //= require AdminBSBMaterialDesign/bootstrap/bootstrap.min
+//= require projects
+//= require visualizations
 //= require jquery_nested_form
-//= require applicant_services
 //= require bootstrap-wysihtml5
+//= require Chart.bundle
+//= require chartkick
 //= require AdminBSBMaterialDesign/index
+//= require activestorage

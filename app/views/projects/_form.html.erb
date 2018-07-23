@@ -9,7 +9,22 @@
         <td><%= f.input :project_title %></td> <td> &nbsp;  &nbsp;  &nbsp; </td> <td> <%= f.association :institution %> </td>
     </tr>
     <tr>
-      <td> <%= f.association :focus_area %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.association :sub_focus_area %> </td>
+      <td> 
+        <div class="fields">
+          <%= f.label :focus_area %><br/>
+          <%= f.collection_select :focus_area_id, FocusArea.order(:name), :id, :name, include_blank: true %>
+        </div>
+        
+      </td> 
+      <td>  &nbsp;  &nbsp;  &nbsp;  </td>
+      <td> 
+        <div class="fields">
+          <div id='sub_focus_area'>
+          <%= render 'sub_focus_area' %>
+        </div>
+        </div>
+        
+      </td>
     </tr>
 
     <tr>
@@ -18,10 +33,6 @@
 
     <tr>
       <td> <%= f.input :start_date, as: :string, input_html: { class: "datepicker" } %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td><%= f.input :end_date, as: :string, input_html: { class: "datepicker" } %> </td>
-    </tr>
-
-    <tr>
-      <td> <%= f.input :mid_term_evaluation_date, as: :string, input_html: { class: "datepicker" } %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td><%= f.input :end_term_evaluation_date, as: :string, input_html: { class: "datepicker" } %> </td>
     </tr>
 
     </table>
@@ -44,12 +55,11 @@
         <table class="table">
           <thead>
           <tr>
-            <th>Institution</th>
+            <th>Funding Organization</th>
             <th>Amount</th>
             <th></th>
           </tr>
           </thead>
-          <tr><td><%= funder.input :project_id, as: :hidden, input_html: { value: :id } %></td> </tr>
           <tr>
               <td>
                 <%= funder.input_field :institution_id, collection: Institution.all, prompt: 'Select Institution', class: 'form-control' %>
@@ -59,14 +69,14 @@
                 <%= funder.input_field :amount, placeholder: 'Amount', class: 'form-control' %>
                 <%= funder.full_error :amount %>
               </td>
-              <td><%= funder.link_to_remove "Remove" %></td>
+              <td><%= funder.link_to_remove "Remove", class: 'btn btn-danger' %></td>
             </tr>
         </table>
         </div>
 
       <%= javascript_include_tag 'AdminBSBMaterialDesign/form_index' %>
       <% end %>
-      <p><%= f.link_to_add 'Add Funder', :funders %> </p>
+      <p><%= f.link_to_add 'Add Funder', :funders , class: 'btn btn-primary' %> </p>
 
 <br/>
 <br/>
@@ -91,7 +101,6 @@
             <th></th>
           </tr>
           </thead>
-          <tr><td><%= ia.input :project_id, as: :hidden, input_html: { value: :id } %></td> </tr>
           <tr>
               <td>
                 <%= ia.input_field :region_id, collection: Region.all, prompt: 'Select Region', class: 'form-control' %>
@@ -117,13 +126,13 @@
                 <%= ia.input_field :email, placeholder: 'E-Mail', class: 'form-control' %>
                 <%= ia.full_error :email %>
               </td>
-              <td><%= ia.link_to_remove "Remove" %></td>
+              <td><%= ia.link_to_remove "Remove", class: 'btn btn-danger' %></td>
             </tr>
         </table>
         </div>
       <%= javascript_include_tag 'AdminBSBMaterialDesign/form_index' %>
       <% end %>
-      <p><%= f.link_to_add 'Add Area', :implementation_areas %> </p>
+      <p><%= f.link_to_add 'Add Area', :implementation_areas, class: 'btn btn-primary' %> </p>
 
 <br/>
 <br/>

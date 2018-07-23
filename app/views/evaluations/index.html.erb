@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+
     <div class="header">
       <h2>
         Evaluations
@@ -10,9 +11,9 @@
     <tr>
       <th>Project</th>
       <th>Project evaluation type</th>
-      <th>Evaluator full name</th>
+      <th>Evaluation Date</th>
       <th>Remark</th>
-      <th>Evaluation file</th>
+      <th>Attachment</th>
       <th></th>
     </tr>
   </thead>
@@ -22,11 +23,11 @@
       <tr>
         <td><%= evaluation.project %></td>
         <td><%= evaluation.project_evaluation_type %></td>
-        <td><%= evaluation.evaluator_full_name %></td>
-        <td><%= evaluation.remark %></td>
-        <td><%= evaluation.evaluation_file %></td>
-        <td><%= link_to 'Show', evaluation, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_evaluation_path(evaluation), class: 'btn btn-primary' %>
+        <td><%= evaluation.evaluation_date %></td>
+        <td><%= raw evaluation.remark %></td>
+        <td><%= link_to 'Download', evaluation.evaluation_file rescue nil %></td>
+        <td><%= link_to 'Show', evaluation, class: 'btn btn-primary'  %>
+        <%= link_to 'Edit', edit_evaluation_path(evaluation), class: 'btn btn-primary'  %>
         <%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
@@ -35,4 +36,5 @@
 
 <br>
 
-<%= link_to 'New Evaluation', new_evaluation_path, class: 'btn btn-primary' %>
+<%= link_to 'New Evaluation', new_evaluation_path, class: 'btn btn-primary'  %>
+</div>

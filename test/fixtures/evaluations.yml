@@ -3,13 +3,9 @@
 one:
   project: one
   project_evaluation_type: one
-  evaluator_full_name: MyString
   remark: MyText
-  evaluation_file: 
 
 two:
   project: two
   project_evaluation_type: two
-  evaluator_full_name: MyString
   remark: MyText
-  evaluation_file: 

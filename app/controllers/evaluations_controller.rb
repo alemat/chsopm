@@ -1,5 +1,6 @@
 class EvaluationsController < ApplicationController
   before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery allow: :null_session
 
   # GET /evaluations
   # GET /evaluations.json
@@ -15,6 +16,9 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   def new
     @evaluation = Evaluation.new
+    @project = Project.find(params[:project])
+    @evaluation.project_evaluation_type = params[:type]
+    @evaluation.project = @project rescue nil
   end
 
   # GET /evaluations/1/edit
@@ -25,7 +29,7 @@ class EvaluationsController < ApplicationController
   # POST /evaluations.json
   def create
     @evaluation = Evaluation.new(evaluation_params)
-
+    @project = @evaluation.project
     respond_to do |format|
       if @evaluation.save
         format.html { redirect_to @evaluation, notice: 'Evaluation was successfully created.' }
@@ -69,6 +73,6 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:project_id, :project_evaluation_type_id, :evaluator_full_name, :remark, :evaluation_file)
+      params.require(:evaluation).permit(:project_id, :project_evaluation_type, :remark, :evaluation_file, :evaluation_date, evaluators_attributes: [:id, :evaluation_id, :full_name, :phone, :email, :_destroy] )
     end
 end

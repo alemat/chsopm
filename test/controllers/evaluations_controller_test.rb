@@ -17,7 +17,7 @@ class EvaluationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create evaluation" do
     assert_difference('Evaluation.count') do
-      post evaluations_url, params: { evaluation: { evaluation_file: @evaluation.evaluation_file, evaluator_full_name: @evaluation.evaluator_full_name, project_evaluation_type_id: @evaluation.project_evaluation_type_id, project_id: @evaluation.project_id, remark: @evaluation.remark } }
+      post evaluations_url, params: { evaluation: { project_evaluation_type_id: @evaluation.project_evaluation_type_id, project_id: @evaluation.project_id, remark: @evaluation.remark } }
     end
 
     assert_redirected_to evaluation_url(Evaluation.last)
@@ -34,7 +34,7 @@ class EvaluationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update evaluation" do
-    patch evaluation_url(@evaluation), params: { evaluation: { evaluation_file: @evaluation.evaluation_file, evaluator_full_name: @evaluation.evaluator_full_name, project_evaluation_type_id: @evaluation.project_evaluation_type_id, project_id: @evaluation.project_id, remark: @evaluation.remark } }
+    patch evaluation_url(@evaluation), params: { evaluation: { project_evaluation_type_id: @evaluation.project_evaluation_type_id, project_id: @evaluation.project_id, remark: @evaluation.remark } }
     assert_redirected_to evaluation_url(@evaluation)
   end
 

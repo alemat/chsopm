@@ -1,5 +1,4 @@
 <div class="body">
-
 <p>
   <strong>Project:</strong>
   <%= @evaluation.project %>
@@ -11,8 +10,8 @@
 </p>
 
 <p>
-  <strong>Evaluator full name:</strong>
-  <%= @evaluation.evaluator_full_name %>
+  <strong>Date of Evaluation:</strong>
+  <%= @evaluation.evaluation_date %>
 </p>
 
 <p>
@@ -21,8 +20,8 @@
 </p>
 
 <p>
-  <strong>Evaluation file:</strong>
-  <%= @evaluation.evaluation_file %>
+  <strong>Project evaluation type:</strong>
+  <%= link_to 'Download', @evaluation.evaluation_file rescue nil %>
 </p>
 
 <%= link_to 'Edit', edit_evaluation_path(@evaluation), class: 'btn btn-primary' %> |

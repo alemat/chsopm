@@ -1,0 +1,5 @@
+<%= simple_fields_for :project do |f| %>
+  <%= f.label :sub_focus_area %><br/>
+  <%= f.collection_select :sub_focus_area_id, @sub_focus_areas, :id, :name, include_blank: true %>
+  <% end %>
+

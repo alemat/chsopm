@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Evaluation:</strong>
+  <%= @evaluator.evaluation %>
+</p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @evaluator.full_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @evaluator.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @evaluator.email %>
+</p>
+
+<%= link_to 'Edit', edit_evaluator_path(@evaluator), class: 'btn btn-primary' %> |
+<%= link_to 'Back', evaluators_path, class: 'btn btn-primary' %>

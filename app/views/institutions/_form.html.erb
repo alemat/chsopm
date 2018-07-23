@@ -20,13 +20,17 @@
     </table>
     <br>
     <br>
-    <%= f.input :about_institution, input_html: {class: 'wysihtml5'} %>
-    <%= f.input :url %>
+    <%= f.input :about_institution, input_html: {class: 'wysihtml5'} %> <br/>
+    
+    <%= f.input :url %><br/>
+
+    <strong>Logo</strong>
+    <%= f.file_field :image %> <br/>
     
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= f.button :submit, 'Create CHSO', class: 'btn btn-primary' %>
   </div>
 <% end %>
 </div>

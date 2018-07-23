@@ -1,5 +1,6 @@
 class PerformanceReportsController < ApplicationController
   before_action :set_performance_report, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery allo: :null_session
 
   # GET /performance_reports
   # GET /performance_reports.json
@@ -69,6 +70,6 @@ class PerformanceReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def performance_report_params
-      params.require(:performance_report).permit(:project_id, :reporting_type_id, :remark, :performance_report_file)
+      params.require(:performance_report).permit(:project_id, :reporting_type_id, :remark, :reports)
     end
 end

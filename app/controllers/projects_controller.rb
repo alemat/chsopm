@@ -7,6 +7,45 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def project_by_region
+    projects = Project.joins(:implementation_areas=>:region).group('regions.name').count
+    render json: projects
+  end
+
+  def projects_by_sub_focus_area
+    sub_focus_area = SubFocusArea.find(params[:sub_focus_area])
+    projects = sub_focus_area.projects.joins(:implementation_areas=>:region).group('regions.name').count
+    render json: projects
+  end
+
+  def projects_by_focus_area
+    focus_area = FocusArea.find(params[:focus_area])
+    projects = focus_area.projects.joins(:implementation_areas=>:region).group('regions.name').count
+    render json: projects
+  end
+  
+  def upcoming_mid_term_evaluations
+    @projects = Project.upcoming_mid_term_evaluations
+  end
+
+  def upcoming_end_term_evaluations
+    @projects = Project.upcoming_end_term_evaluations
+  end
+
+  def missed_mid_term_evaluations
+    @projects = Project.missed_mid_term_evaluations
+  end
+
+  def missed_end_term_evaluations
+    @projects = Project.missed_end_term_evaluations
+  end
+
+  def load_sub_focus_areas
+    @focus_area = FocusArea.find(params[:focus_area])
+    @sub_focus_areas = @focus_area.sub_focus_areas
+    render partial: 'sub_focus_area'
+  end
+
   # GET /projects/1
   # GET /projects/1.json
   def show
@@ -15,10 +54,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @sub_focus_areas = []
   end
 
   # GET /projects/1/edit
   def edit
+    @sub_focus_areas = @project.focus_area.sub_focus_areas
   end
 
   # POST /projects
@@ -69,6 +110,10 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, :mid_term_evaluation_date, :end_term_evaluation_date, :reporting_type_id, :project_focal_person, :phone_number, :email, funders_attributes: [:id, :project_id, :institution_id, :amount, :_destroy], implementation_areas_attributes: [:id, :project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :_destroy] )
+      params.require(:project).permit(:project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, 
+        :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, 
+        :reporting_type_id, :project_focal_person, :phone_number, :email, 
+        funders_attributes: [:id, :project_id, :institution_id, :amount, :_destroy], 
+        implementation_areas_attributes: [:id, :project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :_destroy] )
     end
 end

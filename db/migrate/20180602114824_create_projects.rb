@@ -15,8 +15,6 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.float :program_budget
       t.float :admin_budget
       t.references :funding_status, foreign_key: true
-      t.date :mid_term_evaluation_date
-      t.date :end_term_evaluation_date
       t.references :reporting_type, foreign_key: true
       t.string :project_focal_person
       t.string :phone_number

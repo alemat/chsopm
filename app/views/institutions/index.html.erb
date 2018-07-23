@@ -25,9 +25,9 @@
         <td><%= institution.short_name %></td>
         <td><%= institution.institution_type %></td>
         <td><%= institution.institution_status %></td>
-        <td><%= link_to 'Show', institution, class: 'btn btn-primary' %>
+        <td><%= link_to 'Details', institution, class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_institution_path(institution), class: 'btn btn-primary' %>
-        <%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></td>
+        <%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,3 +35,4 @@
 
 <br>
 <%= link_to 'New Institution', new_institution_path, class: 'btn btn-primary' %>
+</div>

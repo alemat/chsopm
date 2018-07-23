@@ -1,0 +1,9 @@
+<div class="body">
+<%= form_for :report, url: visualizations_index_path, remote: true do |f| %>
+    Focus Area:
+    <%= f.collection_select('report_focus_area', FocusArea.all, :id, :name, prompt: true)%> <br/><br/><br/>
+    <div id='report_sub_focus_area'>
+        <%= render partial: 'sub_focus_area' %>
+    </div>
+<% end %>
+</div>

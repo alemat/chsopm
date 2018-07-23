@@ -9,6 +9,7 @@
       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
   <thead>
     <tr>
+      <th>#</th>
       <th>Name</th>
       <th></th>
     </tr>
@@ -17,6 +18,7 @@
   <tbody>
     <% @regions.each do |region| %>
       <tr>
+        <td><%= region.id %></td>
         <td><%= region.name %></td>
         <td><%= link_to 'Show', region, class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_region_path(region), class: 'btn btn-primary' %>

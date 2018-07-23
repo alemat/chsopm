@@ -1,4 +1,6 @@
 <div class="body">
+<p id="notice"><%= notice %></p>
+
 <p>
   <strong>Project:</strong>
   <%= @performance_report.project %>
@@ -15,8 +17,9 @@
 </p>
 
 <p>
-  <strong>Performance report file:</strong>
-  <%= @performance_report.performance_report_file %>
+  <strong>Report File :</strong>
+
+  <%= link_to 'Download', @performance_report.reports rescue nil %>
 </p>
 
 <%= link_to 'Edit', edit_performance_report_path(@performance_report), class: 'btn btn-primary' %> |
