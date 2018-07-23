@@ -15,7 +15,7 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  config.action_mailer.default_url_options = { host: '172.19.7.39', port: 3000 }
+  config.action_mailer.default_url_options = { host: '172.19.4.82', port: 8060 }
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
