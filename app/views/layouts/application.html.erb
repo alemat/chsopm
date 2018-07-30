@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -31,28 +31,13 @@
             <p>Please wait...</p>
         </div>
     </div>
-    <!-- #END# Page Loader -->
-    <!-- Overlay For Sidebars -->
-    <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <div class="search-icon">
-            <i class="material-icons">search</i>
-        </div>
-        <input type="text" placeholder="START TYPING...">
-        <div class="close-search">
-            <i class="material-icons">close</i>
-        </div>
-    </div>
-    <!-- #END# Search Bar -->
-    <!-- Top Bar -->
+
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a><%= image_tag 'fdre.png', size: '40x40' %></a>
-            <a href="javascript:void(0);"><font color="white"><b>FMOH | CHSO </b></font></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <%= image_tag 'fdre.png', size: '40x40' %><font color="white"> <b> FMOH | CHSO </b></font>
                 
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -60,27 +45,26 @@
                     <!-- Call Search -->
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
-
-
+                    
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                           <span style="vertical-align: super"><%= current_user.email rescue nil %></span> <i class="material-icons">keyboard_arrow_down</i>
                         </a>
                       <ul class="dropdown-menu">
-                        <li>
-                          <%= link_to edit_user_registration_path do %>
-                              <i class="material-icons">lock</i>
-                              <span>Change Password</span>
-                          <% end %>
-                        </li>
-                        <li role="seperator" class="divider"></li>
-                        <li>
-                          <%= link_to destroy_user_session_path do %>
-                              <i class="material-icons">input</i>
-                              <span>Sign Out</span>
-                          <% end %>
-                        </li>
-                        </li>
+                            <li>
+                              <%= link_to edit_user_registration_path do %>
+                                  <i class="material-icons">lock</i>
+                                  <span>Change Password</span>
+                              <% end %>
+                            </li>
+                            <li role="seperator" class="divider"></li>
+                                <li>
+                                  <%= link_to destroy_user_session_path do %>
+                                      <i class="material-icons">input</i>
+                                      <span>Sign Out</span>
+                                  <% end %>
+                                </li>
+                            </li>
                       </ul>
                     </li>
                 </ul>
@@ -98,7 +82,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; <%= Date.today.year %> MOH-CHSO</a>.
+                    &copy; <%= Date.today.year %> MOH-CHSO
                 </div>
             </div>
             <!-- #Footer -->

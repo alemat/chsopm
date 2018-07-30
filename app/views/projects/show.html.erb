@@ -175,6 +175,12 @@
 
 
     <div role="tabpanel" class="tab-pane fade" id="performance_reports">
+
+        <p>
+          <strong>Performance Report Status:</strong>
+          <td><%= @project.report_status rescue nil %></td>
+        </p>
+
       <div class="body table-responsive">
       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
         <thead>
@@ -247,8 +253,9 @@
 
    <% else %>
       <%= link_to 'Add Mid Term Evaluation', new_evaluation_path(project: @project.id, type: Evaluation::MID_TERM), class: 'btn btn-primary' %>
-      <%= link_to 'Add End Term Evaluation', new_evaluation_path(project: @project.id, type: Evaluation::END_TERM), class: 'btn btn-primary' if @project.end_term_evaluation.blank? %>
+
    <% end %>
+         <%= link_to 'Add End Term Evaluation', new_evaluation_path(project: @project.id, type: Evaluation::END_TERM), class: 'btn btn-primary' if @project.end_term_evaluation.blank? %>
 
     </div>
   </div>

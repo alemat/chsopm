@@ -69,6 +69,6 @@ class ImplementationAreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def implementation_area_params
-      params.require(:implementation_area).permit(:project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email)
+      params.require(:implementation_area).permit(:project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :allocated_budget)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_145305) do
+ActiveRecord::Schema.define(version: 2018_07_30_120950) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_07_02_145305) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "currency"
     t.index ["institution_id"], name: "index_funders_on_institution_id"
     t.index ["project_id"], name: "index_funders_on_project_id"
   end
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_07_02_145305) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "allocated_budget"
     t.index ["project_id"], name: "index_implementation_areas_on_project_id"
     t.index ["region_id"], name: "index_implementation_areas_on_region_id"
   end
@@ -174,6 +176,7 @@ ActiveRecord::Schema.define(version: 2018_07_02_145305) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "report_status"
     t.index ["focus_area_id"], name: "index_projects_on_focus_area_id"
     t.index ["funding_status_id"], name: "index_projects_on_funding_status_id"
     t.index ["institution_id"], name: "index_projects_on_institution_id"

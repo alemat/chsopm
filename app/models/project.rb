@@ -32,8 +32,13 @@ class Project < ApplicationRecord
     return end_date - 10
   end
 
+  def mid_term_sixty_evaluation_date
+    return mid_term_evaluation_date - 180
+
+  end
+
   def self.upcoming_mid_term_evaluations
-    return Project.all.select{|p| p.mid_term_evaluation_date > Date.today and p.mid_term_evaluation.blank? }
+    return Project.all.select{|p| p.mid_term_evaluation_date > p.mid_term_sixty_evaluation_date and p.mid_term_evaluation.blank? }
   end
 
   def self.upcoming_end_term_evaluations
