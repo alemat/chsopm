@@ -5,9 +5,9 @@ class Project < ApplicationRecord
   belongs_to :project_status
   belongs_to :funding_status
   belongs_to :reporting_type
-  has_many :funders
-  has_many :implementation_areas
-  has_many :evaluations
+  has_many :funders, dependent: :destroy
+  has_many :implementation_areas, dependent: :destroy
+  has_many :evaluations, dependent: :destroy
   has_many :performance_reports
 
   accepts_nested_attributes_for :funders, allow_destroy: true

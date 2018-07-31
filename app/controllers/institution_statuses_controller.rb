@@ -1,5 +1,6 @@
 class InstitutionStatusesController < ApplicationController
   before_action :set_institution_status, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /institution_statuses
   # GET /institution_statuses.json

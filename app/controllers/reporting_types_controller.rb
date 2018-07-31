@@ -1,5 +1,6 @@
 class ReportingTypesController < ApplicationController
   before_action :set_reporting_type, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /reporting_types
   # GET /reporting_types.json

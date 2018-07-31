@@ -1,5 +1,6 @@
 class FundersController < ApplicationController
   before_action :set_funder, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /funders
   # GET /funders.json

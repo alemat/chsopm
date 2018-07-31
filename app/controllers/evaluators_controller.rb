@@ -1,5 +1,6 @@
 class EvaluatorsController < ApplicationController
   before_action :set_evaluator, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /evaluators
   # GET /evaluators.json

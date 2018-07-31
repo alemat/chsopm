@@ -1,5 +1,6 @@
 class FundingStatusesController < ApplicationController
   before_action :set_funding_status, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /funding_statuses
   # GET /funding_statuses.json
