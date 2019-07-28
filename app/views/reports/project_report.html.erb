@@ -1,0 +1,26 @@
+<div class="panel-heading">
+  Projects Report
+</div>
+
+<div class="panel-body">
+  <%= simple_form_for :report, url: reports_project_report_path, :remote => true do |f| %>
+
+          <%= f.input :region, collection: Region.all, include_blank: true %>
+
+          <%= f.input :focus_area, collection: FocusArea.all, include_blank: true %>
+
+          <%= f.input :sub_focus_area, collection: SubFocusArea.all, include_blank: true %>
+
+        <div class="form-actions">
+          <%= f.button :submit, 'Search', class: 'btn btn-lg btn-primary' %>
+        </div>
+      </div>
+
+  <% end %>
+
+
+  <div id="projects_report">
+    <%= render partial: 'projects' %>
+  </div>
+
+</div>

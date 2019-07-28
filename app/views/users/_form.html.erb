@@ -3,10 +3,10 @@
     <%= f.input :email %>
     <%= f.input :password, as: :password, autocomplete: "off" %>
     <%= f.input :password_confirmation, as: :password, autocomplete: "off" %>
-    <center>
-      <%= f.check_box :admin, id: "admin", class: "filled-in chk-col-pink" %>
-      <label for="admin">Admin</label>
-    </center>
+	<%= f.input :superadmin_role, label: 'Super Admin', label_html: {class: 'transparent_label'} %>
+	<%= f.input :supervisor_role, label: 'Supervisor', label_html: {class: 'transparent_label'} %>
+	<%= f.input :admin, label: 'Admin', label_html: {class: 'transparent_label'} %>
+	<%= f.input :user_role, label: 'User', label_html: {class: 'transparent_label'} %>
     <hr/>
 <div class="form-actions">
 <%= f.button :submit %>

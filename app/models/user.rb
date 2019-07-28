@@ -4,8 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def admin_status
-    admin? ? 'Yes' : '' 
+  def superadmin?
+  	superadmin_role == true
+  end
+
+  def supervisor?
+  	supervisor_role == true
+  end
+
+  def dmin?
+  	admin_role == true
+  end
+
+  def user?
+  	user_role == true
   end
 
 end

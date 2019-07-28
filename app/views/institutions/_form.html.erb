@@ -3,31 +3,29 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <table>
-      <tr>
-      <td><%= f.input :name %> </td> <td> &nbsp; &nbsp; &nbsp; </td> <td><%= f.input :short_name %></td> <td> &nbsp; &nbsp; &nbsp; </td> <td><%= f.association :institution_type %></td> <td> &nbsp; &nbsp; &nbsp; </td> <td> <%= f.association :institution_status %></td> <td> &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :license_no %> </td> 
-      </tr>
-      <tr></tr>
-      <tr>
-      <td> <%= f.association :region %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :district %> </td > <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :office_phone %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :office_email %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :p_o_box %> </td>
-      </tr>
-
-      <tr></tr>
-      <tr>
-      <td> <%= f.input :fax_number %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :contact_person %> </td > <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :contact_phone %> </td> <td>  &nbsp; &nbsp; &nbsp; </td> <td> <%= f.input :contact_email %></td>
-      </tr>
-    </table>
-    <br>
-    <br>
-    <%= f.input :about_institution, input_html: {class: 'wysihtml5'} %> <br/>
-    
-    <%= f.input :url %><br/>
-
-    <strong>Logo</strong>
-    <%= f.file_field :image %> <br/>
-    
-  </div>
+  <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :name %>
+        <%= f.input :short_name %>
+        <%= f.association :institution_type %>
+        <%= f.association :institution_status %>
+        <%= f.input :license_no %>
+        <%= f.association :region %>
+        <%= f.input :district %>
+        <%= f.input :office_phone %>
+      </div>
+      <div class="col-sm-6 left_form">
+        <%= f.input :office_email %>
+        <%= f.input :p_o_box %>
+        <%= f.input :fax_number %>
+        <%= f.input :contact_person %>
+        <%= f.input :contact_phone %>
+        <%= f.input :contact_email %>
+        <%= f.input :url %>
+        <%= f.input :image, as: :file %>
+      </div>
+    </div>
+    <%= f.input :about_institution, wrapper: :vertical_form, input_html: {class: 'wysihtml5'} %>
 
   <div class="form-actions">
     <%= f.button :submit, 'Create CHSO', class: 'btn btn-primary' %>

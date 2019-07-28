@@ -1,6 +1,5 @@
 class RegionsController < ApplicationController
   before_action :set_region, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery allow: :null_session
 
   # GET /regions
   # GET /regions.json

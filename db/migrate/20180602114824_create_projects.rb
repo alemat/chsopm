@@ -6,7 +6,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.references :focus_area, foreign_key: true
       t.references :sub_focus_area, foreign_key: true
       t.text :project_details
-      t.references :project_status, foreign_key: true
+      t.string :project_status
       t.integer :direct_beneficiaries
       t.integer :indirect_beneficiaries
       t.date :start_date

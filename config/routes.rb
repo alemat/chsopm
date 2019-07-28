@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reports/project_report'
+  post 'reports/project_report'
   get 'visualizations/index'
   get 'visualizations/load_sub_focus_areas'
   get 'visualizations/load_projects_by_sub_focus_area'
@@ -6,7 +8,6 @@ Rails.application.routes.draw do
   resources :evaluators
   resources :evaluations
   resources :performance_reports
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :project_amendments
   resources :implementation_areas
   resources :funders

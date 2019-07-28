@@ -11,6 +11,7 @@
     <li role="presentation"><a href="#implementation_areas" data-toggle="tab">Implementation Areas</a></li>
     <li role="presentation"><a href="#performance_reports" data-toggle="tab">Performance Reports</a></li>
     <li role="presentation"><a href="#evaluations" data-toggle="tab">Evaluations</a></li>
+    <li role="presentation"><a href="#amendments" data-toggle="tab">Amendements</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -33,7 +34,7 @@
 
       <p>
         <strong>Project Status:</strong>
-        <%= @project.project_status %>
+        <%= @project.project_status_id %>
       </p>
 
       <p>
@@ -86,7 +87,6 @@
       </p>
     </div>
 
-
     <div role="tabpanel" class="tab-pane fade" id="fundings">
         <p>
           <strong>Funding status:</strong>
@@ -100,12 +100,12 @@
 
         <p>
           <strong>Program budget:</strong>
-          <%= @project.program_budget %>
+          <%= @project.program_budget %> (<%= percentage(@project.program_budget,@project.total_budget) %>%)
         </p>
 
         <p>
           <strong>Admin budget:</strong>
-          <%= @project.admin_budget %>
+          <%= @project.admin_budget %> (<%= percentage(@project.admin_budget,@project.total_budget) %>%)
         </p>
 
         <div class="header">
@@ -133,10 +133,7 @@
             </tbody>
           </table>
         </div>
-
     </div>
-
-
 
     <div role="tabpanel" class="tab-pane fade" id="implementation_areas">
       <div class="body table-responsive">
@@ -172,15 +169,12 @@
     </div>
     </div>
 
-
-
     <div role="tabpanel" class="tab-pane fade" id="performance_reports">
 
         <p>
           <strong>Performance Report Status:</strong>
           <td><%= @project.report_status rescue nil %></td>
         </p>
-
       <div class="body table-responsive">
       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
         <thead>
@@ -206,7 +200,6 @@
         </tbody>
       </table> 
     </div>
-    
     </div>
 
     <div role="tabpanel" class="tab-pane fade" id="evaluations">
@@ -257,6 +250,11 @@
    <% end %>
          <%= link_to 'Add End Term Evaluation', new_evaluation_path(project: @project.id, type: Evaluation::END_TERM), class: 'btn btn-primary' if @project.end_term_evaluation.blank? %>
 
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="amendments">
+      Amendments List. Iterate @project.amendments
+      <%= link_to 'Add Amendment', new_project_amendment_path(project: @project.id), class: 'btn btn-primary' %>
     </div>
   </div>
 

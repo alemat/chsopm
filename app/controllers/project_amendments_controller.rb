@@ -15,6 +15,7 @@ class ProjectAmendmentsController < ApplicationController
   # GET /project_amendments/new
   def new
     @project_amendment = ProjectAmendment.new
+    @project_amendment.project_id = params[:project]
   end
 
   # GET /project_amendments/1/edit
@@ -28,6 +29,7 @@ class ProjectAmendmentsController < ApplicationController
 
     respond_to do |format|
       if @project_amendment.save
+        @project_amendment.project.update(project_status: Project::AMENDED)
         format.html { redirect_to @project_amendment, notice: 'Project amendment was successfully created.' }
         format.json { render :show, status: :created, location: @project_amendment }
       else

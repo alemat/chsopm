@@ -3,51 +3,30 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <table>
-      <tr>
-        <td><%= f.input :project_title %></td> <td> &nbsp;  &nbsp;  &nbsp; </td> <td> <%= f.association :institution %> </td>
-    </tr>
-    <tr>
-      <td> 
-        <div class="fields">
-          <%= f.label :focus_area %><br/>
-          <%= f.collection_select :focus_area_id, FocusArea.order(:name), :id, :name, include_blank: true %>
-        </div>
-        
-      </td> 
-      <td>  &nbsp;  &nbsp;  &nbsp;  </td>
-      <td> 
-        <div class="fields">
-          <div id='sub_focus_area'>
+  <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :project_title %>
+        <%= f.association :institution %>
+        <%= f.association :focus_area, prompt: true %> 
+        <div id='sub_focus_area'>
           <%= render 'sub_focus_area' %>
         </div>
+        <%= f.input :direct_beneficiaries %>
+        <%= f.input :indirect_beneficiaries %>
+        <%= f.input :start_date, as: :string, input_html: { class: "datepicker" } %>
+        <%= f.input :end_date, as: :string, input_html: { class: "datepicker" } %>
         </div>
-        
-      </td>
-    </tr>
-
-    <tr>
-      <td> <%= f.input :direct_beneficiaries %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :indirect_beneficiaries %> </td>
-    </tr>
-
-    <tr>
-      <td> <%= f.input :start_date, as: :string, input_html: { class: "datepicker" } %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td><%= f.input :end_date, as: :string, input_html: { class: "datepicker" } %> </td>
-    </tr>
-
-    </table>
-    
-    <%= f.input :project_details, input_html: {class: 'wysihtml5'} %>
-        
-    
-    <table>
-      
-      <tr><td> <%= f.association :project_status %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.association :reporting_type %> </td> <td> &nbsp;  &nbsp;  &nbsp; </td><td> <%= f.input :report_status, collection: ['Not Yet Submitted', 'Submitted'] %> </td><&nbsp;  &nbsp; </td> <td></td></tr>
-      <tr> <td> <%= f.association :funding_status %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :total_budget %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :program_budget %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :admin_budget %> </td></tr>
-    </table>
-   
-   <br/>
-   <br/>
+        <div class="col-sm-6 left_form">   
+        <%= f.input :project_status, collection: project::PHASE_STATUSES %>
+        <%= f.association :reporting_type %>
+        <%= f.input :report_status, collection: ['Not Yet Submitted', 'Submitted'] %>
+        <%= f.association :funding_status %>
+        <%= f.input :total_budget %>
+        <%= f.input :program_budget %>
+        <%= f.input :admin_budget %>
+      </div>
+    </div>
+    <%= f.input :project_details, wrapper: 'vertical_form', input_html: {class: 'wysihtml5'} %>
 
    <legend>FUNDING SOURCES </legend>
       <%= f.simple_fields_for :funders do |funder| %>
