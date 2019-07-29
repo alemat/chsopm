@@ -33,7 +33,13 @@
         <td><%= project.implementation_areas.to_sentence %></td>
         <td><%= project.project_status %></td>
         <td><%= project.funding_status %></td>
-        <td><%= project.status %></td>
+        <td>
+              <label class="label <%= project.status == 'Not Started' ? 'label-default' :
+                                          (project.status == 'Ongoing' ? 'label-warning' :
+                                               (project.status == 'Deadline Passed' ? 'label-success' : 'label-default')) %>">
+                <%= project.status %>
+              </label>
+        </td>
         <td><%= link_to 'Show', project, class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
         <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>

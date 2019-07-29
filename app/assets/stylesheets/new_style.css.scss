@@ -6,7 +6,7 @@
   color: deepskyblue;
 }
 .sidebar .menu .list a span{
-  border-bottom: 1px solid darkgray;
+  border-bottom: 1px solid #eee;
   width: 100%;
 }
 [type="checkbox"] + label{
@@ -38,7 +38,7 @@ form label{
 }
 
 .left_form{
-  border-left: 1px solid skyblue;
+  border-left: 1px solid #eee;
 }
 .form-group .form-control{
   width: inherit;

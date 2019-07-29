@@ -18,7 +18,9 @@ class Project < ApplicationRecord
   scope :list_by_focus_area, -> (focus_area) { where(focus_area_id: focus_area) }
   scope :list_by_sub_focus_area, -> (sub_focus_area) { where(sub_focus_area_id: sub_focus_area) }
   scope :list_by_region, -> (region) { joins(:implementation_areas).where('implementation_areas.region_id = ?', region).uniq }
+  
   PHASE_STATUSES = [PHASEDOUT='Phased Out', ACTIVE='Active', AMENDED='Amended']
+  
   def self.search(focus_area, sub_focus_area, region)
     projects = []
     available_filters = {focus_area => list_by_focus_area(focus_area), 

@@ -6,12 +6,12 @@
     <hr/>
 
   <ul class="nav nav-tabs tab-nav-right" role="tablist">
-    <li role="presentation" class="active"><a href="#project_details" data-toggle="tab">Project Details</a></li>
-    <li role="presentation"><a href="#fundings" data-toggle="tab">Fundings</a></li>
-    <li role="presentation"><a href="#implementation_areas" data-toggle="tab">Implementation Areas</a></li>
-    <li role="presentation"><a href="#performance_reports" data-toggle="tab">Performance Reports</a></li>
-    <li role="presentation"><a href="#evaluations" data-toggle="tab">Evaluations</a></li>
-    <li role="presentation"><a href="#amendments" data-toggle="tab">Amendements</a></li>
+    <li role="presentation" class="active"><a href="#project_details" data-toggle="tab"> <i class="material-icons">widgets</i> Project Details</a></li>
+    <li role="presentation"><a href="#fundings" data-toggle="tab"> <i class="material-icons">attach_money</i> Fundings</a></li>
+    <li role="presentation"><a href="#implementation_areas" data-toggle="tab"> <i class="material-icons">map</i> Implementation Areas</a></li>
+    <li role="presentation"><a href="#performance_reports" data-toggle="tab"> <i class="material-icons">chrome_reader_mode</i> Performance Reports</a></li>
+    <li role="presentation"><a href="#evaluations" data-toggle="tab"> <i class="material-icons">view_list</i> Evaluations</a></li>
+    <li role="presentation"><a href="#amendments" data-toggle="tab"> <i class="material-icons">date_range</i> Amendements</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -34,7 +34,11 @@
 
       <p>
         <strong>Project Status:</strong>
-        <%= @project.project_status_id %>
+              <label class="label <%= @project.status == 'Not Started' ? 'label-default' :
+                                          (@project.status == 'Ongoing' ? 'label-warning' :
+                                               (@project.status == 'Deadline Passed' ? 'label-success' : 'label-default')) %>">
+                <%= @project.status %>
+              </label>
       </p>
 
       <p>

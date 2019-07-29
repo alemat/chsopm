@@ -17,7 +17,7 @@
         <%= f.input :end_date, as: :string, input_html: { class: "datepicker" } %>
         </div>
         <div class="col-sm-6 left_form">   
-        <%= f.input :project_status, collection: project::PHASE_STATUSES %>
+        <%= f.input :project_status, collection: Project::PHASE_STATUSES %>
         <%= f.association :reporting_type %>
         <%= f.input :report_status, collection: ['Not Yet Submitted', 'Submitted'] %>
         <%= f.association :funding_status %>
@@ -26,7 +26,7 @@
         <%= f.input :admin_budget %>
       </div>
     </div>
-    <%= f.input :project_details, wrapper: 'vertical_form', input_html: {class: 'wysihtml5'} %>
+    <%= f.input :project_details, wrapper: :vertical_form, input_html: {class: 'wysihtml5'} %>
 
    <legend>FUNDING SOURCES </legend>
       <%= f.simple_fields_for :funders do |funder| %>

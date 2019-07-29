@@ -24,8 +24,14 @@
           <td><%= project.start_date %></td>
           <td><%= project.end_date %></td>
           <td><%= project.institution %></td>
-          <td><%= project.project_status %></td>
-          <td><%= link_to 'Details', project %></td>
+          <td>
+                          <label class="label <%= project.status == 'Not Started' ? 'label-default' :
+                                          (project.status == 'Ongoing' ? 'label-warning' :
+                                               (project.status == 'Deadline Passed' ? 'label-success' : 'label-default')) %>">
+                <%= project.status %>
+              </label>
+          </td>
+          <td><%= link_to 'Details', project, class: 'btn btn-primary' %></td>
         </tr>
       <% end %>
       </tbody>
