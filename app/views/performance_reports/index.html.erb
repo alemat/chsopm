@@ -23,15 +23,11 @@
         <td><%= performance_report.reporting_type %></td>
         <td><%= performance_report.remark %></td>
         <td><%= link_to 'Download', performance_report.reports rescue nil %></td>
-        <td><%= link_to 'Show', performance_report, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_performance_report_path(performance_report), class: 'btn btn-primary' %>
-        <%= link_to 'Destroy', performance_report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Show', performance_report, class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Performance Report', new_performance_report_path, class: 'btn btn-primary' %>
 </div>

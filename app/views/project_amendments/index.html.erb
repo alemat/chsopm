@@ -5,7 +5,7 @@
         Projects Amendments
       </h2>
     </div>
-    <div class="body table-responsive">
+<div class="body table-responsive">
       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
   <thead>
     <tr>
@@ -24,14 +24,9 @@
         <td><%= project_amendment.from %></td>
         <td><%= project_amendment.to %></td>
         <td><%= project_amendment.amendment_reason %></td>
-        <td><%= link_to 'Show', project_amendment, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_project_amendment_path(project_amendment), class: 'btn btn-primary' %>
-        <%= link_to 'Destroy', project_amendment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Show', project_amendment, class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Project Amendment', new_project_amendment_path, class: 'btn btn-primary' %>
+</div>

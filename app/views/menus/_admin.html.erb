@@ -120,6 +120,12 @@
                 <span>Performance Reports</span>
             <% end %>
             </li>
+            <li>
+            <%= link_to project_amendments_path do %>
+                <i class="material-icons">layers</i>
+                <span>Project Amendments</span>
+            <% end %>
+            </li>
 
             <li>
             <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
@@ -127,20 +133,6 @@
                 <span>Settings</span>
             </a>
             <ul class="ml-menu" style="display: none;">
-
-                <li>
-                    <%= link_to institution_types_path do %>
-                        <i class="material-icons">layers</i>
-                        <span>Institution Types</span>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to institution_statuses_path do %>
-                        <i class="material-icons">layers</i>
-                        <span>Institution Status Types</span>
-                    <% end %>
-                </li>
-
                 <li>
                     <%= link_to focus_areas_path do %>
                         <i class="material-icons">layers</i>
@@ -156,6 +148,19 @@
                 </li>
 
                 <li>
+                    <%= link_to institution_types_path do %>
+                        <i class="material-icons">layers</i>
+                        <span>Institution Types</span>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to institution_statuses_path do %>
+                        <i class="material-icons">layers</i>
+                        <span>Institution Status Types</span>
+                    <% end %>
+                </li>
+
+                <li>
                     <%= link_to funding_statuses_path do %>
                         <i class="material-icons">layers</i>
                         <span>Funding Statuses</span>
@@ -166,18 +171,6 @@
                     <%= link_to regions_path do %>
                         <i class="material-icons">layers</i>
                         <span>Regions</span>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to project_statuses_path do %>
-                        <i class="material-icons">layers</i>
-                        <span>Project Status Types</span>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to project_amendments_path do %>
-                        <i class="material-icons">layers</i>
-                        <span>Project Amendments</span>
                     <% end %>
                 </li>
                 <li>
