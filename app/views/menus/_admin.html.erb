@@ -59,6 +59,12 @@
                 <span> Add Project</span>
             <% end %>
             </li>
+            <li>
+                    <%= link_to reports_project_report_path do %>
+                        <i class="material-icons">pie_chart</i>
+                        <span> Projects Region and Focus Area</span>
+                    <% end %>
+            </li>
             </ul>
             </li>
 
@@ -182,30 +188,6 @@
                 </li>
             </ul>
             </li>
-            <li>
-                <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                    <i class="material-icons">map</i>
-                    <span>Visualization</span>
-                </a>
-                <ul class="ml-menu" style="display: none;">
-
-                    <li>
-                    <%= link_to visualizations_index_path do %>
-                        <i class="material-icons">pie_chart</i>
-                        <span> Projects By Focus Areas</span>
-                    <% end %>
-                    </li>
-                </ul>
-            </li>
-
-            <% if current_user.try(:superadmin_role?) %>
-                <li class="active">
-                <a href="../admin/">
-                    <i class="material-icons">dashboard</i>
-                    <span>Admin View</span>
-                </a>
-                </li>
-            <% end %>
         </ul>
     </div>
 <% end %>
