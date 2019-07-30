@@ -8,6 +8,7 @@ class Project < ApplicationRecord
   has_many :implementation_areas, dependent: :destroy
   has_many :evaluations, dependent: :destroy
   has_many :performance_reports
+  has_many :project_amendments
 
   accepts_nested_attributes_for :funders, allow_destroy: true
   accepts_nested_attributes_for :implementation_areas, allow_destroy: true

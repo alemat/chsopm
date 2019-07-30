@@ -16,6 +16,7 @@ class PerformanceReportsController < ApplicationController
   # GET /performance_reports/new
   def new
     @performance_report = PerformanceReport.new
+    @performance_report.project_id = params[:project]
   end
 
   # GET /performance_reports/1/edit

@@ -19,7 +19,6 @@
         <div class="col-sm-6 left_form">   
         <%= f.input :project_status, collection: Project::PHASE_STATUSES %>
         <%= f.association :reporting_type %>
-        <%= f.input :report_status, collection: ['Not Yet Submitted', 'Submitted'] %>
         <%= f.association :funding_status %>
         <%= f.input :total_budget %>
         <%= f.input :program_budget %>

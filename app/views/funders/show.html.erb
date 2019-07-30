@@ -15,6 +15,11 @@
   <%= @funder.amount %>
 </p>
 
+
+<p>
+  <strong>Currency:</strong>
+  <%= @funder.currency %>
+</p>
 <%= link_to 'Edit', edit_funder_path(@funder), class: 'btn btn-primary' %> |
 <%= link_to 'Back', funders_path, class: 'btn btn-primary' %>
 </div>
