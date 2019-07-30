@@ -174,11 +174,11 @@
     </div>
 
     <div role="tabpanel" class="tab-pane fade" id="performance_reports">
-
         <p>
           <strong>Performance Report Status:</strong>
-          <td><%= @project.report_status rescue nil %></td>
+          <td><%= @project.reporting_type rescue nil %></td>
         </p>
+
       <div class="body table-responsive">
       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
         <thead>

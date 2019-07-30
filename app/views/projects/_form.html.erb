@@ -51,7 +51,7 @@
               </td>
               <td>
                 
-                <%= funder.input_field :currency, collection: ['ETB', 'USD'], class: 'form-control' %>
+                <%= funder.input_field :currency, collection: ['ETB', 'USD', 'EURO'], class: 'form-control' %>
                 <%= funder.full_error :currency %>
               </td>
               <td><%= funder.link_to_remove "Remove", class: 'btn btn-danger' %></td>

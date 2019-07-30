@@ -46,7 +46,7 @@ class Project < ApplicationRecord
   end
 
   def end_term_evaluation_date
-    return end_date - 10
+    return end_date - 180
   end
 
   def mid_term_sixty_evaluation_date
