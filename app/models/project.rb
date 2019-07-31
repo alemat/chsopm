@@ -68,7 +68,7 @@ class Project < ApplicationRecord
   end
 
   def self.missed_end_term_evaluations
-    Project.all.select{|p| p.end_term_evaluation_date < Date.today and p.end_term_evaluation.blank? }
+    Project.all.select{|p| p.end_date < Date.today and p.end_term_evaluation.blank? }
   end
 
   def mid_term_evaluation

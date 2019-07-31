@@ -1,4 +1,4 @@
-
+<% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
     <div class="menu">
         <ul class="list">
             <li class="header">MAIN MENU</li>

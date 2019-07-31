@@ -7,10 +7,12 @@
       <div class="col-sm-6">
         <%= f.input :name %>
         <%= f.input :short_name %>
-        <%= f.association :institution_type %>
-        <%= f.association :institution_status %>
+        <%= f.association :institution_type, label: 'CSO Type' %>
+        <%= f.association :institution_status, label: 'CSO Status' %>
         <%= f.input :license_no %>
-        <%= f.association :region %>
+        <strong> Address </strong> 
+        <hr>
+        <%= f.association :region, label: 'Head Office' %>
         <%= f.input :district %>
         <%= f.input :office_phone %>
       </div>
