@@ -6,6 +6,7 @@
 //= require AdminBSBMaterialDesign/cards/colored
 //= require AdminBSBMaterialDesign/autosize/autosize
 //= require AdminBSBMaterialDesign/momentjs/moment
+//= require AdminBSBMaterialDesign/morrisjs/morris
 //= require AdminBSBMaterialDesign/bootstrap-material-datetimepicker/bootstrap-material-datetimepicker
 //= require AdminBSBMaterialDesign/sweetalert/sweetalert.min
 //= require AdminBSBMaterialDesign/js/pages/forms/basic-form-elements

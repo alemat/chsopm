@@ -5,6 +5,9 @@ $(function () {
         responsive: true
     });
 
+    $( "select" ).select2({
+        });
+
     //Exportable table
     $('.js-exportable').DataTable({
         retrieve: true,

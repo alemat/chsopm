@@ -20,11 +20,22 @@ class ProjectsController < ApplicationController
     render json: projects
   end
 
+  # def projects_by_focus_area
+  #   projects = []
+  #     Region.all.each do |r|
+  #     projects << {name: r.to_s, data: FocusArea.all.map{ |fa| [fa.to_s, r.projects.where(focus_area_id: fa.id).count]} }
+  #   end
+  #   render json: projects
+  # end
+
   def projects_by_focus_area
-    focus_area = FocusArea.find(params[:focus_area])
-    projects = focus_area.projects.joins(:implementation_areas=>:region).group('regions.name').count
-    render json: projects
-  end
+     projects = []
+       FocusArea.all.each do |fa|
+       projects << {name: fa.to_s, data: Region.all.map{ |r| [r.to_s, fa.projects.joins(:implementation_areas).
+        where('implementation_areas.region_id = ?', r.id).count]} }
+     end
+     render json: projects
+   end
   
   def upcoming_mid_term_evaluations
     @projects = Project.upcoming_mid_term_evaluations

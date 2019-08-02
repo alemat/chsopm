@@ -8,4 +8,6 @@
 //= require Chart.bundle
 //= require chartkick
 //= require AdminBSBMaterialDesign/index
+//= require select2
 //= require activestorage
+//= require global

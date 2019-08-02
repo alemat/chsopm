@@ -65,39 +65,22 @@
                             <h2>PROJECTS BY REGION</h2>
                         </div>
                         <div class="body">
-                          <%= pie_chart project_by_region_projects_path %>
+                          <%= pie_chart project_by_region_projects_path, donut: true %>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                     <div class="card">
                         <div class="header">
-                            <h2>RECENT PROJECTS</h2>
+                            <h2>PROJECTS BY FOCUS AREA</h2>
                         </div>
 
-                        <div class="body table-responsive">
-                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                  <thead>
-                                    <tr>
-                                      <th>Project Title</th>
-                                      <th>Focus Area</th>
-                                      <th></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <% @projects.each do |project| %>
-                                      <tr>
-                                        <td><%= project.project_title %></td>
-                                        <td><%= project.focus_area %></td>
-                                        <td><%= link_to 'Show', project, class: 'btn btn-primary' %></td>
-                                      </tr>
-                                    <% end %>
-                                  </tbody>
-                            </table>
+                        <div class="body">
+                          <%= column_chart projects_by_focus_area_projects_path, curve: false, code: true %>
                         </div>
-                            </div>
+                    </div>
                     </div>
                 </div>
-              </div>
+              </div>-
 
 <% end %>

@@ -2,7 +2,7 @@ $(function () {
     $('#report_report_focus_area').change(function(){
       var focus_area = $(this).val();
       $.ajax({
-            url: '/visualizations/load_projects_by_focus_area',
+            url: '/home/load_projects_by_focus_area',
             data: {focus_area: focus_area},
             success: function(response){
               $('#report_sub_focus_area').html(response)

@@ -25,7 +25,7 @@ class Ability
     # For example, here the user can only update published articles.
     #
     #   can :update, Article, :published => true
-    #
+    #  can :manage, [User, Project, Institution]
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
  
@@ -35,7 +35,7 @@ class Ability
     end
     
     if user.admin?
-        can :manage, [User, Project, Institution]
+        can :manage, :all
     end
 
     if user.supervisor?

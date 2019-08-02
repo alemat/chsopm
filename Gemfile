@@ -26,7 +26,7 @@ gem 'colorize'
 gem "chartkick"
 gem 'wicked_pdf', '~> 1.1'
 gem 'mini_magick'
-gem 'rails_admin_material'
+gem "select2-rails"
 # gem 'rails_admin_rollincode'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
