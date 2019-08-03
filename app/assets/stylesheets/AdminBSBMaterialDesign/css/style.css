@@ -7575,7 +7575,7 @@ fieldset[disabled] .form-control {
         background: #2196F3;
         font-size: 12px;
         font-weight: 600;
-        color: #eee;
+        color: #ee;
         padding: 8px 16px; }
       .sidebar .menu .list i.material-icons {
         margin-top: 4px; }
@@ -7747,7 +7747,7 @@ fieldset[disabled] .form-control {
       display: block;
       width: 100%;
       text-align: center;
-      color: #fff;
+      color: #eee;
       margin-top: -5px; }
 
 /* Sign Up Page ================================ */
