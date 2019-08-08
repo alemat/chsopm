@@ -2534,7 +2534,7 @@ section.content {
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: #1f91f3 !important; }
+  background-color: #1f91f3 !important; color: #fff !important; text-align: center !important;}
 
 .btn-default,
 .btn-default:hover,
@@ -7575,7 +7575,7 @@ fieldset[disabled] .form-control {
         background: #2196F3;
         font-size: 12px;
         font-weight: 600;
-        color: #ee;
+        color: #eee;
         padding: 8px 16px; }
       .sidebar .menu .list i.material-icons {
         margin-top: 4px; }
