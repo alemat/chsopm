@@ -29,7 +29,7 @@ class InstitutionsController < ApplicationController
 
     respond_to do |format|
       if @institution.save
-        format.html { redirect_to @institution, notice: 'Institution was successfully created.' }
+        format.html { redirect_to institutions_path, notice: 'Institution was successfully created.' }
         format.json { render :show, status: :created, location: @institution }
       else
         format.html { render :new }

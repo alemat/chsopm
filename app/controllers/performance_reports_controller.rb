@@ -30,7 +30,7 @@ class PerformanceReportsController < ApplicationController
 
     respond_to do |format|
       if @performance_report.save
-        format.html { redirect_to @performance_report, notice: 'Performance report was successfully created.' }
+        format.html { redirect_to @performance_report.project, notice: 'Performance report was successfully created.' }
         format.json { render :show, status: :created, location: @performance_report }
       else
         format.html { render :new }

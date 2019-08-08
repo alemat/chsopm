@@ -30,7 +30,7 @@ class ProjectAmendmentsController < ApplicationController
     respond_to do |format|
       if @project_amendment.save
         @project_amendment.project.update(project_status: Project::AMENDED)
-        format.html { redirect_to @project_amendment, notice: 'Project amendment was successfully created.' }
+        format.html { redirect_to @project_amendment.project, notice: 'Project amendment was successfully created.' }
         format.json { render :show, status: :created, location: @project_amendment }
       else
         format.html { render :new }
