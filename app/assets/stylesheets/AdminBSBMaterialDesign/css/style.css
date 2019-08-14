@@ -7620,7 +7620,7 @@ fieldset[disabled] .form-control {
         -webkit-transform: scale(1);
         transform: scale(1); }
       .sidebar .menu .list a {
-        color: #747474;
+        color: #ff;
         position: relative;
         display: inline-flex;
         vertical-align: middle;

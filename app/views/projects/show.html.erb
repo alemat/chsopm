@@ -18,7 +18,7 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="project_details">
       <p>
-        <strong>Implementing CHSO:</strong>
+        <strong>Implementing CSO:</strong>
         <%= @project.institution %>
       </p>
 
@@ -65,7 +65,6 @@
         <strong>End Date:</strong>
         <%= @project.end_date %>
       </p>
-
       <br/>
       <br/>
 
@@ -73,6 +72,12 @@
 
       <p>
         <%= raw @project.project_details %>
+      </p>
+
+      <p>
+       <strong>Project Proposal File :</strong>
+
+           <%= link_to 'Download', @project.proposal rescue nil %>
       </p>
 
       <br/>

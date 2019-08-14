@@ -6,7 +6,7 @@
   <div class="row">
       <div class="col-sm-6">
         <%= f.input :project_title %>
-        <%= f.association :institution, locals: {f: f} %>
+        <%= f.association :institution, locals: {f: f} , label: 'CSO' %>
         <%= f.association :focus_area, prompt: true %> 
         <div id='sub_focus_area'>
           <%= render 'sub_focus_area' %>
@@ -26,7 +26,12 @@
       </div>
     </div>
     <%= f.input :project_details, wrapper: :vertical_form, input_html: {class: 'wysihtml5'} %>
-
+<br>
+         <strong> Attache Project Proposal </strong> 
+        <%= f.file_field :proposal %>
+<br>
+<br>
+<br>
    <legend>FUNDING SOURCES </legend>
       <%= f.simple_fields_for :funders do |funder| %>
         <div class='fields row'>
@@ -49,7 +54,6 @@
                 <%= funder.full_error :amount %>
               </td>
               <td>
-                
                 <%= funder.input_field :currency, collection: ['ETB', 'USD', 'EURO'], class: 'form-control' %>
                 <%= funder.full_error :currency %>
               </td>
