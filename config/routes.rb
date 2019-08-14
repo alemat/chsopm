@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :helps
   get 'reports/project_report'
   post 'reports/project_report'
   get 'visualizations/index'
