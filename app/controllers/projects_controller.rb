@@ -129,8 +129,8 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, 
         :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, 
-        :reporting_type_id, :project_focal_person, :phone_number, :email, :proposal, :report_status,  
-        funders_attributes: [:id, :project_id, :institution_id, :amount, :_destroy], 
+        :reporting_type_id, :project_focal_person, :phone_number, :email, :proposal, :currency, :report_status,  
+        funders_attributes: [:id, :project_id, :institution_id, :amount, :currency, :_destroy], 
         implementation_areas_attributes: [:id, :project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :_destroy])
     end
 end

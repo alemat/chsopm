@@ -23,6 +23,7 @@
         <%= f.input :total_budget %>
         <%= f.input :program_budget %>
         <%= f.input :admin_budget %>
+        <%= f.input :currency, collection: ['ETB', 'USD', 'EURO'] %>
       </div>
     </div>
     <%= f.input :project_details, wrapper: :vertical_form, input_html: {class: 'wysihtml5'} %>

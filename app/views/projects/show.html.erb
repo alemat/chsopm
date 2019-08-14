@@ -114,12 +114,12 @@
 
         <p>
           <strong>Program budget:</strong>
-          <%= @project.program_budget %>   <b>(<%= percentage(@project.program_budget,@project.total_budget) %>%)</b>
+          <%= @project.program_budget %>  <%= @project.currency %>  <b>(<%= percentage(@project.program_budget,@project.total_budget) %>%)</b>
         </p>
 
         <p>
           <strong>Admin budget:</strong>
-          <%= @project.admin_budget %>   <b>(<%= percentage(@project.admin_budget,@project.total_budget) %>%)</b>
+          <%= @project.admin_budget %>  <%= @project.currency %>  <b>(<%= percentage(@project.admin_budget,@project.total_budget) %>%)</b>
         </p>
 
         <div class="header">
