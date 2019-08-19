@@ -9,6 +9,7 @@
   <thead>
     <tr>
       <th>Project</th>
+      <th>Implementing CSO</th>
       <th>Reporting type</th>
       <th>Remark</th>
       <th>Report File</th>
@@ -20,6 +21,7 @@
     <% @performance_reports.each do |performance_report| %>
       <tr>
         <td><%= performance_report.project %></td>
+        <td><%= performance_report.project.institution %></td>
         <td><%= performance_report.reporting_type %></td>
         <td><%= performance_report.remark %></td>
         <td><%= link_to 'Download', performance_report.reports rescue nil %></td>

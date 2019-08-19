@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th>Project</th>
+      <th>CSO</th>
       <th>From</th>
       <th>To</th>
       <th>Amendment reason</th>
@@ -21,10 +22,11 @@
     <% @project_amendments.each do |project_amendment| %>
       <tr>
         <td><%= project_amendment.project %></td>
+        <td><%= project_amendment.project.institution %></td>
         <td><%= project_amendment.from %></td>
         <td><%= project_amendment.to %></td>
         <td><%= project_amendment.amendment_reason %></td>
-        <td><%= link_to 'Show', project_amendment, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Show', project_amendment.project, class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
