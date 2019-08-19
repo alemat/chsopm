@@ -7728,13 +7728,13 @@ fieldset[disabled] .form-control {
   margin: 5% auto;
   overflow-x: hidden; }
   .login-page .login-box .msg {
-    color: #555;
+    color: #666;
     margin-bottom: 30px;
     text-align: center; }
   .login-page .login-box a {
     font-size: 14px;
     text-decoration: none;
-    color: #eee; }
+    color: #666; }
   .login-page .login-box .logo {
     margin-bottom: 20px; }
     .login-page .login-box .logo a {
@@ -7742,12 +7742,12 @@ fieldset[disabled] .form-control {
       display: block;
       width: 100%;
       text-align: center;
-      color: #eee; }
+      color: #fff; }
     .login-page .login-box .logo small {
       display: block;
       width: 100%;
       text-align: center;
-      color: #eee;
+      color: #666;
       margin-top: -5px; }
 
 /* Sign Up Page ================================ */
