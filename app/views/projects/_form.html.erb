@@ -5,6 +5,7 @@
 
   <div class="row">
       <div class="col-sm-6">
+        <%= f.association :user, as: :hidden, input_html: {value: current_user.try(:id)} %>
         <%= f.input :project_title %>
         <%= f.association :institution, locals: {f: f} , label: 'CSO' %>
         <%= f.association :focus_area, prompt: true %> 
@@ -23,7 +24,7 @@
         <%= f.input :total_budget %>
         <%= f.input :program_budget %>
         <%= f.input :admin_budget %>
-        <%= f.input :currency, collection: ['ETB', 'USD', 'EURO'] %>
+        <%= f.input :currency, collection: ['ETB', 'USD', 'EURO', 'Pound sterlin'] %>
       </div>
     </div>
     <%= f.input :project_details, wrapper: :vertical_form, input_html: {class: 'wysihtml5'} %>
@@ -55,7 +56,7 @@
                 <%= funder.full_error :amount %>
               </td>
               <td>
-                <%= funder.input_field :currency, collection: ['ETB', 'USD', 'EURO'], class: 'form-control' %>
+                <%= funder.input_field :currency, collection: ['ETB', 'USD', 'EURO', 'Pound sterling'], class: 'form-control' %>
                 <%= funder.full_error :currency %>
               </td>
               <td><%= funder.link_to_remove "Remove", class: 'btn btn-danger' %></td>
