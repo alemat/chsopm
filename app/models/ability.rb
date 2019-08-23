@@ -36,6 +36,7 @@ class Ability
     
     if user.admin?
         can :manage, :all
+        can :confirm, Project, status: nil
     end
 
     if user.supervisor?

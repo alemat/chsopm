@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   belongs_to :sub_focus_area
   belongs_to :funding_status
   belongs_to :reporting_type
+  belongs_to :user
   has_many :funders, dependent: :destroy
   has_many :implementation_areas, dependent: :destroy
   has_many :evaluations, dependent: :destroy
@@ -21,6 +22,7 @@ class Project < ApplicationRecord
   scope :list_by_sub_focus_area, -> (sub_focus_area) { where(sub_focus_area_id: sub_focus_area) }
   scope :list_by_region, -> (region) { joins(:implementation_areas).where('implementation_areas.region_id = ?', region).uniq }
   
+  
   PHASE_STATUSES = [PHASEDOUT='Phased Out', ACTIVE='Active', AMENDED='Amended']
   
   def self.search(focus_area, sub_focus_area, region)
@@ -34,6 +36,10 @@ class Project < ApplicationRecord
       counter += 1
     end
     return projects.uniq
+  end
+
+  def pa_status
+    acceptance_status == nil ? 'Acceptance Pending' : 'Project Accepted'
   end
 
   def end_date_must_be_after_start_date
@@ -56,20 +62,44 @@ class Project < ApplicationRecord
 
   end
 
-  def self.upcoming_mid_term_evaluations
-    return Project.all.select{|p| Date.today >= p.mid_term_sixty_evaluation_date and Date.today <= p.mid_term_evaluation_date and p.mid_term_evaluation.blank? }
+  def self.upcoming_mid_term_evaluations(user)
+    if user.admin?
+      return Project.all.select{|p| Date.today >= p.mid_term_sixty_evaluation_date and Date.today <= p.mid_term_evaluation_date and p.mid_term_evaluation.blank? }
+    else
+      return Project.where("user_id = ?", user.id).select{|p| Date.today >= p.mid_term_sixty_evaluation_date and Date.today <= p.mid_term_evaluation_date and p.mid_term_evaluation.blank? }
+    end
   end
 
-  def self.upcoming_end_term_evaluations
-    return Project.all.select{|p| Date.today >= p.end_term_evaluation_date and Date.today <=  p.end_date and p.end_term_evaluation.blank? }
+  def self.upcoming_end_term_evaluations(user)
+    if user.admin?
+      return Project.all.select{|p| Date.today >= p.end_term_evaluation_date and Date.today <=  p.end_date and p.end_term_evaluation.blank? }
+    else
+      return Project.where("user_id = ?", user.id).select{|p| Date.today >= p.end_term_evaluation_date and Date.today <=  p.end_date and p.end_term_evaluation.blank? }
+    end
   end
 
-  def self.missed_mid_term_evaluations
-    Project.all.select{|p| p.mid_term_evaluation_date < Date.today and p.mid_term_evaluation.blank? }
+  def self.missed_mid_term_evaluations(user)
+    if user.admin?
+      return Project.all.select{|p| p.mid_term_evaluation_date < Date.today and p.mid_term_evaluation.blank? }
+    else
+      return Project.where("user_id = ?", user.id).select{|p| p.mid_term_evaluation_date < Date.today and p.mid_term_evaluation.blank? }
+    end
   end
 
-  def self.missed_end_term_evaluations
-    Project.all.select{|p| p.end_date < Date.today and p.end_term_evaluation.blank? }
+  def self.missed_end_term_evaluations(user)
+    if user.admin?
+      return Project.all.select{|p| p.end_date < Date.today and p.end_term_evaluation.blank? }
+    else
+      return Project.where("user_id = ?", user.id).select{|p| p.end_date < Date.today and p.end_term_evaluation.blank? }
+    end
+  end
+
+  def self.acceptance_pending_proposals
+    Project.all
+  end
+
+  def self.accepted_projects
+    Project.all
   end
 
   def mid_term_evaluation

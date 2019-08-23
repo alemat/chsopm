@@ -2,6 +2,8 @@ class Institution < ApplicationRecord
   belongs_to :institution_type
   belongs_to :institution_status
   belongs_to :region
+  has_many :users
+  has_many :projects
   has_many :funders
   has_one_attached :image
 

@@ -26,9 +26,9 @@ class InstitutionsController < ApplicationController
   # POST /institutions.json
   def create
     @institution = Institution.new(institution_params)
-
     respond_to do |format|
       if @institution.save
+        current_user.update_attribute('institution_id', @institution.id) if current_user.user?
         format.html { redirect_to institutions_path, notice: 'Institution was successfully created.' }
         format.json { render :show, status: :created, location: @institution }
       else
