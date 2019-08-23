@@ -1,7 +1,7 @@
 
     <div class="header">
       <h2>
-       All Projects
+       Accepted Projects
       </h2>
     </div>
     <div class="body table-responsive">
@@ -15,7 +15,6 @@
       <th>Focus Area</th>
       <th>Sub Focus Area</th>
       <th>Regions</th>
-      <th>Phase Status</th>
       <th>Funding Status</th>
       
       
@@ -24,7 +23,7 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <% current_user.projects.each do |project| %>
     <% if !project.acceptance_status.blank? %>
       <tr>
         <td><%= project.id %></td>
@@ -40,7 +39,6 @@
         <td><%= project.focus_area %></td>
         <td><%= project.sub_focus_area %></td>
         <td><%= project.implementation_areas.to_sentence %></td>
-        <td><%= project.project_status %></td>
         <td><%= project.funding_status %></td>
         <td><%= link_to 'Show', project, class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>

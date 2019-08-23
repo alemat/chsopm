@@ -5,8 +5,9 @@
 
   <div class="row">
       <div class="col-sm-6">
+        <%= f.association :user, as: :hidden, input_html: {value: current_user.try(:id)} %>
         <%= f.input :project_title %>
-        <%= f.association :institution, locals: {f: f} , label: 'CSO' %>
+        <%= f.association :institution, label: 'CSO' if current_user.admin? %>
         <%= f.association :focus_area, prompt: true %> 
         <div id='sub_focus_area'>
           <%= render 'sub_focus_area' %>

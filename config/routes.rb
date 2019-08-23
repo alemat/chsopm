@@ -19,9 +19,15 @@ Rails.application.routes.draw do
       get 'upcoming_end_term_evaluations'
       get 'missed_mid_term_evaluations'
       get 'missed_end_term_evaluations'
+      get 'acceptance_pending_proposals'
+      get 'pending_projects'
+      get 'accepted_projects'
       get 'project_by_region'
       get 'projects_by_sub_focus_area'
       get 'projects_by_focus_area'
+    end 
+    member do
+      get 'confirm'
     end
   end
   resources :reporting_types

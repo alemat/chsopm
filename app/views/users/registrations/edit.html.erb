@@ -8,6 +8,22 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
+      <div class="input-group">
+    <span class="input-group-addon">
+        <i class="material-icons">person</i>
+    </span>
+    <div class="form-line">
+      <%= f.input_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name", required: true %>
+    </div>
+</div>
+<div class="input-group">
+    <span class="input-group-addon">
+        <i class="material-icons">person</i>
+    </span>
+    <div class="form-line">
+      <%= f.input_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name", required: true %>
+    </div>
+</div>
 
       <div class="input-group">
       <span class="input-group-addon">

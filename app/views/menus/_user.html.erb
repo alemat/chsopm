@@ -1,7 +1,124 @@
 
     <div class="menu">
         <ul class="list">
-            <li class="header">MAIN MENU</li>
+            
+            <% if user_signed_in? and !current_user.admin? %>
+<li class="header">MAIN MENU</li>
+            <li class="active">
+            <%= link_to root_path do %>
+                <i class="material-icons">dashboard</i>
+                <span>Dashboard</span>
+            <% end %>
+            </li>
 
+            <li>
+            <%= link_to users_path do %>
+                <i class="material-icons">person</i>
+                <span>My Profile</span>
+            <% end %>
+            </li>
+
+            <li>
+            <%= link_to current_user.institution ? current_user.institution : new_institution_path do %>
+                <i class="material-icons">account_balance</i>
+                <span>My CSO</span>
+            <% end %>
+            </li>
+            <% if current_user.institution %>
+            <li>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                <i class="material-icons">widgets</i>
+                <span>Projects</span>
+            </a>
+            <ul class="ml-menu" style="display: none;">
+            <li>
+            <%= link_to accepted_projects_projects_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Accepted Projects</span>
+            <% end %>
+            </li>
+            <li>
+            <%= link_to pending_projects_projects_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Pending Projects</span>
+            <% end %>
+            </li>
+
+            <li>
+            <%= link_to new_project_path do %>
+                <i class="material-icons">add_circle</i>
+                <span> Add Project</span>
+            <% end %>
+            </li>
+            </ul>
+            </li>
+            <% end %>
+            <li>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                <i class="material-icons">date_range</i>
+                <span>MidTerm Evaluations</span>
+            </a>
+            <ul class="ml-menu" style="display: none;">
+
+            <li>
+            <%= link_to upcoming_mid_term_evaluations_projects_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Upcoming</span>
+            <% end %>
+            </li>
+
+            <li>
+            <%= link_to missed_mid_term_evaluations_projects_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Missed</span>
+            <% end %>
+            </li>
+            </ul>
+            </li>
+
+            <li>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                <i class="material-icons">date_range</i>
+                <span>EndTerm Evaluations</span>
+            </a>
+            <ul class="ml-menu" style="display: none;">
+
+            <li>
+            <%= link_to upcoming_end_term_evaluations_projects_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Upcoming</span>
+            <% end %>
+            </li>
+
+            <li>
+            <%= link_to missed_end_term_evaluations_projects_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Missed</span>
+            <% end %>
+            </li>
+            </ul>
+            </li>
+
+            <li>
+            <%= link_to performance_reports_path do %>
+                <i class="material-icons">chrome_reader_mode</i>
+                <span>Performance Reports</span>
+            <% end %>
+            </li>
+            <li>
+            <%= link_to project_amendments_path do %>
+                <i class="material-icons">layers</i>
+                <span>Project Amendments</span>
+            <% end %>
+            </li>
+            <li>
+            <%= link_to helps_path do %>
+                <i class="material-icons">info</i>
+                <span>Help</span>
+            <% end %>
+            </li>
+            <br/>
         </ul>
     </div>
+
+<% end %>

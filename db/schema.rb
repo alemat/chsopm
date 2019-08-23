@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_164338) do
+ActiveRecord::Schema.define(version: 2019_08_20_121255) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -185,11 +185,14 @@ ActiveRecord::Schema.define(version: 2019_08_14_164338) do
     t.datetime "updated_at", null: false
     t.string "report_status"
     t.string "currency"
+    t.bigint "user_id"
+    t.boolean "acceptance_status"
     t.index ["focus_area_id"], name: "index_projects_on_focus_area_id"
     t.index ["funding_status_id"], name: "index_projects_on_funding_status_id"
     t.index ["institution_id"], name: "index_projects_on_institution_id"
     t.index ["reporting_type_id"], name: "index_projects_on_reporting_type_id"
     t.index ["sub_focus_area_id"], name: "index_projects_on_sub_focus_area_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -234,7 +237,11 @@ ActiveRecord::Schema.define(version: 2019_08_14_164338) do
     t.boolean "supervisor_role", default: false
     t.boolean "user_role", default: true
     t.boolean "admin", default: false
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "institution_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["institution_id"], name: "index_users_on_institution_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -255,5 +262,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_164338) do
   add_foreign_key "projects", "institutions"
   add_foreign_key "projects", "reporting_types"
   add_foreign_key "projects", "sub_focus_areas"
+  add_foreign_key "projects", "users"
   add_foreign_key "sub_focus_areas", "focus_areas"
+  add_foreign_key "users", "institutions"
 end

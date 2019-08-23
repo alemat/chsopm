@@ -52,8 +52,8 @@
                       <ul class="dropdown-menu">
                             <li>
                               <%= link_to edit_user_registration_path do %>
-                                  <i class="material-icons">lock</i>
-                                  <span>Change Password</span>
+                                  <i class="material-icons">person</i>
+                                  <span>Edit Profile</span>
                               <% end %>
                             </li>
                             <li role="seperator" class="divider"></li>
@@ -76,6 +76,7 @@
         <aside id="leftsidebar" class="sidebar">
             <!-- Menu -->
             <%= render partial: 'menus/admin' %>
+            <%= render partial: 'menus/user' %>
             
             <!-- #Menu -->
             <!-- Footer -->

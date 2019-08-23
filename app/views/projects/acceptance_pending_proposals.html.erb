@@ -1,7 +1,7 @@
 
     <div class="header">
       <h2>
-       All Projects
+       Acceptance Pending Projects
       </h2>
     </div>
     <div class="body table-responsive">
@@ -10,12 +10,11 @@
     <tr>
       <th>Id</th>
       <th>Project Title</th>
-      <th>Status </th>
       <th>CSO</th>
       <th>Focus Area</th>
       <th>Sub Focus Area</th>
       <th>Regions</th>
-      <th>Phase Status</th>
+      <th>Acceptance Status</th>
       <th>Funding Status</th>
       
       
@@ -25,25 +24,21 @@
 
   <tbody>
     <% @projects.each do |project| %>
-    <% if !project.acceptance_status.blank? %>
+    <% if project.acceptance_status.blank? %>
       <tr>
         <td><%= project.id %></td>
         <td><%= project.project_title %></td>
-        <td>
-              <label class="label <%= project.status == 'Not Started' ? 'label-default' :
-                                          (project.status == 'Ongoing' ? 'label-warning' :
-                                               (project.status == 'Deadline Passed' ? 'label-success' : 'label-default')) %>">
-                <%= project.status %>
-              </label>
-        </td>
         <td><%= project.institution.short_name %></td>
         <td><%= project.focus_area %></td>
         <td><%= project.sub_focus_area %></td>
         <td><%= project.implementation_areas.to_sentence %></td>
-        <td><%= project.project_status %></td>
+        <td>
+          <div class='col-sm-3 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %> <%= link_to 'Confirm Project', confirm_project_path(project), class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %></div>
+          
+        </td>
         <td><%= project.funding_status %></td>
         <td><%= link_to 'Show', project, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
+        
           
         </td>
       </tr>

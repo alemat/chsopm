@@ -1,9 +1,11 @@
 <div class="body">
   <!-- Nav tabs -->
-     <p>
-        <strong>Project Title</strong> <%= @project.project_title %>
+      <p>
+        Project Title: <strong> <%= @project.project_title %></strong> &nbsp; &nbsp; 
+        <div class='col-sm-3 <%= @project.acceptance_status.blank? ? "alert-danger" : "alert-success" %>'> <%= @project.pa_status %> <%= link_to 'Confirm Project', confirm_project_path(@project), class: 'btn btn-primary' if @project.acceptance_status.blank? and can? :confirm, Project %> </div>
     </p>
-    <hr/>
+        <br/>
+    
 
   <ul class="nav nav-tabs tab-nav-right" role="tablist">
     <li role="presentation" class="active"><a href="#project_details" data-toggle="tab"> <i class="material-icons">widgets</i> Project Details</a></li>
@@ -276,7 +278,7 @@
           <table class="table table-bordered table-striped table-hover dataTable js-exportable">
             <thead>
               <tr>
-                <th> From</th>
+                <th>From</th>
                 <th>To</th>
                 <th>Amendment Reason</th>
               </tr>
@@ -302,4 +304,6 @@
   
 <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-primary' %> |
 <%= link_to 'Back', projects_path, class: 'btn btn-primary' %>
+
+
 </div>

@@ -1,4 +1,4 @@
-<% if user_signed_in? and current_user.admin? %>
+<% if user_signed_in? %>
     <div class="header">
         <h2>
             Users
@@ -8,6 +8,7 @@
     <table class="table table-bordered table-striped table-hover dataTable js-exportable">
   <thead>
     <tr>
+      <th>Full Name </th>
       <th>Email</th>
       <th>Admin</th>
       <th>Confirmation</th>
@@ -16,8 +17,9 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% current_user.institution.users.each do |user| %>
       <tr>
+        <td><%= user.first_name %></td>
         <td><%= user.email %></td>
         <td><%= user.admin %></td>
         <td><%= link_to 'Confirm', confirm_user_path(user), class: 'btn btn-primary' unless user.confirmed? %></td>

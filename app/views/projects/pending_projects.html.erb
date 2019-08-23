@@ -1,0 +1,38 @@
+
+    <div class="header">
+                            <h2>ACCEPTANCE PENDING PROJECTS</h2>
+                        </div>
+                        <div class="body table-responsive">
+                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                  <thead>
+                                    <tr>
+                                      <th>Project Title</th>
+                                      <th>Focus Area</th>
+                                      <th>CSO</th>
+                                      <th>Acceptance Status</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <% current_user.projects.each do |project| %>
+
+                                    <% if project.acceptance_status.blank? %> 
+                                      <tr>
+                                        <td><%= project.project_title %></td>
+                                        <td><%= project.focus_area %></td>
+                                       <td><%= project.institution %></td>
+                                       <td>
+                                          <div class='col-sm-3 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %> </div>
+                                          </td>
+                                        <td><%= link_to 'Details', project, class: 'btn btn-primary' %>
+                                        <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
+                                        </td>
+                                      </tr>
+                                    <% end %>
+                                    <% end %>
+                                  </tbody>
+
+                            </table>
+                            <%= link_to 'New Project', new_project_path, class: 'btn btn-primary' %>
+                        </div>
+
