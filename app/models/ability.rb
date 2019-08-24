@@ -46,6 +46,7 @@ class Ability
 
     if user.user?
         can :read, :all
+        can :create, User
     end
     
   end

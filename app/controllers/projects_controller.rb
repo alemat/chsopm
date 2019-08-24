@@ -99,6 +99,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.institution_id = current_user.institution_id if current_user.institution
+    @project.acceptance_status = true if current_user.admin
     respond_to do |format|
       if @project.save
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }

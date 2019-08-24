@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = current_user.admin? ? User.all : (current_user.institution ? current_user.institution.users : [])
   end
 
   def confirm
