@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_user.admin? ? Project.all : (current_user.project ? current_user.projects : [])
   end
 
   def project_by_region

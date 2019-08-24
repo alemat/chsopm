@@ -2,7 +2,7 @@
   <!-- Nav tabs -->
       <p>
         Project Title: <strong> <%= @project.project_title %></strong> &nbsp; &nbsp; 
-        <div class='col-sm-3 <%= @project.acceptance_status.blank? ? "alert-danger" : "alert-success" %>'> <%= @project.pa_status %> <%= link_to 'Confirm Project', confirm_project_path(@project), class: 'btn btn-primary' if @project.acceptance_status.blank? and can? :confirm, Project %> </div>
+        
     </p>
         <br/>
     
@@ -19,6 +19,7 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="project_details">
+      <p><div class='col-sm-3 <%= @project.acceptance_status.blank? ? "alert-danger" : "alert-success" %>'> <%= @project.pa_status %> <%= link_to 'Confirm Project', confirm_project_path(@project), class: 'btn btn-primary' if @project.acceptance_status.blank? and can? :confirm, Project %> </div></p>
       <p>
         <strong>Implementing CSO:</strong>
         <%= @project.institution %>
