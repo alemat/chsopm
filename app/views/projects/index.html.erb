@@ -1,14 +1,13 @@
 
     <div class="header">
       <h2>
-       All Projects
+       All accepted projects
       </h2>
     </div>
     <div class="body table-responsive">
       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
   <thead>
     <tr>
-      <th>Id</th>
       <th>Project Title</th>
       <th>Status </th>
       <th>CSO</th>
@@ -24,10 +23,9 @@
   </thead>
 
   <tbody>
-    <% current_user.projects.each do |project| %>
+    <% @projects.each do |project| %>
     <% if !project.acceptance_status.blank? %>
       <tr>
-        <td><%= project.id %></td>
         <td><%= project.project_title %></td>
         <td>
               <label class="label <%= project.status == 'Not Started' ? 'label-default' :

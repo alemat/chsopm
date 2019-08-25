@@ -49,11 +49,7 @@ class ProjectsController < ApplicationController
 
 
   def acceptance_pending_proposals
-    @projects = Project.acceptance_pending_proposals
-  end
-
-  def acceptance_pending_proposals
-    @projects = Project.accepted_projects
+    @projects = Project.acceptance_pending_proposals(current_user)
   end
 
   def missed_mid_term_evaluations

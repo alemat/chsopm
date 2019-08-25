@@ -94,12 +94,12 @@ class Project < ApplicationRecord
     end
   end
 
-  def self.acceptance_pending_proposals
-    Project.all
-  end
-
-  def self.accepted_projects
-    Project.all
+  def self.acceptance_pending_proposals(user)
+    if user.admin?
+      return Project.all.select{|p| p.acceptance_status.blank? } 
+    else
+      return Project.where("user_id = ?", user.id).select{|p| p.acceptance_status.blank? }
+    end
   end
 
   def mid_term_evaluation

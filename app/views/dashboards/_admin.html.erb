@@ -93,9 +93,9 @@
                                   <thead>
                                     <tr>
                                       <th>Project Title</th>
+                                      <th>Acceptance Status</th>
                                       <th>Focus Area</th>
                                       <th>CSO</th>
-                                      <th>Acceptance Status</th>
                                       <th></th>
                                     </tr>
                                   </thead>
@@ -104,9 +104,12 @@
                                     <% if project.acceptance_status.blank? %>
                                       <tr>
                                         <td><%= project.project_title %></td>
+                                        <td>
+                                          <div class='col-sm-5 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %><br>&nbsp; &nbsp; </div> &nbsp; &nbsp; &nbsp; <%= link_to 'Confirm Project', confirm_project_path(project), class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %>
+                                          
+                                        </td>
                                         <td><%= project.focus_area %></td>
                                         <td><%= project.institution %></td>
-                                         <td><div class=' col-sm-3 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %> </div> <%= link_to 'Confirm Project', confirm_project_path(project), class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %></td>
                                         <td><%= link_to 'Details', project, class: 'btn btn-primary' %></td>
                                       </tr>
                                       <% end %>

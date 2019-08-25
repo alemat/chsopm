@@ -8,13 +8,12 @@
       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
   <thead>
     <tr>
-      <th>Id</th>
       <th>Project Title</th>
+      <th>Acceptance Status</th>
       <th>CSO</th>
       <th>Focus Area</th>
       <th>Sub Focus Area</th>
       <th>Regions</th>
-      <th>Acceptance Status</th>
       <th>Funding Status</th>
       
       
@@ -26,16 +25,15 @@
     <% @projects.each do |project| %>
     <% if project.acceptance_status.blank? %>
       <tr>
-        <td><%= project.id %></td>
         <td><%= project.project_title %></td>
+        <td>
+          <div class='col-sm-4 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %><br>  &nbsp; &nbsp; </div> &nbsp; &nbsp; &nbsp;  <%= link_to 'Confirm Project', confirm_project_path(project), class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %>
+          
+        </td>
         <td><%= project.institution.short_name %></td>
         <td><%= project.focus_area %></td>
         <td><%= project.sub_focus_area %></td>
         <td><%= project.implementation_areas.to_sentence %></td>
-        <td>
-          <div class='col-sm-3 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %><br> </div> &nbsp; &nbsp;  &nbsp;  <%= link_to 'Confirm Project', confirm_project_path(project), class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %>
-          
-        </td>
         <td><%= project.funding_status %></td>
         <td><%= link_to 'Show', project, class: 'btn btn-primary' %>
         
