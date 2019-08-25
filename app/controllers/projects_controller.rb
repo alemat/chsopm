@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.admin? ? Project.all : (current_user.project ? current_user.projects : [])
+    @projects = current_user.admin? ? Project.all : (current_user.projects ? current_user.projects : [])
   end
 
   def project_by_region
@@ -96,10 +96,10 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    @project.acceptance_status = true if current_user.admin
+    @project.institution_id = current_user.institution_id if current_user.institution
     respond_to do |format|
       if @project.save
-        @project.institution_id = current_user.institution_id if current_user.institution
-        @project.acceptance_status = true if current_user.admin
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else

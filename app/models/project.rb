@@ -39,7 +39,7 @@ class Project < ApplicationRecord
   end
 
   def pa_status
-    acceptance_status == nil ? 'Acceptance Pending' : 'Project Accepted'
+    acceptance_status == nil ? 'Pending' : 'Accepted'
   end
 
   def end_date_must_be_after_start_date
@@ -64,33 +64,33 @@ class Project < ApplicationRecord
 
   def self.upcoming_mid_term_evaluations(user)
     if user.admin?
-      return Project.all.select{|p| Date.today >= p.mid_term_sixty_evaluation_date and Date.today <= p.mid_term_evaluation_date and p.mid_term_evaluation.blank? }
+      return Project.all.select{|p| Date.today >= p.mid_term_sixty_evaluation_date and Date.today <= p.mid_term_evaluation_date and p.mid_term_evaluation.blank? and !p.acceptance_status.blank? }
     else
-      return Project.where("user_id = ?", user.id).select{|p| Date.today >= p.mid_term_sixty_evaluation_date and Date.today <= p.mid_term_evaluation_date and p.mid_term_evaluation.blank? }
+      return Project.where("user_id = ?", user.id).select{|p| Date.today >= p.mid_term_sixty_evaluation_date and Date.today <= p.mid_term_evaluation_date and p.mid_term_evaluation.blank? and !p.acceptance_status.blank? }
     end
   end
 
   def self.upcoming_end_term_evaluations(user)
     if user.admin?
-      return Project.all.select{|p| Date.today >= p.end_term_evaluation_date and Date.today <=  p.end_date and p.end_term_evaluation.blank? }
+      return Project.all.select{|p| Date.today >= p.end_term_evaluation_date and Date.today <=  p.end_date and p.end_term_evaluation.blank? and !p.acceptance_status.blank? }
     else
-      return Project.where("user_id = ?", user.id).select{|p| Date.today >= p.end_term_evaluation_date and Date.today <=  p.end_date and p.end_term_evaluation.blank? }
+      return Project.where("user_id = ?", user.id).select{|p| Date.today >= p.end_term_evaluation_date and Date.today <=  p.end_date and p.end_term_evaluation.blank? and !p.acceptance_status.blank? }
     end
   end
 
   def self.missed_mid_term_evaluations(user)
     if user.admin?
-      return Project.all.select{|p| p.mid_term_evaluation_date < Date.today and p.mid_term_evaluation.blank? }
+      return Project.all.select{|p| p.mid_term_evaluation_date < Date.today and p.mid_term_evaluation.blank? and !p.acceptance_status.blank? }
     else
-      return Project.where("user_id = ?", user.id).select{|p| p.mid_term_evaluation_date < Date.today and p.mid_term_evaluation.blank? }
+      return Project.where("user_id = ?", user.id).select{|p| p.mid_term_evaluation_date < Date.today and p.mid_term_evaluation.blank? and !p.acceptance_status.blank? }
     end
   end
 
   def self.missed_end_term_evaluations(user)
     if user.admin?
-      return Project.all.select{|p| p.end_date < Date.today and p.end_term_evaluation.blank? }
+      return Project.all.select{|p| p.end_date < Date.today and p.end_term_evaluation.blank? and !p.acceptance_status.blank? }
     else
-      return Project.where("user_id = ?", user.id).select{|p| p.end_date < Date.today and p.end_term_evaluation.blank? }
+      return Project.where("user_id = ?", user.id).select{|p| p.end_date < Date.today and p.end_term_evaluation.blank? and !p.acceptance_status.blank? }
     end
   end
 
@@ -111,7 +111,7 @@ class Project < ApplicationRecord
   end
 
   def status
-    Date.today < start_date ? 'Not Started' : ((Date.today > start_date and Date.today < end_date) ? 'Ongoing' : (Date.today > end_date ? 'Deadline Passed' : '') )
+    Date.today < start_date ? 'Not Started' : ((Date.today >= start_date and Date.today <= end_date) ? 'Ongoing' : (Date.today > end_date ? 'Deadline Passed' : '') )
   end
 
   def to_s

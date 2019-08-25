@@ -24,7 +24,7 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <% current_user.projects.each do |project| %>
     <% if !project.acceptance_status.blank? %>
       <tr>
         <td><%= project.id %></td>
