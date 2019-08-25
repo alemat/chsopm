@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :confirm]
-  before_action :load, only: [:new, :create, :edit, :update]
+  
   # GET /projects
   # GET /projects.json
   def index
@@ -96,10 +96,10 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    @project.institution_id = current_user.institution_id if current_user.institution
-    @project.acceptance_status = true if current_user.admin
     respond_to do |format|
       if @project.save
+        @project.institution_id = current_user.institution_id if current_user.institution
+        @project.acceptance_status = true if current_user.admin
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
