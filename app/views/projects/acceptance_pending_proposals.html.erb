@@ -27,7 +27,7 @@
       <tr>
         <td><%= project.project_title %></td>
         <td>
-          <div class='col-sm-8 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %>  </div> &nbsp;  <%= link_to 'Confirm Project', confirm_project_path(project), class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %>
+          <div class='col-sm-8 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %>  </div> <%= link_to 'Confirm Project', confirm_project_path(project), data: { confirm: 'Are you sure you want to confirm project acceptance? Make sure you read details of the project first and check if it complies with the requirements' }, class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %>
           
         </td>
         <td><%= project.institution.short_name %></td>

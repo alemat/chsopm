@@ -186,7 +186,7 @@
               <td><%= implementation_area.contact_person %></td>
               <td><%= implementation_area.phone_number %></td>
               <td><%= implementation_area.email %></td>
-              <td><%= link_to 'Show', implementation_area, class: 'btn btn-primary' %>
+              <td></td>
             </tr>
           <% end %>
         </tbody>
@@ -262,9 +262,8 @@
                       <td><%= evaluation.evaluation_date %></td>
                       <td><%= raw evaluation.remark %></td>
                       <td><%= link_to 'Download', evaluation.evaluation_file rescue nil %></td>
-                      <td><%= link_to 'Show', evaluation, class: 'btn btn-primary'  %>
                       <%= link_to 'Edit', edit_evaluation_path(evaluation), class: 'btn btn-primary'  %>
-                      <%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+                   </td>
                     </tr>
                   <% end %>
                 </tbody>
