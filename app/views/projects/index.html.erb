@@ -14,7 +14,6 @@
       <th>Focus Area</th>
       <th>Sub Focus Area</th>
       <th>Regions</th>
-      <th>Phase Status</th>
       <th>Funding Status</th>
       
       
@@ -38,11 +37,8 @@
         <td><%= project.focus_area %></td>
         <td><%= project.sub_focus_area %></td>
         <td><%= project.implementation_areas.to_sentence %></td>
-        <td><%= project.project_status %></td>
         <td><%= project.funding_status %></td>
-        <td><%= link_to 'Show', project, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
-          
+        <td><%= link_to 'Show', project, class: 'btn btn-primary' %> &nbsp; <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
         </td>
       </tr>
     <% end %>
