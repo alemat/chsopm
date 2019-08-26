@@ -132,7 +132,7 @@
                                         <td><%= project.focus_area %></td>
                                        <td><%= project.institution %></td>
                                        <td>
-                                          <div class='col-sm-4 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> &nbsp; <%= project.pa_status %> &nbsp; </div>
+                                          <div class='col-sm-8 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'><%= project.pa_status %></div>  
                                           </td>
                                         <td><%= link_to 'Details', project, class: 'btn btn-primary' %>
                                         <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
