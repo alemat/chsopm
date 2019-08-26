@@ -23,7 +23,7 @@
                   </div>
                   <div class="content">
                     <div class="text">Projects</div>
-                    <div class="number"><%= Project.count %></div>
+                    <div class="number"><%= Project.count(:acceptance_status) %></div>
                   </div>
                 </div>
               </div>
