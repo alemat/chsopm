@@ -9,13 +9,13 @@ class ProjectsController < ApplicationController
   end
 
   def project_by_region
-    projects = Project.joins(:implementation_areas=>:region).group('regions.name').count
+    projects = Project.joins(:implementation_areas=>:region).group('regions.name').count(:acceptance_status)
     render json: projects
   end
 
   def projects_by_sub_focus_area
     sub_focus_area = SubFocusArea.find(params[:sub_focus_area])
-    projects = sub_focus_area.projects.joins(:implementation_areas=>:region).group('regions.name').count
+    projects = sub_focus_area.projects.joins(:implementation_areas=>:region).group('regions.name').count(:acceptance_status)
     render json: projects
   end
 
@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
      projects = []
        FocusArea.all.each do |fa|
        projects << {name: fa.to_s, data: Region.all.map{ |r| [r.to_s, fa.projects.joins(:implementation_areas).
-        where('implementation_areas.region_id = ?', r.id).count]} }
+        where('implementation_areas.region_id = ?', r.id).count(:acceptance_status)]} }
      end
      render json: projects
    end
