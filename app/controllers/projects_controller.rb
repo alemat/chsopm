@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :confirm]
   
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :accept, :confirm] 
+
   # GET /projects
   # GET /projects.json
   def index
@@ -67,7 +68,7 @@ class ProjectsController < ApplicationController
   end
 
   def confirm
-    @project.update(acceptance_status: true)
+    @project.update_attribute('acceptance_status', true)
     flash[:notice] = 'Project was successfully accepted.'
     redirect_to action: 'index'
   end
@@ -88,12 +89,13 @@ class ProjectsController < ApplicationController
     @sub_focus_areas = @project.focus_area.sub_focus_areas
   end
 
+
   # POST /projects
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    @project.acceptance_status = true if current_user.admin
     @project.institution_id = current_user.institution_id if current_user.institution
+    @project.acceptance_status = true if current_user.admin
     respond_to do |format|
       if @project.save
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
@@ -137,10 +139,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:user_id, :project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, 
-        :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, 
-        :reporting_type_id, :project_focal_person, :phone_number, :email, :proposal, :currency, :report_status, :acceptance_status,   
-        funders_attributes: [:id, :project_id, :institution_id, :amount, :currency, :_destroy], 
-        implementation_areas_attributes: [:id, :project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :_destroy])
+      params.require(:project).permit(:user_id, :project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, :acceptance_status, :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, :reporting_type_id, :project_focal_person, :phone_number, :email, :proposal, :currency, :report_status, funders_attributes: [:id, :project_id, :institution_id, :amount, :currency, :_destroy], implementation_areas_attributes: [:id, :project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :_destroy])
     end
 end

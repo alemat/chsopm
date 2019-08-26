@@ -15,8 +15,8 @@ class User < ApplicationRecord
   	supervisor_role == true
   end
 
-  def dmin?
-  	admin_role == true
+  def admin?
+  	admin == true
   end
 
   def user?

@@ -24,13 +24,24 @@
         <%= f.input :total_budget %>
         <%= f.input :program_budget %>
         <%= f.input :admin_budget %>
-        <%= f.input :currency, collection: ['ETB', 'USD', 'EURO', 'Pound sterlin'] %>
+        <%= f.input :currency, collection: ['ETB', 'USD', 'EURO', 'Pound sterling'] %>
       </div>
     </div>
     <%= f.input :project_details, wrapper: :vertical_form, input_html: {class: 'wysihtml5'} %>
 <br>
          <strong> Attach Project Proposal </strong> 
         <%= f.file_field :proposal %>
+<br>
+<br>
+<legend>PROJECT FOCAL PERSON</legend>
+  <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :project_focal_person %>
+        <%= f.input :phone_number %>
+        <%= f.input :email %>
+
+      </div>
+  </div>
 <br>
 <br>
 <br>
@@ -133,12 +144,6 @@
 <br/>
 
 
-
-<legend>PROJECT FOCAL PERSON</legend>
-    <table>
-      
-      <tr><td> <%= f.input :project_focal_person %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :phone_number %> </td> <td>  &nbsp;  &nbsp;  &nbsp;  </td> <td> <%= f.input :email %> </td></tr>
-    </table>     
     
 
   </div>

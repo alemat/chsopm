@@ -15,7 +15,7 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :funders, allow_destroy: true
   accepts_nested_attributes_for :implementation_areas, allow_destroy: true
 
-  validates :project_title, :start_date, :end_date, presence: true
+  validates :project_title, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :currency, :funding_status, :direct_beneficiaries, :indirect_beneficiaries, :project_focal_person, :phone_number, :email, presence: true
   validate :end_date_must_be_after_start_date
 
   scope :list_by_focus_area, -> (focus_area) { where(focus_area_id: focus_area) }
@@ -24,6 +24,7 @@ class Project < ApplicationRecord
   
   
   PHASE_STATUSES = [PHASEDOUT='Phased Out', ACTIVE='Active', AMENDED='Amended']
+
   
   def self.search(focus_area, sub_focus_area, region)
     projects = []
@@ -39,7 +40,7 @@ class Project < ApplicationRecord
   end
 
   def pa_status
-    acceptance_status == nil ? 'Pending' : 'Accepted'
+    acceptance_status.blank? ? 'Pending' : 'Accepted'
   end
 
   def end_date_must_be_after_start_date

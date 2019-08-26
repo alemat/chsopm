@@ -30,14 +30,14 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
  
     user ||= User.new # guest user (not logged in)
-    if user.superadmin?
-      can :manage, :all
-    end
     
     if user.admin?
         can :manage, :all
-        cannot :confirm, Project
-        can :confirm, Project, status: nil
+        can :confirm, Project
+    end
+
+    if user.superadmin?
+      can :manage, :all
     end
 
     if user.supervisor?

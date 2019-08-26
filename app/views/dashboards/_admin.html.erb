@@ -105,7 +105,7 @@
                                       <tr>
                                         <td><%= project.project_title %></td>
                                         <td>
-                                          <div class='col-sm-5 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %> &nbsp; &nbsp; </div> &nbsp; &nbsp; &nbsp; <%= link_to 'Confirm Project', confirm_project_path(project), class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %>
+                                          <div class='col-sm-3 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project.pa_status %> </div> &nbsp; &nbsp; &nbsp; <%= link_to 'Confirm Project', confirm_project_path(project), class: 'btn btn-primary' if project.acceptance_status.blank? and can? :confirm, Project %>
                                           
                                         </td>
                                         <td><%= project.focus_area %></td>
