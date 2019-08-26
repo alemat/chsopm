@@ -105,7 +105,7 @@
                                       <tr>
                                         <td><%= project.project_title %></td>
                                         <td>
-                                          <div class='col-sm-4 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'> &nbsp; <%= project.pa_status %> &nbsp; </div>                                  
+                                          <div class='col-sm-5 <%= project.acceptance_status.blank? ? "alert-danger" : 'alert-success' %>'><%= project.pa_status %></div>                                  
                                         </td>
                                         <td><%= project.focus_area %></td>
                                         <td><%= project.institution %></td>
