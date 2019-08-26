@@ -19,6 +19,7 @@
       <tbody>
       <% @projects.each do |project| %>
         <tr>
+          <% if !project.acceptance_status.blank? %>
           <td><%= project.project_title %></td>
           <td><%= project.implementation_areas.joins(:region).pluck('regions.name').to_sentence %></td>
           <td><%= project.start_date %></td>
@@ -33,6 +34,7 @@
           </td>
           <td><%= link_to 'Details', project, class: 'btn btn-primary' %></td>
         </tr>
+      <% end %>
       <% end %>
       </tbody>
     </table>
