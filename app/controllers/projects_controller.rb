@@ -70,7 +70,7 @@ class ProjectsController < ApplicationController
   def confirm
     @project.update_attribute('acceptance_status', true)
     flash[:notice] = 'Project was successfully accepted.'
-    redirect_to action: 'index'
+    redirect_to action: 'show'
   end
 
   # GET /projects/1
