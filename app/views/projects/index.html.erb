@@ -38,7 +38,7 @@
         <td><%= project.sub_focus_area %></td>
         <td><%= project.implementation_areas.to_sentence %></td>
         <td><%= project.funding_status %></td>
-        <td><%= link_to 'Show', project, class: 'btn btn-primary' %> &nbsp; <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
+        <td><%= link_to 'Show', project, class: 'btn btn-primary' %> <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
         </td>
       </tr>
     <% end %>
