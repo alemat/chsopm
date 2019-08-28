@@ -1,6 +1,5 @@
 class PerformanceReportsController < ApplicationController
   before_action :set_performance_report, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery allo: :null_session
 
   # GET /performance_reports
   # GET /performance_reports.json

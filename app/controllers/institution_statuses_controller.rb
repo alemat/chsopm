@@ -1,7 +1,6 @@
 class InstitutionStatusesController < ApplicationController
   before_action :set_institution_status, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery with: :null_session
-
+  
   # GET /institution_statuses
   # GET /institution_statuses.json
   def index
@@ -29,7 +28,7 @@ class InstitutionStatusesController < ApplicationController
 
     respond_to do |format|
       if @institution_status.save
-        format.html { redirect_to @institution_status, notice: 'Institution status was successfully created.' }
+        format.html { redirect_to institution_statuses_path, notice: 'Institution status was successfully created.' }
         format.json { render :show, status: :created, location: @institution_status }
       else
         format.html { render :new }

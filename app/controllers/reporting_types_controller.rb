@@ -1,7 +1,6 @@
 class ReportingTypesController < ApplicationController
   before_action :set_reporting_type, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery with: :null_session
-
+  
   # GET /reporting_types
   # GET /reporting_types.json
   def index
@@ -29,7 +28,7 @@ class ReportingTypesController < ApplicationController
 
     respond_to do |format|
       if @reporting_type.save
-        format.html { redirect_to @reporting_type, notice: 'Reporting type was successfully created.' }
+        format.html { redirect_to reporting_types_path, notice: 'Reporting type was successfully created.' }
         format.json { render :show, status: :created, location: @reporting_type }
       else
         format.html { render :new }

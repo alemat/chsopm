@@ -8,7 +8,6 @@
   <thead>
     <tr>
       <th>Focus Area</th>
-      <th>Program Area</th>
       <th>Description</th>
       <th></th>
     </tr>
@@ -18,9 +17,8 @@
     <% @focus_areas.each do |focus_area| %>
       <tr>
         <td><%= focus_area.name %></td>
-        <td><%= focus_area.program_area %></td>
         <td><%= focus_area.description %></td>
-        <td><%= link_to 'Show', focus_area, class: 'btn btn-primary' %>
+        <td>
         <%= link_to 'Edit', edit_focus_area_path(focus_area), class: 'btn btn-primary' %>
         <%= link_to 'Destroy', focus_area, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
@@ -31,3 +29,4 @@
 <br>
 
 <%= link_to 'New Focus Area', new_focus_area_path, class: 'btn btn-primary' %>
+</div>

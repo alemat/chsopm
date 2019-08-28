@@ -43,7 +43,7 @@ class FocusAreasController < ApplicationController
   def update
     respond_to do |format|
       if @focus_area.update(focus_area_params)
-        format.html { redirect_to @focus_area, notice: 'Focus area was successfully updated.' }
+        format.html { redirect_to focus_areas_path, notice: 'Focus area was successfully updated.' }
         format.json { render :show, status: :ok, location: @focus_area }
       else
         format.html { render :edit }

@@ -1,6 +1,5 @@
 class ImplementationAreasController < ApplicationController
   before_action :set_implementation_area, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery with: :null_session
 
   # GET /implementation_areas
   # GET /implementation_areas.json

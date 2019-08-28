@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+    <div class="header">
+      <h2>
+        Program Areas
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th></th>
+        </tr>
+      </thead>
 
-<h1>Program Areas</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @program_areas.each do |program_area| %>
-      <tr>
-        <td><%= program_area.name %></td>
-        <td><%= program_area.description %></td>
-        <td><%= link_to 'Show', program_area %></td>
-        <td><%= link_to 'Edit', edit_program_area_path(program_area) %></td>
-        <td><%= link_to 'Destroy', program_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @program_areas.each do |program_area| %>
+          <tr>
+            <td><%= program_area.name %></td>
+            <td><%= program_area.description %></td>
+            <td>
+            <%= link_to 'Edit', edit_program_area_path(program_area), class: 'btn btn-primary' %>
+            <%= link_to 'Destroy', program_area, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
 <br>
 
-<%= link_to 'New Program Area', new_program_area_path %>
+<%= link_to 'New Program Area', new_program_area_path, class: 'btn btn-primary' %>
+
+</div>

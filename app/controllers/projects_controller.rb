@@ -35,6 +35,15 @@ class ProjectsController < ApplicationController
      end
      render json: projects
    end
+
+  def projects_by_program_area
+     projects = []
+       ProgramArea.all.each do |pa|
+       projects << {name: pa.to_s, data: Region.all.map{ |r| [r.to_s, pa.projects.joins(:implementation_areas).
+        where('implementation_areas.region_id = ?', r.id).count(:acceptance_status)]} }
+     end
+     render json: projects
+   end
   
   def upcoming_mid_term_evaluations
       @projects = Project.upcoming_mid_term_evaluations(current_user)
@@ -68,7 +77,7 @@ class ProjectsController < ApplicationController
   # end
 
   def load_sub_focus_areas
-    @focus_areas = FocusArea.find(params[:focus_area])
+    @focus_area = FocusArea.find(params[:focus_area])
     @sub_focus_areas = @focus_area.sub_focus_areas
     render partial: 'sub_focus_area'
   end

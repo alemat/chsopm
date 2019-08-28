@@ -270,7 +270,6 @@ ActiveRecord::Schema.define(version: 2019_08_28_114907) do
 
   add_foreign_key "evaluations", "projects"
   add_foreign_key "evaluators", "evaluations"
-  add_foreign_key "focus_areas", "program_areas"
   add_foreign_key "funders", "institutions"
   add_foreign_key "funders", "projects"
   add_foreign_key "implementation_areas", "projects"

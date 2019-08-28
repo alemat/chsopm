@@ -28,7 +28,7 @@ class ProgramAreasController < ApplicationController
 
     respond_to do |format|
       if @program_area.save
-        format.html { redirect_to @program_area, notice: 'Program area was successfully created.' }
+        format.html { redirect_to program_areas_path, notice: 'Program area was successfully created.' }
         format.json { render :show, status: :created, location: @program_area }
       else
         format.html { render :new }

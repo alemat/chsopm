@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   resources :funders
   resources :projects do
     collection do
-      get 'load_focus_areas'
       get 'load_sub_focus_areas'
       get 'upcoming_mid_term_evaluations'
       get 'upcoming_end_term_evaluations'
@@ -26,6 +25,7 @@ Rails.application.routes.draw do
       get 'project_by_region'
       get 'projects_by_sub_focus_area'
       get 'projects_by_focus_area'
+      get 'projects_by_program_area'
     end 
     member do
       get 'confirm'

@@ -28,7 +28,7 @@ class InstitutionTypesController < ApplicationController
 
     respond_to do |format|
       if @institution_type.save
-        format.html { redirect_to @institution_type, notice: 'Institution type was successfully created.' }
+        format.html { redirect_to institution_types_path, notice: 'Institution type was successfully created.' }
         format.json { render :show, status: :created, location: @institution_type }
       else
         format.html { render :new }
