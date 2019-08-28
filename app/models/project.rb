@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :institution
+  belongs_to :program_area
   belongs_to :focus_area
   belongs_to :sub_focus_area
   belongs_to :funding_status
@@ -11,6 +12,7 @@ class Project < ApplicationRecord
   has_many :performance_reports
   has_many :project_amendments
   has_one_attached :proposal
+  has_many :project_extentions
 
   accepts_nested_attributes_for :funders, allow_destroy: true
   accepts_nested_attributes_for :implementation_areas, allow_destroy: true
