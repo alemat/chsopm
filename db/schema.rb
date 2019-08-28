@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_121255) do
+ActiveRecord::Schema.define(version: 2019_08_28_114907) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -146,6 +146,13 @@ ActiveRecord::Schema.define(version: 2019_08_20_121255) do
     t.index ["reporting_type_id"], name: "index_performance_reports_on_reporting_type_id"
   end
 
+  create_table "program_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "project_amendments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "project_id"
     t.date "from"
@@ -154,6 +161,20 @@ ActiveRecord::Schema.define(version: 2019_08_20_121255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_project_amendments_on_project_id"
+  end
+
+  create_table "project_extentions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "project_id"
+    t.string "subject"
+    t.boolean "activity_change"
+    t.boolean "budget_change"
+    t.boolean "ia_change"
+    t.boolean "within_project_duration"
+    t.boolean "approval_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "details"
+    t.index ["project_id"], name: "index_project_extentions_on_project_id"
   end
 
   create_table "project_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -187,9 +208,11 @@ ActiveRecord::Schema.define(version: 2019_08_20_121255) do
     t.string "currency"
     t.bigint "user_id"
     t.boolean "acceptance_status"
+    t.bigint "program_area_id"
     t.index ["focus_area_id"], name: "index_projects_on_focus_area_id"
     t.index ["funding_status_id"], name: "index_projects_on_funding_status_id"
     t.index ["institution_id"], name: "index_projects_on_institution_id"
+    t.index ["program_area_id"], name: "index_projects_on_program_area_id"
     t.index ["reporting_type_id"], name: "index_projects_on_reporting_type_id"
     t.index ["sub_focus_area_id"], name: "index_projects_on_sub_focus_area_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
@@ -247,6 +270,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_121255) do
 
   add_foreign_key "evaluations", "projects"
   add_foreign_key "evaluators", "evaluations"
+  add_foreign_key "focus_areas", "program_areas"
   add_foreign_key "funders", "institutions"
   add_foreign_key "funders", "projects"
   add_foreign_key "implementation_areas", "projects"
@@ -257,9 +281,11 @@ ActiveRecord::Schema.define(version: 2019_08_20_121255) do
   add_foreign_key "performance_reports", "projects"
   add_foreign_key "performance_reports", "reporting_types"
   add_foreign_key "project_amendments", "projects"
+  add_foreign_key "project_extentions", "projects"
   add_foreign_key "projects", "focus_areas"
   add_foreign_key "projects", "funding_statuses"
   add_foreign_key "projects", "institutions"
+  add_foreign_key "projects", "program_areas"
   add_foreign_key "projects", "reporting_types"
   add_foreign_key "projects", "sub_focus_areas"
   add_foreign_key "projects", "users"

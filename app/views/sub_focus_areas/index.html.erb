@@ -8,8 +8,8 @@
       <table class="table table-bordered table-striped table-hover dataTable js-exportable">
   <thead>
     <tr>
+      <th>Sub Focus Area</th>
       <th>Focus area</th>
-      <th>Name</th>
       <th>Description</th>
       <th></th>
     </tr>
@@ -18,8 +18,8 @@
   <tbody>
     <% @sub_focus_areas.each do |sub_focus_area| %>
       <tr>
-        <td><%= sub_focus_area.focus_area %></td>
         <td><%= sub_focus_area.name %></td>
+        <td><%= sub_focus_area.focus_area %></td>
         <td><%= sub_focus_area.description %></td>
         <td><%= link_to 'Show', sub_focus_area, class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_sub_focus_area_path(sub_focus_area), class: 'btn btn-primary' %>

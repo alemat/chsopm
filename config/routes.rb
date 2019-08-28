@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :project_extentions
+  resources :program_areas
   resources :helps
   get 'reports/project_report'
   post 'reports/project_report'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   resources :funders
   resources :projects do
     collection do
+      get 'load_focus_areas'
       get 'load_sub_focus_areas'
       get 'upcoming_mid_term_evaluations'
       get 'upcoming_end_term_evaluations'

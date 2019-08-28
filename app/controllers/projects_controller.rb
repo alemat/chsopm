@@ -61,11 +61,24 @@ class ProjectsController < ApplicationController
     @projects = Project.missed_end_term_evaluations(current_user)
   end
 
+  # def load_focus_areas
+  #   @program_area = ProgramArea.find(params[:program_area])
+  #   @focus_areas = @program_area.focus_areas
+  #   render partial: 'focus_area'
+  # end
+
   def load_sub_focus_areas
-    @focus_area = FocusArea.find(params[:focus_area])
+    @focus_areas = FocusArea.find(params[:focus_area])
     @sub_focus_areas = @focus_area.sub_focus_areas
     render partial: 'sub_focus_area'
   end
+
+  # def load_sub_focus_areas
+  #   @program_area = ProgramArea.find(params[:program_area])
+  #   @focus_area = @program_area.focus_area
+  #   @sub_focus_areas = @focus_area.sub_focus_areas
+  #   render partial: 'sub_focus_area'
+  # end
 
   def confirm
     @project.update_attribute('acceptance_status', true)
@@ -139,6 +152,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:user_id, :project_title, :institution_id, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, :acceptance_status, :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, :reporting_type_id, :project_focal_person, :phone_number, :email, :proposal, :currency, :report_status, funders_attributes: [:id, :project_id, :institution_id, :amount, :currency, :_destroy], implementation_areas_attributes: [:id, :project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :_destroy])
+      params.require(:project).permit(:user_id, :project_title, :institution_id, :program_area, :focus_area_id, :sub_focus_area_id, :project_details, :project_status_id, :acceptance_status, :direct_beneficiaries, :indirect_beneficiaries, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :funding_status_id, :reporting_type_id, :project_focal_person, :phone_number, :email, :proposal, :currency, :report_status, funders_attributes: [:id, :project_id, :institution_id, :amount, :currency, :_destroy], implementation_areas_attributes: [:id, :project_id, :region_id, :zone, :district, :contact_person, :phone_number, :email, :_destroy])
     end
 end
