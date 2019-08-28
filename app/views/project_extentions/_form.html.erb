@@ -5,14 +5,15 @@
 
   <div class="form-inputs">
     <%= f.association :project, as: :hidden %>
-    <%= f.input :subject %>
-    <%= f.input :activity_change %>
-    <%= f.input :budget_change %>
-    <%= f.input :ia_change %>
-    <%= f.input :within_project_duration %>
-    <%= f.input :details, wrapper: :vertical_form, input_html: {class: 'wysihtml5'}%>
+    <%= f.input :subject, label: "Subject" %> <br>
+    <strong>Why are you requesting for project amendment ? </strong>
+    <%= f.input :activity_change, label: "Due to project activities change", label_html: {class: 'transparent_label'} %>
+    <%= f.input :budget_change, label: "Due to budget change", label_html: {class: 'transparent_label'} %>
+    <%= f.input :ia_change, label: "Due to implementation area change", label_html: {class: 'transparent_label'} %><br>
+    <%= f.input :within_project_duration, label: "Does the amendment change duration of project implementation ?", label_html: {class: 'transparent_label'} %>
+    <%= f.input :details, wrapper: :vertical_form, input_html: {class: 'wysihtml5'}, label: "Project Amendment Details" %>
   </div>
-    <center> <strong> Attach Project Amendment Details</strong> <%= f.file_field : %> </center>
+    <center> <strong> Attach Project Amendment Details</strong> <%= f.file_field :amendment_details %> </center>
 
   <div class="form-actions">
     <%= f.button :submit %>

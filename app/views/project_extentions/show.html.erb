@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
-
+<div class="body">
+<strong>Project Amendment Request From: </strong> <%= @project_extention.project.institution %>
+<hr>
 <p>
-  <strong>Project:</strong>
-  <%= @project_extention.project %>
+  <strong>Project:</strong> <%= @project_extention.project %>
 </p>
 
 <p>
@@ -10,35 +10,29 @@
   <%= @project_extention.subject %>
 </p>
 
+<strong>Why are you requesting for project amendment ? </strong>
 <p>
-  <strong>Activity change:</strong>
-  <%= @project_extention.activity_change %>
+  <strong> Due to project activities change ? : </strong>   <%= @project_extention.activity_change %> <br>
+  <strong>Due to budget change ? : </strong>  <%= @project_extention.budget_change %> <br>
+  <strong>Due to implementation areas change ? :</strong>  <%= @project_extention.ia_change %>
 </p>
 
 <p>
-  <strong>Budget change:</strong>
-  <%= @project_extention.budget_change %>
+  <strong>Does the amendment change duration of project implementation ? :</strong> <%= @project_extention.within_project_duration %>
 </p>
 
 <p>
-  <strong>Ia change:</strong>
-  <%= @project_extention.ia_change %>
-</p>
-
-<p>
-  <strong>Within project duration:</strong>
-  <%= @project_extention.within_project_duration %>
-</p>
-
-<p>
-  <strong> Amendment Request Details</strong>
+  <strong> Amendment Request Details</strong> <br>
   <%= raw @project_extention.details %>
 </p>
 
+<p> <strong>Attachment</strong>: <%= link_to 'Download', @project_extention.amendment_details rescue nil %> </p>
+<hr>
+
 <p>
-  <strong>Approval status:</strong>
-  <%= @project_extention.approval_status %>
+  <strong>Approval status:</strong>   <%= @project_extention.approval_status %>
 </p>
 
-<%= link_to 'Edit', edit_project_extention_path(@project_extention) %> |
+<%= link_to 'Edit', edit_project_extention_path(@project_extention) if !current_user.admin? %> |
 <%= link_to 'Back', project_extentions_path %>
+</div>
