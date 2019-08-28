@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_extention.project %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @project_extention.subject %>
+</p>
+
+<p>
+  <strong>Activity change:</strong>
+  <%= @project_extention.activity_change %>
+</p>
+
+<p>
+  <strong>Budget change:</strong>
+  <%= @project_extention.budget_change %>
+</p>
+
+<p>
+  <strong>Ia change:</strong>
+  <%= @project_extention.ia_change %>
+</p>
+
+<p>
+  <strong>Within project duration:</strong>
+  <%= @project_extention.within_project_duration %>
+</p>
+
+<p>
+  <strong> Amendment Request Details</strong>
+  <%= raw @project_extention.details %>
+</p>
+
+<p>
+  <strong>Approval status:</strong>
+  <%= @project_extention.approval_status %>
+</p>
+
+<%= link_to 'Edit', edit_project_extention_path(@project_extention) %> |
+<%= link_to 'Back', project_extentions_path %>

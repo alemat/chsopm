@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  subject: MyString
+  activity_change: false
+  budget_change: false
+  ia_change: false
+  within_project_duration: false
+  approval_status: false
+
+two:
+  project: two
+  subject: MyString
+  activity_change: false
+  budget_change: false
+  ia_change: false
+  within_project_duration: false
+  approval_status: false

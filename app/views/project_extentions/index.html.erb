@@ -1,0 +1,47 @@
+    <div class="body">
+    <div class="header">
+      <h2>
+        Project Extention Requests
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Subject</th>
+      <th>Activity change</th>
+      <th>Budget change</th>
+      <th>Ia change</th>
+      <th>Within project duration</th>
+      <th>Amendment Details</th>>
+      <th>Approval status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_extentions.each do |project_extention| %>
+      <tr>
+        <td><%= project_extention.project %></td>
+        <td><%= project_extention.subject %></td>
+        <td><%= project_extention.activity_change %></td>
+        <td><%= project_extention.budget_change %></td>
+        <td><%= project_extention.ia_change %></td>
+        <td><%= project_extention.within_project_duration %></td>
+        <td><%= raw project_extention.details %></td>
+        <td><%= project_extention.approval_status %></td>
+        <td><%= link_to 'Download ', project_extention:amendment_details rescue nil %></td>
+        <td>
+        <%= link_to 'Show', project_extention %>
+        <%= link_to 'Edit', edit_project_extention_path(project_extention) %>
+        <%= link_to 'Destroy', project_extention, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project Extention', new_project_extention_path %>

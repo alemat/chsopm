@@ -1,0 +1,20 @@
+
+<%= simple_form_for(@project_extention) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :project, as: :hidden %>
+    <%= f.input :subject %>
+    <%= f.input :activity_change %>
+    <%= f.input :budget_change %>
+    <%= f.input :ia_change %>
+    <%= f.input :within_project_duration %>
+    <%= f.input :details, wrapper: :vertical_form, input_html: {class: 'wysihtml5'}%>
+  </div>
+    <center> <strong> Attach Project Amendment Details</strong> <%= f.file_field : %> </center>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

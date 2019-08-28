@@ -6,14 +6,14 @@
     </p>
         <br/>
     
-
   <ul class="nav nav-tabs tab-nav-right" role="tablist">
     <li role="presentation" class="active"><a href="#project_details" data-toggle="tab"> <i class="material-icons">widgets</i> Project Details</a></li>
     <li role="presentation"><a href="#fundings" data-toggle="tab"> <i class="material-icons">attach_money</i> Fundings</a></li>
     <li role="presentation"><a href="#implementation_areas" data-toggle="tab"> <i class="material-icons">map</i> Implementation Areas</a></li>
     <li role="presentation"><a href="#performance_reports" data-toggle="tab"> <i class="material-icons">chrome_reader_mode</i> Performance Reports</a></li>
     <li role="presentation"><a href="#evaluations" data-toggle="tab"> <i class="material-icons">view_list</i> Evaluations</a></li>
-    <li role="presentation"><a href="#amendments" data-toggle="tab"> <i class="material-icons">date_range</i> Project Extentions</a></li>
+    <li role="presentation"><a href="#amendments" data-toggle="tab"> <i class="material-icons">date_range</i> Project Amendment</a></li>
+    <li role="presentation"><a href="#extentions" data-toggle="tab"> <i class="material-icons">date_range</i> Project Extentions</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -91,7 +91,7 @@
       <br/>
       <br/>
 
-      <strong>PROJECT FOCUAL PERSON </strong>
+      <strong>PROJECT FOCAL PERSON </strong>
 
       <p>
         <strong>FUll Name: </strong>
@@ -279,6 +279,33 @@
     </div>
 
     <div role="tabpanel" class="tab-pane fade" id="amendments">
+       <div class="body table-responsive">
+          <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Amendment Criterias</th>
+                <th>Is amendment within agreed proejct duration ?</th>
+                <th>Amendment Attachment</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @project.project_amendments.each do |project_amendment| %>
+                <tr>
+                  <td><%= project_amendment.from %></td>
+                  <td><%= project_amendment.from %></td>
+                  <td><%= project_amendment.to %></td>
+                  <td><%= project_amendment.amendment_reason %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <%= link_to 'Add New Extention', new_project_amendment_path(project: @project.id), class: 'btn btn-primary' %>
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="extentions">
       <div class="body table-responsive">
           <table class="table table-bordered table-striped table-hover dataTable js-exportable">
             <thead>
