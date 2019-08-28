@@ -1,9 +1,9 @@
 
     <div class="menu">
         <ul class="list">
-            <li class="header">MAIN MENU</li>
-            <% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) || current_user.try(:admin?) %>
-
+            
+<% if user_signed_in? and current_user.admin? %>
+<li class="header">MAIN MENU</li>
             <li class="active">
             <%= link_to root_path do %>
                 <i class="material-icons">dashboard</i>
@@ -49,7 +49,14 @@
             <li>
             <%= link_to projects_path do %>
                 <i class="material-icons">view_list</i>
-                <span> List Projects</span>
+                <span> Accepted Projects</span>
+            <% end %>
+            </li>
+
+            <li>
+            <%= link_to acceptance_pending_proposals_projects_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Pending Projects</span>
             <% end %>
             </li>
 
@@ -59,6 +66,7 @@
                 <span> Add Project</span>
             <% end %>
             </li>
+
             <li>
                     <%= link_to reports_project_report_path do %>
                         <i class="material-icons">pie_chart</i>
@@ -120,11 +128,50 @@
                 <span>Performance Reports</span>
             <% end %>
             </li>
+
+            <li>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                <i class="material-icons">date_range</i>
+                <span>Project Extentions</span>
+            </a>
+            <ul class="ml-menu" style="display: none;">
             <li>
             <%= link_to project_amendments_path do %>
-                <i class="material-icons">layers</i>
-                <span>Project Amendments</span>
+                <i class="material-icons">view_list</i>
+                <span> Approved Project Extentions </span>
             <% end %>
+            </li>
+
+            <li>
+            <%= link_to project_amendments_path do %>
+                <i class="material-icons">view_list</i>
+                <span> New Extention Requests</span>
+            <% end %>
+            </li>
+            </ul>
+            </li>
+
+
+            <li>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                <i class="material-icons">date_range</i>
+                <span>Project Amendmentss</span>
+            </a>
+            <ul class="ml-menu" style="display: none;">
+            <li>
+            <%= link_to project_extentions_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Approved Project Amendments </span>
+            <% end %>
+            </li>
+
+            <li>
+            <%= link_to project_extentions_path do %>
+                <i class="material-icons">view_list</i>
+                <span> New Amendment Requests</span>
+            <% end %>
+            </li>
+            </ul>
             </li>
 
             <li>
@@ -133,6 +180,12 @@
                 <span>Settings</span>
             </a>
             <ul class="ml-menu" style="display: none;">
+                <li>
+                    <%= link_to program_areas_path do %>
+                        <i class="material-icons">layers</i>
+                        <span>Program Areas</span>
+                    <% end %>
+                </li>
                 <li>
                     <%= link_to focus_areas_path do %>
                         <i class="material-icons">layers</i>
@@ -181,6 +234,15 @@
                 </li>
             </ul>
             </li>
+            <li>
+            <%= link_to helps_path do %>
+                <i class="material-icons">info</i>
+                <span>Help</span>
+            <% end %>
+            </li>
+            <br/>
         </ul>
+
     </div>
+
 <% end %>

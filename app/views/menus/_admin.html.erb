@@ -128,11 +128,50 @@
                 <span>Performance Reports</span>
             <% end %>
             </li>
+
+            <li>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                <i class="material-icons">date_range</i>
+                <span>Project Extentions</span>
+            </a>
+            <ul class="ml-menu" style="display: none;">
             <li>
             <%= link_to project_amendments_path do %>
-                <i class="material-icons">layers</i>
-                <span>Extended Projects</span>
+                <i class="material-icons">view_list</i>
+                <span> Approved Project Extentions </span>
             <% end %>
+            </li>
+
+            <li>
+            <%= link_to project_amendments_path do %>
+                <i class="material-icons">view_list</i>
+                <span> New Extention Requests</span>
+            <% end %>
+            </li>
+            </ul>
+            </li>
+
+
+            <li>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                <i class="material-icons">date_range</i>
+                <span>Project Amendmentss</span>
+            </a>
+            <ul class="ml-menu" style="display: none;">
+            <li>
+            <%= link_to project_extentions_path do %>
+                <i class="material-icons">view_list</i>
+                <span> Approved Project Amendments </span>
+            <% end %>
+            </li>
+
+            <li>
+            <%= link_to project_extentions_path do %>
+                <i class="material-icons">view_list</i>
+                <span> New Amendment Requests</span>
+            <% end %>
+            </li>
+            </ul>
             </li>
 
             <li>

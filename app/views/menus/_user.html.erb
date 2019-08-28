@@ -2,7 +2,7 @@
     <div class="menu">
         <ul class="list">
             
-            <% if user_signed_in? and !current_user.admin? %>
+<% if user_signed_in? and !current_user.user? %>
 <li class="header">MAIN MENU</li>
             <li class="active">
             <%= link_to root_path do %>
