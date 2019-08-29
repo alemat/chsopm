@@ -8,6 +8,7 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Short Name</th>
           <th>Description</th>
           <th></th>
         </tr>
@@ -17,6 +18,7 @@
         <% @program_areas.each do |program_area| %>
           <tr>
             <td><%= program_area.name %></td>
+            <td><%= program_area.short_name %></td>
             <td><%= program_area.description %></td>
             <td>
             <%= link_to 'Edit', edit_program_area_path(program_area), class: 'btn btn-primary' %>

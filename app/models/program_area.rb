@@ -2,6 +2,6 @@ class ProgramArea < ApplicationRecord
 	has_many :projects
 
 	def to_s
-		name
+		short_name
 	end
 end

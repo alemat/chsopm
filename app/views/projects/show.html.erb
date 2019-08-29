@@ -303,13 +303,14 @@
                     3. Implementation Area Change : <b><%= project_extention.ia_change %></b> <br>
                     4. Does the amendment project implementation duration ? : <b> <%= project_extention.within_project_duration %> </b>
                   </td>
-                  <td><%= project_extention.approval_status %></td>
-                  <td><%= project_extention.details %></td>
+                  <td>
+                    <div class='col-sm-8 <%= project_extention.approval_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project_extention.project_approval_status %>  </div> <%= link_to 'Approve', approve_project_extention_path(project_extention), data: { approve: 'Are you sure you want to approve the amendment?' }, class: 'btn btn-primary' if project_extention.approval_status.blank? and can? :approve, ProjectExtention %></td>
+                  <td><%= raw project_extention.details %></td>
                   <td><%= link_to 'Download', project_extention.amendment_details rescue nil %></td>
                   <td>
-                    <%= link_to 'Show', project_extention %>
-                    <%= link_to 'Edit', edit_project_extention_path(project_extention) %>
-                    <%= link_to 'Destroy', project_extention, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Show', project_extention, class: 'btn btn-primary' %>
+                    <%= link_to 'Edit', edit_project_extention_path(project_extention), class: 'btn btn-primary' %>
+                    <%= link_to 'Destroy', project_extention, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 
                   </td>
                 </tr>
@@ -351,6 +352,6 @@
   
 <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-primary' %> |
 <%= link_to 'Back', projects_path, class: 'btn btn-primary' %>
-
+</div>
 
 </div>

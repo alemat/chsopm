@@ -69,6 +69,6 @@ class ProgramAreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def program_area_params
-      params.require(:program_area).permit(:name, :description)
+      params.require(:program_area).permit(:name, :short_name, :description)
     end
 end
