@@ -3,6 +3,11 @@ class ProjectExtention < ApplicationRecord
   has_one_attached :amendment_details
 
 
+  def self.approval_pending_amendments
+    return ProjectExtention.all
+  end
+
+
   def project_approval_status
   	approval_status.blank? ? 'Pending' : 'Approved'
   end

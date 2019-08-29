@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :project_extentions do
     collection do
       get 'approval_pending_amendments'
+      
     end
     member do
       get 'approve'

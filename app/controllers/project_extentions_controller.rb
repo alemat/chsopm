@@ -22,6 +22,10 @@ class ProjectExtentionsController < ApplicationController
   def edit
   end
 
+  def approval_pending_amendments
+    @project_extentions = ProjectExtention.all
+  end
+
   def approve
     @project_extention.update_attribute('approval_status', true)
     flash[:notice] = 'Project amendment request successfully approved.'
