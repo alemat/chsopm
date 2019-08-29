@@ -1,5 +1,4 @@
 <div class="body">
-
 <p>
   <strong>Project:</strong>
   <%= @project_amendment.project %>
@@ -18,6 +17,11 @@
 <p>
   <strong>Amendment reason:</strong>
   <%= raw @project_amendment.amendment_reason %>
+</p>
+
+<p>
+	<strong>Approval Status:</strong>
+	<%= @project_amendment.approval_status %>
 </p>
 
 <%= link_to 'Edit', edit_project_amendment_path(@project_amendment), class: 'btn btn-primary' %> |

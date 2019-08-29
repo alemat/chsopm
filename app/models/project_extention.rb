@@ -7,8 +7,8 @@ class ProjectExtention < ApplicationRecord
     return ProjectExtention.all
   end
 
-
-  def project_approval_status
+  def project_extention_approval_status
   	approval_status.blank? ? 'Pending' : 'Approved'
   end
+  
 end

@@ -1,5 +1,5 @@
 class ProjectAmendmentsController < ApplicationController
-  before_action :set_project_amendment, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_amendment, only: [:show, :edit, :update, :destroy, :approve]
 
   # GET /project_amendments
   # GET /project_amendments.json
@@ -22,10 +22,17 @@ class ProjectAmendmentsController < ApplicationController
   def edit
   end
 
+  def approve
+    @project_amendment.update_attribute('approval_status', true)
+    flash[:notice] = 'Project extention request successfully approved.'
+    redirect_to action: 'show'
+  end
+
   # POST /project_amendments
   # POST /project_amendments.json
   def create
     @project_amendment = ProjectAmendment.new(project_amendment_params)
+    @project_amendment.approval_status = true if current_user.admin
 
     respond_to do |format|
       if @project_amendment.save
@@ -71,6 +78,6 @@ class ProjectAmendmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_amendment_params
-      params.require(:project_amendment).permit(:project_id, :from, :to, :amendment_reason)
+      params.require(:project_amendment).permit(:project_id, :from, :to, :amendment_reason, :approval_status, :extention_file)
     end
 end

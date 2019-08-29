@@ -28,12 +28,10 @@
 
 <p> <strong>Attachment</strong>: <%= link_to 'Download', @project_extention.amendment_details rescue nil %> </p>
 <hr>
-
 <p>
         <strong>Approval Status:</strong>
-        <div class='col-sm-3 <%= @project_extention.approval_status.blank? ? "alert-danger" : "alert-success" %>'> <%= @project_extention.project_approval_status %> <br></div> &nbsp; &nbsp; &nbsp; <%= link_to 'Approve', approve_project_extention_path(@project_extention), class: 'btn btn-primary' if @project_extention.approval_status.blank? and can? :approve, ProjectExtention %> 
+        <div class='col-sm-3 <%= @project_extention.approval_status.blank? ? "alert-danger" : "alert-success" %>'> <%= @project_extention.project_extention_approval_status %> <br></div> &nbsp; &nbsp; &nbsp; <%= link_to 'Approve', approve_project_extention_path(@project_extention), class: 'btn btn-primary' if @project_extention.approval_status.blank? and can? :approve, ProjectExtention %> 
 </p>
-
 <%= link_to 'Edit', edit_project_extention_path(@project_extention) if !current_user.admin? %> |
 <%= link_to 'Back', project_extentions_path %>
 </div>

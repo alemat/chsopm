@@ -12,20 +12,24 @@
       <th>From</th>
       <th>To</th>
       <th>Reason</th>
+      <th>Approval Status</th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @project_amendments.each do |project_amendment| %>
+    <% if !project_amendment.blank? %>
       <tr>
         <td><%= project_amendment.project %></td>
         <td><%= project_amendment.project.institution %></td>
         <td><%= project_amendment.from %></td>
         <td><%= project_amendment.to %></td>
         <td><%= project_amendment.amendment_reason %></td>
+        <td> <div class='col-sm-8 <%= project_amendment.approval_status.blank? ? "alert-danger" : 'alert-success' %>'> <%= project_amendment.project_amendment_approval_status %>  </div> <%= link_to 'Approve', approve_project_extention_path(project_amendment), data: { approve: 'Are you sure you want to approve the extention?' }, class: 'btn btn-primary' if project_amendment.approval_status.blank? and can? :approve, ProjectAmendment %></td>
         <td><%= link_to 'Show', project_amendment.project, class: 'btn btn-primary' %></td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
