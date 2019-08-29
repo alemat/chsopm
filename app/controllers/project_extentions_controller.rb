@@ -1,5 +1,5 @@
 class ProjectExtentionsController < ApplicationController
-  before_action :set_project_extention, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_extention, only: [:show, :edit, :update, :destroy, :approve]
 
   # GET /project_extentions
   # GET /project_extentions.json
@@ -22,11 +22,17 @@ class ProjectExtentionsController < ApplicationController
   def edit
   end
 
+  def approve
+    @project_extention.update_attribute('approval_status', true)
+    flash[:notice] = 'Project amendment request successfully approved.'
+    redirect_to action: 'show'
+  end
+
   # POST /project_extentions
   # POST /project_extentions.json
   def create
     @project_extention = ProjectExtention.new(project_extention_params)
-
+    @project_extention.approval_status = true if current_user.admin
     respond_to do |format|
       if @project_extention.save
         format.html { redirect_to @project_extention, notice: 'Project extention was successfully created.' }

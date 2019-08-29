@@ -1,9 +1,9 @@
-
-    <div class="menu">
-        <ul class="list">
             
 <% if user_signed_in? and current_user.admin? %>
-<li class="header">MAIN MENU</li>
+
+<div class="menu">
+        <ul class="list">
+            <li class="header">MAIN MENU</li>
             <li class="active">
             <%= link_to root_path do %>
                 <i class="material-icons">dashboard</i>
@@ -155,7 +155,7 @@
             <li>
             <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                 <i class="material-icons">date_range</i>
-                <span>Project Amendmentss</span>
+                <span>Project Amendments</span>
             </a>
             <ul class="ml-menu" style="display: none;">
             <li>
@@ -166,9 +166,9 @@
             </li>
 
             <li>
-            <%= link_to project_extentions_path do %>
+            <%= link_to approval_pending_amendments_project_extentions_path do %>
                 <i class="material-icons">view_list</i>
-                <span> New Amendment Requests</span>
+                <span> Amendment Requests</span>
             <% end %>
             </li>
             </ul>
@@ -242,7 +242,5 @@
             </li>
             <br/>
         </ul>
-
     </div>
-
 <% end %>

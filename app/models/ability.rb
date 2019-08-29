@@ -34,6 +34,7 @@ class Ability
     if user.admin?
         can :manage, :all
         can :confirm, Project
+        can :approve, ProjectExtention
     end
 
     if user.superadmin?

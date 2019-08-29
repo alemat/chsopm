@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :project_extentions
+  resources :project_extentions do
+    collection do
+      get 'approval_pending_amendments'
+    end
+    member do
+      get 'approve'
+    end
+  end
+
   resources :program_areas
   resources :helps
   get 'reports/project_report'

@@ -12,7 +12,7 @@
 
 <strong>Why are you requesting for project amendment ? </strong>
 <p>
-  <strong> Due to project activities change ? : </strong>   <%= @project_extention.activity_change %> <br>
+  <strong>Due to project activities change ? : </strong>   <%= @project_extention.activity_change %> <br>
   <strong>Due to budget change ? : </strong>  <%= @project_extention.budget_change %> <br>
   <strong>Due to implementation areas change ? :</strong>  <%= @project_extention.ia_change %>
 </p>
@@ -30,7 +30,8 @@
 <hr>
 
 <p>
-  <strong>Approval status:</strong>   <%= @project_extention.approval_status %>
+        <strong>Approval Status:</strong>
+        <div class='col-sm-3 <%= @project_extention.approval_status.blank? ? "alert-danger" : "alert-success" %>'> <%= @project_extention.project_approval_status %> <br></div> &nbsp; &nbsp; &nbsp; <%= link_to 'Approve', approve_project_extention_path(@project_extention), class: 'btn btn-primary' if @project_extention.approval_status.blank? and can? :approve, ProjectExtention %> 
 </p>
 
 <%= link_to 'Edit', edit_project_extention_path(@project_extention) if !current_user.admin? %> |

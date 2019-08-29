@@ -4,6 +4,6 @@ class ProjectExtention < ApplicationRecord
 
 
   def project_approval_status
-  	return approval_status == true ? 'Approved' : 'Pending'
+  	approval_status.blank? ? 'Pending' : 'Approved'
   end
 end

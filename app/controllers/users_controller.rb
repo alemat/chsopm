@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
   layout 'application'
-  before_action :set_user, only: [:show, :edit, :update, :destroy,:confirm]
-  protect_from_forgery with: :null_session
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :confirm]
 
   # GET /users
   # GET /users.json
