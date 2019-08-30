@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_135935) do
+ActiveRecord::Schema.define(version: 2019_08_30_154558) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_135935) do
     t.text "amendment_reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approval_status"
     t.index ["project_id"], name: "index_project_amendments_on_project_id"
   end
 

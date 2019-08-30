@@ -8,6 +8,8 @@
       <tr>
         <th>Project Title</th>
         <th>Region</th>
+        <th>Program Area</th>
+        <th>Focus Area</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Implementing CSO</th>
@@ -22,6 +24,8 @@
           <% if !project.acceptance_status.blank? %>
           <td><%= project.project_title %></td>
           <td><%= project.implementation_areas.joins(:region).pluck('regions.name').to_sentence %></td>
+          <td><%= project.program_area %>
+          <td><%= project.focus_area %></td>
           <td><%= project.start_date %></td>
           <td><%= project.end_date %></td>
           <td><%= project.institution %></td>

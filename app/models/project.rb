@@ -20,6 +20,7 @@ class Project < ApplicationRecord
   validates :project_title, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :currency, :funding_status, :direct_beneficiaries, :indirect_beneficiaries, :project_focal_person, :phone_number, :email, presence: true
   validate :end_date_must_be_after_start_date
 
+  scope :list_by_program_area, -> (program_area) {where(program_area_id: program_area)}
   scope :list_by_focus_area, -> (focus_area) { where(focus_area_id: focus_area) }
   scope :list_by_sub_focus_area, -> (sub_focus_area) { where(sub_focus_area_id: sub_focus_area) }
   scope :list_by_region, -> (region) { joins(:implementation_areas).where('implementation_areas.region_id = ?', region).uniq }
@@ -28,9 +29,9 @@ class Project < ApplicationRecord
   PHASE_STATUSES = [PHASEDOUT='Phased Out', ACTIVE='Active', AMENDED='Amended']
 
   
-  def self.search(focus_area, sub_focus_area, region)
+  def self.search(program_area, focus_area, sub_focus_area, region)
     projects = []
-    available_filters = {focus_area => list_by_focus_area(focus_area), 
+    available_filters = {program_area => list_by_program_area(program_area), focus_area => list_by_focus_area(focus_area), 
       sub_focus_area => list_by_sub_focus_area(sub_focus_area), 
       region => list_by_region(region)}.select{|k,v| !k.blank?}
     counter = 0
