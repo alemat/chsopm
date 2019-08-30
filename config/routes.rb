@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :project_extentions do
     collection do
       get 'approval_pending_amendments'
-      
     end
     member do
       get 'approve'
@@ -20,7 +19,11 @@ Rails.application.routes.draw do
   resources :evaluators
   resources :evaluations
   resources :performance_reports
-  resources :project_amendments
+  resources :project_amendments do
+    collection do
+      get 'approval_pending_extentions'
+    end
+  end
   resources :implementation_areas
   resources :funders
   resources :projects do

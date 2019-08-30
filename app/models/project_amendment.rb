@@ -7,7 +7,7 @@ class ProjectAmendment < ApplicationRecord
   end
 
   def  self.approval_pending_extentions
-  	return ProjectAmendments.all 
+  	return ProjectAmendment.all 
   end
 
 end

@@ -1,6 +1,6 @@
     <div class="header">
       <h2>
-       Extended Projects 
+       Approval Pending Project Extention Requests
       </h2>
     </div>
 <div class="body table-responsive">
@@ -19,7 +19,7 @@
 
   <tbody>
     <% @project_amendments.each do |project_amendment| %>
-    <% if !project_amendment.approval_status.blank? %>
+    <% if project_amendment.approval_status.blank? %>
       <tr>
         <td><%= project_amendment.project %></td>
         <td><%= project_amendment.project.institution %></td>

@@ -10,12 +10,18 @@ class ProjectAmendmentsController < ApplicationController
   # GET /project_amendments/1
   # GET /project_amendments/1.json
   def show
+    
   end
 
   # GET /project_amendments/new
   def new
     @project_amendment = ProjectAmendment.new
     @project_amendment.project_id = params[:project]
+  end
+
+
+  def approval_pending_extentions
+    @project_amendments = ProjectAmendment.all
   end
 
   # GET /project_amendments/1/edit
