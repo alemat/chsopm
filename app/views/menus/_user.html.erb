@@ -2,7 +2,6 @@
 <% if user_signed_in? and current_user.user? %>
     <div class="menu">
         <ul class="list">
-            <li class="header">MAIN MENU</li>
             <li class="active">
             <%= link_to root_path do %>
                 <i class="material-icons">dashboard</i>
@@ -119,5 +118,4 @@
             <br/>
         </ul>
     </div>
-
 <% end %>

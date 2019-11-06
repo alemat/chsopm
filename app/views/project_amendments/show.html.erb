@@ -20,10 +20,9 @@
 </p>
 
 <p>
-	<strong>Approval Status:</strong>
-	<%= @project_amendment.approval_status %>
+        <strong>Approval Status:</strong>
+        <div class='col-sm-3 <%= @project_amendment.approval_status.blank? ? "alert-danger" : "alert-success" %>'> <%= @project_amendment.project_extention_approval_status %> <br></div> &nbsp; &nbsp; &nbsp; <%= link_to 'Approve', approve_project_extention_path(@project_extention), class: 'btn btn-primary' if @project_extention.approval_status.blank? and can? :approve, ProjectExtention %> 
 </p>
-
 <%= link_to 'Edit', edit_project_amendment_path(@project_amendment), class: 'btn btn-primary' %> |
 <%= link_to 'Back', project_amendments_path , class: 'btn btn-primary' %>
 </div>
