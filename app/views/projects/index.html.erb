@@ -11,10 +11,12 @@
       <th>Project Title</th>
       <th>Status </th>
       <th>CSO</th>
+      <th>Program Area</th>
       <th>Focus Area</th>
       <th>Sub Focus Area</th>
       <th>Regions</th>
       <th>Funding Status</th>
+      <th>Subimission Date</th>
       
       
       <th></th>
@@ -34,10 +36,13 @@
               </label>
         </td>
         <td><%= project.institution.short_name %></td>
+        <td><%= project.program_area %></td>
+
         <td><%= project.focus_area %></td>
         <td><%= project.sub_focus_area %></td>
         <td><%= project.implementation_areas.to_sentence %></td>
         <td><%= project.funding_status %></td>
+        <td><%= project.created_at.strftime("%A, %C %B %G %R") %></td>
         <td><%= link_to 'Show', project, class: 'btn btn-primary' %> <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
         </td>
       </tr>
