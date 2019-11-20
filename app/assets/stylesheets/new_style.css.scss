@@ -36,6 +36,24 @@ fieldset.sub_form{
     margin: 20px 5px;
 }
 
+.img-profile {
+    max-width: none;
+  -webkit-border-radius: 80%;
+-moz-border-radius: 80%;
+-ms-border-radius: 80%;
+border-radius: 80%;
+vertical-align: top !important;
+border: 3px solid #fff;
+}
+
+.img-profile:hover{
+    border: 3px solid #009688;
+}
+.tab-pane{
+    padding: 10px;
+}
+
+
 .theme-blue .navbar {
     background-color: #0873b9;
 }

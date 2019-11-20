@@ -9,7 +9,6 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
-      <th>Short name</th>
       <th>CSO type</th>
       <th>CSO status</th>
       <th></th>
@@ -20,8 +19,10 @@
     <% @institutions.each do |institution| %>
       <tr>
         <td><%= institution.id %></td>
-        <td><%= institution.name %></td>
-        <td><%= institution.short_name %></td>
+        <td>
+          <%= link_to institution do %>
+            <%= image_tag institution.image, size: '32x32', class: 'img-profile' rescue nil %> 
+          <% end %> <%= institution.short_name %></td>
         <td><%= institution.institution_type %></td>
         <td><%= institution.institution_status %></td>
         <td><%= link_to 'Details', institution, class: 'btn btn-primary' %>

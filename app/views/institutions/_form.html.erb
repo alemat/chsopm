@@ -27,7 +27,7 @@
         <%= f.input :image, as: :file, label: 'CSO Logo' %>
       </div>
     </div>
-    <%= f.input :about_institution, wrapper: :vertical_form, input_html: {class: 'wysihtml5'} %>
+    <%= f.input :about_institution, label: 'About CSO', wrapper: :vertical_form, input_html: {class: 'wysihtml5'} %>
 
   <div class="form-actions">
     <%= f.button :submit, 'Create CSO', class: 'btn btn-primary' %>
