@@ -26,7 +26,7 @@ class Project < ApplicationRecord
   scope :list_by_region, -> (region) { joins(:implementation_areas).where('implementation_areas.region_id = ?', region).uniq }
   
   
-  PHASE_STATUSES = [PHASEDOUT='Phased Out', ACTIVE='Active', AMENDED='Amended']
+  PHASE_STATUSES = [PHASEDOUT='Phased Out', ACTIVE='Active', AMENDED='Amended', INACTIVE='Inactive']
 
   
   def self.search(program_area, focus_area, sub_focus_area, region)

@@ -14,7 +14,9 @@
           <%= render 'sub_focus_area' %>
         </div>
         <%= f.input :direct_beneficiaries %>
+        <%= f.input :dbt, label: 'Direct Beneficiaries Type' %>
         <%= f.input :indirect_beneficiaries %>
+        <%= f.input :ibt, label: 'Indirect Beneficiaries Types' %>
         <%= f.input :start_date, as: :string, input_html: { class: "datepicker" } %>
         <%= f.input :end_date, as: :string, input_html: { class: "datepicker" } %>
         </div>
