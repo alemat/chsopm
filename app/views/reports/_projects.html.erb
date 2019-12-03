@@ -10,6 +10,7 @@
         <th>Region</th>
         <th>Program Area</th>
         <th>Focus Area</th>
+        <th>Sub focus areas</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Implementing CSO</th>
@@ -26,6 +27,7 @@
           <td><%= project.implementation_areas.joins(:region).pluck('regions.name').to_sentence %></td>
           <td><%= project.program_area %>
           <td><%= project.focus_area %></td>
+          <td><%= project.other_sub_focus_areas %>
           <td><%= project.start_date %></td>
           <td><%= project.end_date %></td>
           <td><%= project.institution %></td>
