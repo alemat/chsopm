@@ -17,7 +17,7 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :funders, allow_destroy: true
   accepts_nested_attributes_for :implementation_areas, allow_destroy: true
 
-  validates :project_title, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :currency, :funding_status, :direct_beneficiaries, :indirect_beneficiaries, :project_focal_person, :phone_number, :email, presence: true
+  validates :project_title, :start_date, :end_date, :total_budget, :program_budget, :admin_budget, :currency, :funding_status, :project_focal_person, :phone_number, :email, presence: true
   validate :end_date_must_be_after_start_date
 
   scope :list_by_program_area, -> (program_area) {where(program_area_id: program_area)}
