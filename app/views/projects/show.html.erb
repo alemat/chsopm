@@ -2,14 +2,15 @@
   <!-- Nav tabs -->
       <p>
       <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <p>Project Title : <strong> <%= @project.project_title %></strong></p>
+            <p>Start Date: <strong> <%= @project.start_date %> </strong></p> 
+            <p>End Date : <strong> <%= @project.end_date %> </strong></p>
+          </div>
+          <div class="col-sm-6">
             <p>Implementing CSO : <strong> <%= @project.institution %></strong></p>
             <p> Submission Date : <strong> <%= @project.created_at.strftime("%A, %C %B %G %R") %></strong> </p>
-          </div>
-          <div class="col-sm-4">
-           <p> Start Date: <strong> <%= @project.start_date %> </strong></p> 
-          <p>End Date : <strong> <%= @project.end_date %> </strong></p>
+           
           </div>
         </div>
         <br/>
