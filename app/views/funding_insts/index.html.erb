@@ -1,0 +1,40 @@
+    <div class="body">
+    <div class="header">
+      <h2>
+        Funding Institutions
+      </h2>
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>About</th>
+          <th>Website</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @funding_insts.each do |funding_inst| %>
+          <tr>
+            <td><%= funding_inst.name %></td>
+            <td><%= funding_inst.about %></td>
+            <td><%= funding_inst.website %></td>
+            <td><%= funding_inst.phone %></td>
+            <td><%= funding_inst.email %></td>
+            <td><%= link_to 'Show', funding_inst, class: "btn btn-primary" %>
+            <%= link_to 'Edit', edit_funding_inst_path(funding_inst), class: "btn btn-primary"  %>
+            <%= link_to 'Delete', funding_inst, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<br>
+
+<%= link_to 'New Funding Inst', new_funding_inst_path, class: "btn btn-primary" %>
+
+</div>

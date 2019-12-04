@@ -70,6 +70,6 @@ class FundersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funder_params
-      params.require(:funder).permit(:project_id, :institution_id, :amount, :currency)
+      params.require(:funder).permit(:project_id, :institution_id, :funding_inst_id, :amount, :currency)
     end
 end

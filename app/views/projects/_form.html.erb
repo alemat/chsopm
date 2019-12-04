@@ -63,8 +63,8 @@
           </thead>
           <tr>
               <td>
-                <%= funder.input_field :institution_id, collection: Institution.all, prompt: 'Select Institution', class: 'form-control' %>
-                <%= funder.full_error :institution_id %>
+                <%= funder.input_field :funding_inst_id, collection: FundingInst.all, prompt: 'Select Funder', class: 'form-control' %>
+                <%= funder.full_error :funding_inst_id %>
               </td>
               <td>
                 <%= funder.input_field :amount, placeholder: 'Amount', class: 'form-control' %>

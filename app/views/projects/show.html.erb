@@ -166,7 +166,7 @@
           <table class="table table-bordered table-striped table-hover dataTable js-exportable">
             <thead>
               <tr>
-                <th>Funding Institution</th>
+                <th>Funder</th>
                 <th>Amount</th>
                 <th>Currency</th>
               </tr>
@@ -176,7 +176,7 @@
               <% @project.funders.each do |funder| %>
                 <tr>
                   
-                  <td><%= funder.institution %></td>
+                  <td><%= funder.funding_inst %></td>
                   <td><%= funder.amount %></td>
                   <td><%= funder.currency %></td>
 

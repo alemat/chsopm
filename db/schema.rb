@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_121520) do
+ActiveRecord::Schema.define(version: 2019_12_04_131511) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -67,8 +67,20 @@ ActiveRecord::Schema.define(version: 2019_12_03_121520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "currency"
+    t.bigint "funding_inst_id"
+    t.index ["funding_inst_id"], name: "index_funders_on_funding_inst_id"
     t.index ["institution_id"], name: "index_funders_on_institution_id"
     t.index ["project_id"], name: "index_funders_on_project_id"
+  end
+
+  create_table "funding_insts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "about"
+    t.string "website"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "funding_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -275,6 +287,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_121520) do
 
   add_foreign_key "evaluations", "projects"
   add_foreign_key "evaluators", "evaluations"
+  add_foreign_key "funders", "funding_insts"
   add_foreign_key "funders", "institutions"
   add_foreign_key "funders", "projects"
   add_foreign_key "implementation_areas", "projects"

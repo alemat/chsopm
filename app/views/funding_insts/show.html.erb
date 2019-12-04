@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @funding_inst.name %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @funding_inst.about %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @funding_inst.website %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @funding_inst.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @funding_inst.email %>
+</p>
+
+<%= link_to 'Edit', edit_funding_inst_path(@funding_inst) %> |
+<%= link_to 'Back', funding_insts_path %>

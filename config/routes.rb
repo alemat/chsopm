@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :funding_insts
   resources :project_extentions do
     collection do
       get 'approval_pending_amendments'
