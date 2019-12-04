@@ -20,7 +20,7 @@
         <td><%= project_status.name %></td>
         <td><%= link_to 'Show', project_status, class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_project_status_path(project_status), class: 'btn btn-primary' %>
-        <%= link_to 'Destroy', project_status, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <%= link_to 'Delete', project_status, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
