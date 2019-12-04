@@ -10,12 +10,12 @@
     <tr>
       <th>Id</th>
       <th>Project Title</th>
-      <th>CHSO</th>
+      <th>CSO</th>
       <th>Focus Area</th>
       <th>Sub Focus Area</th>
       <th>Regions</th>
       <th>Project Status</th>
-      <th>Funding Status</th>
+      <th>Submission Date</th>
       
       <th></th>
     </tr>
@@ -37,7 +37,7 @@
                 <%= project.status %>
               </label>
         </td>
-        <td><%= project.funding_status %></td>
+        <td><%= project.created_at.strftime("%A, %C %B %G %R") %></td>
         <td><%= link_to 'Show', project, class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
