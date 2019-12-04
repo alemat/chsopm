@@ -22,7 +22,7 @@
         <td>
           <%= link_to institution do %>
             <%= image_tag institution.image, size: '32x32', class: 'img-profile' rescue nil %> 
-          <% end %> <%= institution.short_name %></td>
+          <% end %> <%= institution.name %> (<%= institution.short_name %>)</td>
         <td><%= institution.institution_type %></td>
         <td><%= institution.institution_status %></td>
         <td><%= link_to 'Details', institution, class: 'btn btn-primary' %>
