@@ -142,7 +142,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     public_suffix (3.0.2)
-    puma (3.11.4)
+    puma (3.12.4)
     rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
@@ -270,7 +270,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   nested_form
   paperclip (~> 5.2.1)
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.2.0)
   rails-simple-search
   remotipart
