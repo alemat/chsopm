@@ -118,7 +118,9 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.2)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
@@ -142,7 +144,8 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     public_suffix (3.0.2)
-    puma (3.11.4)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
@@ -270,7 +273,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   nested_form
   paperclip (~> 5.2.1)
-  puma (~> 3.7)
+  puma (~> 4.3)
   rails (~> 5.2.0)
   rails-simple-search
   remotipart
